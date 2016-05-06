@@ -1,0 +1,191 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f9f9f9;
+	color: #0a0a0a;
+	font-family: "Droid Serif", serif;
+	font-size: 14px;
+	overflow-y: scroll;
+}
+
+.page-container {
+	min-height: 100%;
+	position: relative;
+}
+
+.header-container {
+	text-align: center;
+	padding: 12px 0;
+}
+
+.header {
+	display: inline-block;
+}
+
+.name {
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: "Maven Pro", sans-serif;
+	font-size: 16px;
+}
+
+a {
+	color : #0a0a0a;
+}
+
+.email {
+	text-decoration: none;
+	display: block;
+	margin-top: 4px;
+}
+
+.navigation {
+	display: inline-block;
+	margin-top: 8px;
+}
+
+hr {
+	height: 1px;
+	background-color: #888;
+	margin: 4px 8px;
+	border: 0;
+}
+
+.navigation-list {
+	margin: 0;
+	padding: 0;
+}
+
+.navigation-list li {
+	display: inline;
+}
+
+.navigation-list li + li::before {
+	content: "\b7\a0";
+}
+
+.navigation-list a {
+	text-decoration: none;
+}
+
+.content-container {
+	padding-top: 0.1px;
+	padding-bottom: 44px;
+}
+
+
+.text-column {
+	max-width: 512px;
+	padding: 12px 8px;
+	margin: 0 auto;
+}
+
+.hidden {
+	display: none;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+	line-height: 1.5;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.resume-section {
+	padding: 0;
+	margin: 0;
+	margin-top: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: "Maven Pro", sans-serif;
+	font-size: 16px;
+}
+
+.resume-section:first-of-type {
+	margin-top: 0;
+}
+
+.resume-item {
+	padding: 0;
+	margin: 0;
+	margin-top: 2px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.resume-list + .resume-item {
+	margin-top: 12px;
+}
+
+.resume-list {
+	margin: 0;
+	padding: 0;
+}
+
+.resume-list .resume-list {
+	padding-bottom: -4px;
+}
+
+.resume-list li {
+	list-style: none;
+	margin-left: 16px;
+	margin-bottom: 4px;
+	padding-left: 8px;
+	text-indent: -8px;
+}
+
+.resume-list li::before {
+	content: "\b7\a0";
+}
+
+.italic {
+	font-style: italic;
+}
+
+.resume-sublist-head {
+	display: inline-block;
+	margin-bottom: 4px;
+}
+
+.resume-sublist-head::before {
+	content: "\a0";
+}
+
+.project-header {
+	padding: 12px;
+}
+
+.science-venture {
+	background-color: #009acf;
+}
+
+.project-logo {
+	margin: 0 100px;
+}
+
+.footer-container {
+	position: absolute;
+	bottom: 0;
+	height: 44px;
+	box-sizing: border-box;
+	padding-top: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+.footer {
+	display: inline-block;
+}
