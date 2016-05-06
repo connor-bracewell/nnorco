@@ -118,7 +118,7 @@
 			if (x<0 || x>= size || y<0 || y>=size || !grid[x][y]) {
 				return 0;
 			} else {
-				console.log(grid[x%size]);
+				console.log(grid[x%size][y%size]);
 				return 1;
 			}
 		}
