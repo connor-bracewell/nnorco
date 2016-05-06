@@ -115,7 +115,7 @@
 			//	return 0;
 			//}
 			//old version with bounds checking
-			if (x<0 || x>= size || y<0 || y>=size || !grid[x][y]) {
+			if (x%size != x || x>= size || y<0 || y>=size || !grid[x][y]) {
 				return 0;
 			} else {
 				return 1;
