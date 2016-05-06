@@ -109,13 +109,13 @@
 
 		//safely check the content of the given cell
 		function sample(x,y) {
-			console.log(grid[x%size])
+			return (grid[((x%size)+size)%size][((y%size)+size)%size] ? 1 : 0);
 			//old version with bounds checking
-			if (x<0 || x>= size || y<0 || y>=size || !grid[x][y]) {
-				return 0;
-			} else {
-				return 1;
-			}
+			//if (x<0 || x>= size || y<0 || y>=size || !grid[x][y]) {
+			//	return 0;
+			//} else {
+			//	return 1;
+			//}
 		}
 
 		//draw the current game state
