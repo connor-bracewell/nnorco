@@ -109,9 +109,11 @@
 
 		//safely check the content of the given cell
 		function sample(x,y) {
-			x = x%size;
-			y = y%size;
-			return (grid[x][y] ? 1 : 0);
+			if (grid[x%size][y%size]) {
+				return 1;
+			} else {
+				return 0;
+			}
 			//old version with bounds checking
 			//if (x<0 || x>= size || y<0 || y>=size || !grid[x][y]) {
 			//	return 0;
