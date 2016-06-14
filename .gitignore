@@ -1,3 +1,5 @@
 /uploads/*
 !/uploads/index.php
 !/uploads/.htaccess
+.DS_Store
+*.DS_Store
