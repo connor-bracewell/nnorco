@@ -133,8 +133,10 @@ img {
 	margin: 0 auto;
 }
 
-@media print { .display-resume {
-	padding-top: 36px; //manual alignment adjust
+@media print { .display-resume:not(#resume) {
+	//allows for body positioning adjust
+	//on the single-page print resume
+	padding-top: 36px;
 }}
 
 .resume-section {
