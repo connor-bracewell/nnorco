@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-	background-color: #006a4e;
+	background-color: #00ca8e;
 	color: #0a0a0a;
 	font-family: "Droid Serif", serif;
 	font-size: 12px;
@@ -28,9 +28,9 @@ a {
 	margin: 0 auto;
 	background-color: #f9f9f9;
 	position: relative;
-	box-shadow: 3px 0px 3px rgba(0,0,0,0.1);
+	box-shadow: 3px 0px 6px rgba(0,0,0,0.1);
 	border-left: 1px solid #fff;
-	border-right: 1px solid rgba(0,0,0,0.2);
+	border-right: 1px solid #fff;
 }
 
 .header-container {
@@ -85,6 +85,19 @@ hr {
 
 .content-panel {
 	padding-top: 12px;
+}
+
+.fallback-header {
+	text-align: center;
+	padding-bottom: 12px;
+}
+
+.fallback-header h2 {
+	margin: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: "Maven Pro", sans-serif;
+	font-size: 13px;
 }
 
 .hidden {
