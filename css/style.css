@@ -33,6 +33,12 @@ a {
 	border-right: 1px solid #fff;
 }
 
+@media print { .page-container {
+	max-width: 100%;
+	box-shadow: none;
+	padding: 0 48px;
+}}
+
 .header-container {
 	text-align: center;
 }
@@ -52,8 +58,15 @@ a {
 
 .email {
 	text-decoration: none;
-	display: block;
 }
+
+.phone {
+	display: none;
+}
+
+@media print { .phone {
+	display: initial;
+}}
 
 hr {
 	height: 1px;
@@ -61,6 +74,10 @@ hr {
 	margin: 4px 0;
 	border: 0;
 }
+
+@media print { .navigation {
+	display: none;
+}}
 
 .navigation-list {
 	margin: 0;
@@ -115,6 +132,10 @@ img {
 	display: block;
 	margin: 0 auto;
 }
+
+@media print { .display-resume {
+	padding-top: 36px; //manual alignment adjust
+}}
 
 .resume-section {
 	padding: 0;
@@ -198,5 +219,6 @@ img {
 	text-align: center;
 }
 
-.footer {
-}
+@media print { .github-link {
+	display: none;
+}}
