@@ -36,7 +36,7 @@ a {
 @media print { .page-container {
 	max-width: 100%;
 	box-shadow: none;
-	padding: 0 48px;
+	padding: 24px 48px 0 48px;
 }}
 
 .header-container {
@@ -134,8 +134,8 @@ img {
 }
 
 @media print { .display-resume:not(#resume) {
-	//allows for body positioning adjust
-	//on the single-page print resume
+	/* allows for body positioning adjust * 
+	 * on the single-page print resume    */
 	padding-top: 36px;
 }}
 
