@@ -9,7 +9,7 @@ body {
 	background-color: #00ca8e;
 	color: #0a0a0a;
 	font-family: "Droid Serif", serif;
-	font-size: 12px;
+	font-size: 13px;
 	overflow-y: scroll;
 }
 
@@ -23,7 +23,7 @@ a {
 
 .page-container {
 	min-height: 100%;
-	max-width: 512px;
+	max-width: 640px;
 	padding: 0 24px;
 	margin: 0 auto;
 	background-color: #f9f9f9;
@@ -53,7 +53,7 @@ a {
 	font-weight: bold;
 	text-transform: uppercase;
 	font-family: "Maven Pro", sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .email {
@@ -114,7 +114,7 @@ hr {
 	font-weight: bold;
 	text-transform: uppercase;
 	font-family: "Maven Pro", sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .hidden {
@@ -149,7 +149,7 @@ img {
 	overflow: hidden;
 	text-transform: uppercase;
 	font-family: "Maven Pro", sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .resume-fill-line {
@@ -169,7 +169,7 @@ img {
 	margin: 0;
 	font-weight: normal;
 	line-height: 1.5;
-	font-size: 12px;
+	font-size: 13px;
 }
 
 .resume-list + .resume-item {
