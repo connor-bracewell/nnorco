@@ -64,7 +64,15 @@ a {
 	display: none;
 }
 
+.website {
+	display: none;
+}
+
 @media print { .phone {
+	display: initial;
+}}
+
+@media print { .website {
 	display: initial;
 }}
 
@@ -142,7 +150,8 @@ img {
 .resume-section {
 	padding: 0;
 	margin: 0;
-	margin-top: 18px;
+	margin-top: 16px;
+	margin-bottom: 4px;
 	font-weight: bold;
 	display: block;
 	white-space: nowrap;
@@ -173,7 +182,7 @@ img {
 }
 
 .resume-list + .resume-item {
-	margin-top: 12px;
+	margin-top: 10px;
 }
 
 .resume-list {
@@ -195,6 +204,10 @@ img {
 
 .resume-list li::before {
 	content: "\b7\a0";
+}
+
+.resume-itemlist {
+	margin-left: -12px;
 }
 
 .resume-company {
