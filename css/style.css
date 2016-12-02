@@ -144,7 +144,7 @@ img {
 @media print { .display-resume:not(#resume) {
 	/* allows for body positioning adjust * 
 	 * on the single-page print resume    */
-	padding-top: 36px;
+	padding-top: 50px;
 }}
 
 .resume-section {
@@ -233,6 +233,10 @@ img {
 	width: 100%;
 	text-align: center;
 }
+
+@media print { .year {
+    display: none;    
+}}
 
 @media print { .github-link {
 	display: none;
