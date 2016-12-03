@@ -29,4 +29,22 @@ $(document).ready( function() {
 		);
 		e.preventDefault();
 	});
+
+    //load the latest commit info
+    $.ajax({
+        url: "https://api.github.com/repos/connor-bracewell/nnorco/commits?path=index.html",
+        dataType: "json",
+        success: function(data, textStatus, jqXHR) {
+            var commit = data[0];
+            $("#commit-sha").text(commit.sha.substring(0,6));
+            $("#commit-sha").attr("href", commit.html_url);
+            var commitDate = new Date(Date.parse(commit.commit.committer.date));
+            $("#commit-date").text((commitDate.getMonth()+1) + "/" + commitDate.getFullYear());
+            $(".commit-live").removeClass("hidden");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            $(".commit-failed-msg").removeClass("hidden");
+        }  
+    });
 });
+

@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-	background-color: #00ca8e;
+	background-color: #fff;
 	color: #0a0a0a;
 	font-family: "Droid Serif", serif;
 	font-size: 13px;
@@ -19,18 +19,15 @@ div {
 
 a {
 	color: inherit;
+    text-decoration: underline;
 }
 
 .page-container {
 	min-height: 100%;
-	max-width: 640px;
-	padding: 0 24px;
+	max-width: 720px;
+	padding: 0 13px;
 	margin: 0 auto;
-	background-color: #f9f9f9;
 	position: relative;
-	box-shadow: 3px 0px 6px rgba(0,0,0,0.1);
-	border-left: 1px solid #fff;
-	border-right: 1px solid #fff;
 }
 
 @media print { .page-container {
@@ -204,6 +201,7 @@ img {
 
 .resume-list li::before {
 	content: "\b7\a0";
+    width: 8px;
 }
 
 .resume-itemlist {
@@ -229,15 +227,12 @@ img {
 	left: 0;
 	height: 44px;
 	box-sizing: border-box;
-	padding: 12px 24px 0 24px;
+	padding: 12px 13px 0 13px;
 	width: 100%;
 	text-align: center;
 }
 
-@media print { .year {
+@media print { .commit-info {
     display: none;    
 }}
 
-@media print { .github-link {
-	display: none;
-}}
