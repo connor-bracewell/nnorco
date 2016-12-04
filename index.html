@@ -3,12 +3,9 @@
 <head>
     <title>co.nnor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="og:title" content="co.nnor" />
-    <meta name="og:description" content="Personal website of UVic student Connor Bracewell." />
-    <meta name="og:image" content="http://www.nnor.co/favicon.png" />
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
@@ -19,7 +16,11 @@
     <div class="header-container">
         <div class="contact-container">
             <h1 class="name">Connor Bracewell</h1>
-            <a class="email" href="mailto:cbrace@uvic.ca">cbrace@uvic.ca</a><span class="phone"> &middot; 1-778-922-0256</span><span class="website"> &middot; www.nnor.co</span>
+			<span class="contact-info">
+				<span class="email"><a href="mailto:cbrace@uvic.ca">cbrace@uvic.ca</a></span>
+				<span class="phone print-only"> &middot; 1-778-922-0256</span>
+				<span class="website print-only"> &middot; www.nnor.co</span>
+			</span>
         </div>
         <div class="navigation">
             <hr />
@@ -49,7 +50,7 @@
         </div>
 
         <div class="content-panel display-resume" id="resume">
-            <div class="fallback-header">
+            <div class="fallback-header nojs-only">
                 <hr />
                 <h2>R&eacute;sum&eacute;</h2>
                 <hr />
@@ -65,7 +66,7 @@
                 </ul>
                 <h3 class="resume-section">Technical Skills<div class="resume-fill-line"></h3>
                 <ul class="resume-list resume-itemlist">
-                    <li>Languages: Java SE/EE, PHP, Javascript/JQuery, SQL, HTML5/CSS3, Python, C/C++</li>
+                    <li>Languages: Java SE/EE, PHP, Javascript/jQuery, SQL, HTML5/CSS3, Python, C/C++</li>
                     <li>Tools &amp; Infrastructure: Git, Subversion, Maven, Unix Shell, Vim, MySQL, Oracle Database, GlassFish</li>
                     <li>Previous projects involving parallel processing, database modelling, binary file processing, web API integration, and 3D rendering</li>
                     <li>Strong math skills, including linear algebra, combinatorics, calculus, and numerical analysis</li>
@@ -91,7 +92,7 @@
                         <span class="resume-sublist-head">Rebuilt the online registration system for the faculty's youth STEM program, Science Venture</span>
                         <ul class="resume-list">
                             <li>Collaborated with program administrators to develop and document a new system design</li>
-                            <li>Worked independently to implement the new database schema, user interface, and administrator tools from scratch using PHP, MySQL, and JQuery</li>
+                            <li>Worked independently to implement the new database schema, user interface, and administrator tools from scratch using PHP, MySQL, and jQuery</li>
                             <li>Integrated registration system with Moneris to provide PCI-compliant online payments</li>
                             <li>System underwent rigorous UVic security testing and was deployed in September 2015</li>
                         </ul>
@@ -108,7 +109,7 @@
         </div>
 
         <div class="content-panel" id="projects">
-            <div class="fallback-header">
+            <div class="fallback-header nojs-only">
                 <hr />
                 <h2>Projects</h2>
                 <hr />
@@ -122,7 +123,7 @@
         </div>
 
         <div class="content-panel" id="profiles">
-            <div class="fallback-header">
+            <div class="fallback-header nojs-only">
                 <hr />
                 <h2>Profiles</h2>
                 <hr />
@@ -141,14 +142,14 @@
             <hr />
             <p>
                 <span class="commit-info">
-                    <span class="commit-live hidden">
-                        <span class="last-update"><a id="commit-sha"></a> - <span id="commit-date"></span></span>
+                    <span class="commit-live js-only" hidden>
+                        <span class="last-update"><a id="commit-sha"></a> &middot; <span id="commit-date"></span></span>
                     </span>
-                    <span class="commit-failed-msg hidden">
+                    <span class="commit-failed-msg js-only" hidden>
                         failed to fetch commit info.
                     </span>
-                    <span class="nojs">
-                        
+                    <span class="nojs-msg nojs-only">
+                        proudly noscript <span class="nocss-only">(and nostyle)</span> compatible &middot; updated sometime in 2016
                     </span>
                 </span>
             </p>
