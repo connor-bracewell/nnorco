@@ -103,6 +103,7 @@ hr {
 
 .navigation-list a {
     text-decoration: none;
+    text-transform: lowercase;
 }
 
 .content-container {
@@ -235,6 +236,10 @@ img {
 @media print { .commit-info {
     display: none;    
 }}
+
+.commit-failed-msg, .nojs-msg {
+    text-transform: lowercase;
+}
 
 .nocss-only {
     display: none;
