@@ -10,7 +10,9 @@ function print_dir_listing($dir) {
     $hidden = array(".", ".htaccess", "index.php");
     $files = array_diff($files, $hidden);
     foreach ($files as $file) {
-        if (explode(".",$file)[count($files)-1] == "mp3") {
+        $file_exp = explode(".", $file);
+        $file_type = $file_exp[count($file_exp)-1];
+        if ($file_type  == "mp3") {
             echo("<audio controls><source src=\"" . $file . "\" type=\"audio/mpeg\"></audio> (" . $file . ")<br />");
         } else {
             echo("<a href=\"" . $file . "\">" . $file . "</a><br />");
