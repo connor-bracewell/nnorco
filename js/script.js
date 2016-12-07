@@ -1,9 +1,9 @@
 $(document).ready( function() {
-    //Hide NoScript fallback content.
+    //Hide the NoScript fallback content.
     $(".noscript-only").prop("hidden", true);
 
     //Update all the container IDs to match the data-show values instead of URL hashes.
-    //ie. #resume has its ID set to "resume-panel"
+    //ie. "#resume" has its ID set to "resume-panel"
     $(".navigation-list a").each(function(){
         var target = $(this);
         var urlHash = target.attr("href");
@@ -13,7 +13,8 @@ $(document).ready( function() {
         }
     });
 
-    //hide all the panels, then show the panel corresponding to the url hash (default to first item)
+    //Hide all the panels, then show the panel corresponding to the URL hash.
+    //Defaults to the item from the first link if there is no hash.
     $(".content-container").children().prop("hidden", true);
     var initialShow;
     if (window.location.hash) {
@@ -23,12 +24,12 @@ $(document).ready( function() {
     }
     $(initialShow).prop("hidden", false);
 
-    //add click events to all the navigation links (including the ones in the body)
+    //Add click events to all the navigation links (including the ones in the body).
     $("a[data-show]").click(function(e) {
-        //show the corresponding panel
+        //Show the corresponding panel.
         $(".content-container").children().prop("hidden", true);
         $($(e.target).attr("data-show")).prop("hidden", false);
-        //update the url to match the hash from the anchor
+        //Update the URL to match the hash from the link.
         history.replaceState(
             null,
             document.title,
@@ -37,7 +38,7 @@ $(document).ready( function() {
         e.preventDefault();
     });
 
-    //load the last commit info from the github api
+    //Load the last commit info from the GitHub API.
     $.ajax({
         url: "https://api.github.com/repos/connor-bracewell/nnorco/commits?path=index.html",
         dataType: "json",
