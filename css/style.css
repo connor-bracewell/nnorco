@@ -6,10 +6,9 @@ html, body {
 }
 
 body {
-    background-color: #fff;
-    color: #0a0a0a;
+    color: rgba(0,0,0,0.9);
     font-family: "Droid Serif", serif;
-    font-size: 13px;
+    font-size: 90%;
     overflow-y: scroll;
 }
 
@@ -26,111 +25,38 @@ a {
     text-decoration: none;
 }}
 
-.page-container {
-    min-height: 100%;
-    max-width: 720px;
-    padding: 0 13px;
-    margin: 0 auto;
-    position: relative;
-}
-
-@media print { .page-container {
-    max-width: 100%;
-    box-shadow: none;
-    padding: 24px 48px 0 48px;
-}}
-
-.header-container {
-    text-align: center;
-}
-
-.contact-container {
-    padding: 22px 0 18px 0;
-}
-
-.name {
-    padding: 0;
-    margin: 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
-    font-size: 15px;
-}
-
-.contact-info a {
-    text-decoration: none;
-}
-
-.phone {
-    display: none;
-}
-
-.website {
-    display: none;
-}
-
-@media print { .phone {
-    display: initial;
-}}
-
-@media print { .website {
-    display: initial;
-}}
-
-hr {
-    height: 1px;
-    background-color: #ddd;
-    margin: 4px 0;
-    border: 0;
-}
-
-@media print { .navigation {
-    display: none;
-}}
-
-.navigation-list {
-    margin: 0;
-    padding: 0;
-}
-
-.navigation-list li {
-    display: inline;
-}
-
-.navigation-list li + li::before {
-    content: "\b7\a0";
-}
-
-.navigation-list a {
-    text-decoration: none;
-    text-transform: lowercase;
-}
-
-.content-container {
-    padding-bottom: 44px;
-}
-
-.content-panel {
-    padding-top: 12px;
-}
-
-.fallback-header {
-    text-align: center;
-    padding-bottom: 12px;
-}
-
-.fallback-header h2 {
-    margin: 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
-    font-size: 14px;
-}
-
 p {
     padding: 0;
+    margin: 1em 0 0 0;
+    line-height: 1.5em;
+}
+
+ul, ol {
     margin: 0;
-    line-height: 1.5;
+    padding: 0; 
+}
+
+li {
+    margin-left: 1.5em;
+    list-style: none;
+    /* approximates the width added by the ::before element in row 1   */
+    text-indent: -0.8em;
+    /* emulate 1.5em line height, but keep lines in the same row tight */
+    line-height: 1.1em;
+    padding: 0.2em 0;
+}
+
+li::before {
+    content: "\b7\a0\a0";
+}
+
+li > * {
+    text-indent: initial;
+}
+
+li ul {
+    /* also for emulating 1.5 em line height */
+    margin-top: 0.2em;
 }
 
 img {
@@ -139,108 +65,165 @@ img {
     margin: 0 auto;
 }
 
-@media print { .display-resume:not(#resume) {
-    /* allows for body positioning adjust * 
-     * on the single-page print resume    */
-    padding-top: 50px;
+.page-container {
+    min-height: 100%;
+    max-width: 50em;
+    padding: 1.5em 1em 0 1em;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media print { .page-container {
+    max-width: 100%;
+    padding: 0;
 }}
 
-.resume-section {
+.contact-container {
+    text-align: center;
+}
+
+@media print { .contact-container {
+    margin-top: 0;
+}}
+
+.name {
     padding: 0;
     margin: 0;
-    margin-top: 16px;
-    margin-bottom: 4px;
     font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1.2em;
+}
+
+.contact-info a {
+    text-decoration: none;
+}
+
+.phone, .website {
+    display: none;
+}
+
+@media print { .phone, .website {
+    display: initial;
+}}
+
+.navigation-container {
+    margin-top: 1.5em;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+@media print { .navigation-container {
+    display: none;
+}}
+
+.navigation-list {
+    margin: 0.25em 0;
+}
+
+.navigation-list li {
+    margin-left: 0;
+    display: inline;
+}
+
+.navigation-list li:first-child::before {
+    content: none;
+}
+
+.navigation-list a {
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+.content-container {
+    padding-bottom: 3em;
+}
+
+.content-panel {
+    margin-top: 1em;
+}
+
+h2.fallback-header {
+    width: 100%;
+    text-align:center;
+    padding: 0.25em 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 1.1em;
+    border-top: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+@media print { .display-resume:not(#resume) {
+    /* positioning adjust on the single-page print resume */
+    padding-top: 1.5em;
+}}
+
+h3.resume-section {
     display: block;
+    padding: 0;
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 0.25em;
+    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-transform: uppercase;
     font-family: "Maven Pro", sans-serif;
-    font-size: 14px;
+    font-size: 1.1em;
 }
 
 .resume-fill-line {
     display: inline-block;
     width: 100%;
     height: 1px;
-    background-color: #0a0a0a;
-    margin-left: 4px;
+    background-color: rgba(0,0,0,0.9);
+    margin-left: 0.25em;
 }
 
-.resume-section:first-of-type {
-    margin-top: 0;
+.resume-list > li {
+    margin-left: 0.5em;
+    text-indent: 0;
 }
 
-.resume-item {
-    padding: 0;
-    margin: 0;
-    font-weight: normal;
-    line-height: 1.5;
-    font-size: 13px;
+.resume-list >li:not(:first-child) {
+    padding-top: 0.5em;
 }
 
-.resume-list + .resume-item {
-    margin-top: 10px;
-}
-
-.resume-list {
-    margin: 0;
-    padding: 0;
-}
-
-.resume-list .resume-list {
-    padding-bottom: -4px;
-}
-
-.resume-list li {
-    list-style: none;
-    margin-left: 16px;
-    margin-bottom: 4px;
-    padding-left: 8px;
-    text-indent: -8px;
-}
-
-.resume-list li::before {
-    content: "\b7\a0";
-    width: 8px;
-}
-
-.resume-itemlist {
-    margin-left: -12px;
+.resume-list > li::before {
+    content: none;
 }
 
 .resume-company {
     font-style: italic;
 }
 
-.resume-sublist-head {
-    display: inline-block;
-    margin-bottom: 4px;
-}
-
-.resume-sublist-head::before {
-    content: "\a0";
-}
-
 .footer-container {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 44px;
+    height: 3em;
     box-sizing: border-box;
-    padding: 12px 13px 0 13px;
+    padding: 1em 1em 0 1em;
     width: 100%;
     text-align: center;
 }
 
-@media print { .commit-info {
-    display: none;    
+@media print { .footer-container {
+    display: none;
 }}
 
-.commit-failed-msg, .nojs-msg {
+.footer-content {
+    border-top: 1px solid rgba(0,0,0,0.15);
+    padding-top: 0.4em
+}
+
+.fetch-failed-message, .default-footer-message {
     text-transform: lowercase;
 }
 
-.nocss-only {
+.nostyle-only {
     display: none;
 }
