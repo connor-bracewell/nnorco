@@ -22,11 +22,13 @@
         </span>
     </div>
     <div class="navigation-container">
-        <ul class="navigation-list">
-            <li><a href="#" id="nav-home" data-show="#panel-home">home</a></li>
-            <li><a href="#resume" id="nav-resume" data-show="#panel-resume">r&eacute;sum&eacute;</a></li>
-            <li><a href="#projects" id="nav-projects" data-show="#panel-projects">projects</a></li>
-        </ul>
+        <div class="navigation-list-container">
+            <ul class="navigation-list inline-list">
+                <li><a href="#" id="nav-home" data-show="#panel-home">home</a></li>
+                <li><a href="#resume" id="nav-resume" data-show="#panel-resume">r&eacute;sum&eacute;</a></li>
+                <li><a href="#projects" id="nav-projects" data-show="#panel-projects">projects</a></li>
+            </ul>
+        </div>
     </div>
     <div class="content-container">
 
@@ -43,7 +45,7 @@
 
         <div class="content-panel" id="resume">
             <h2 class="fallback-header noscript-only">R&eacute;sum&eacute;</h2>
-            <h3 class="resume-section">Education<div class="resume-fill-line"></h3>
+            <h3 class="section-title">Education<div class="fill-line"></h3>
             <ul class="resume-list">
                 <li>BSc Student, University of Victoria
                     <ul>
@@ -54,7 +56,7 @@
                     </ul>
                 </li>
             </ul>
-            <h3 class="resume-section">Technical Skills<div class="resume-fill-line"></h3>
+            <h3 class="section-title">Technical Skills<div class="fill-line"></h3>
             <ul>
                 <li>Languages: Java SE/EE, PHP, Javascript/jQuery, SQL, HTML5/CSS3, Python, C/C++</li>
                 <li>Tools &amp; Infrastructure: Git, Subversion, Maven, Unix Shell, Vim, MySQL, Oracle Database, GlassFish</li>
@@ -63,7 +65,7 @@
                 <li>Experience managing and working in both agile and waterfall project life cycles</li>
                 <li>Comfortable with common data structure design patterns and algorithm design techniques</li>
             </ul>
-            <h3 class="resume-section">Work Experience<div class="resume-fill-line"></h3>
+            <h3 class="section-title">Work Experience<div class="fill-line"></h3>
             <ul class="resume-list">
                 <li>Systems Developer - Java Technologies, <span class="resume-company">CGI Group Inc.</span> (May 2016 - Present)
                     <ul>
@@ -99,12 +101,26 @@
                     </ul>
                 </li>
             </ul>
-            <h3 class="resume-section">References available on request</h3>
+            <h3 class="section-title">References available on request</h3>
         </div>
 
         <div class="content-panel" id="projects">
             <h2 class="fallback-header noscript-only">Projects</h2>
-            <p>Project info coming soon.</p>
+            <h3 class="section-title" title="Science Venture Online Registration System">Science Venture Online Registration System</h3>
+            <div class="project-url"><a href="https://www.scienceventure.ca/register/">www.scienceventure.ca/register</a></div>
+            <p class="no-wrap">
+                PHP &middot; Javascript/jQuery &middot; MySQL &middot; HTML5/CSS3<br />
+                Built for <a href="http://scienceventure.ca">Science Venture</a><br />
+                June - August 2015
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas nibh eu augue accumsan venenatis. Duis mollis et magna non commodo. Aliquam at libero orci. Aliquam urna dui, egestas non felis quis, tempus mattis augue. Duis euismod enim vel sodales hendrerit. Vivamus suscipit condimentum ipsum, nec mollis dolor porttitor at. Proin congue pellentesque ligula, in lacinia urna gravida eget. Aliquam finibus et lacus in cursus. Aliquam commodo ante massa, ac lacinia nisi ultrices non. Proin rhoncus eget est nec congue. Suspendisse nec massa vel odio pulvinar tincidunt a vitae dui. Fusce nisl elit, eleifend mollis turpis non, egestas vulputate purus.
+            </p>
+            <p>Screenshots:</p>
+            <ul>
+                <li><a href="img/sv-screenshot-1.png">Main interface</a></li>
+                <li><a href="img/sv-screenshot-1.png">Mobile design</a></li>
+            </ul>
         </div>
 
     </div>
