@@ -48,7 +48,9 @@ $(document).ready( function() {
             shaElement.text(commit.sha.substring(0,7));
             shaElement.attr("href", commit.html_url);
             var commitDate = new Date(commit.commit.committer.date);
-            $("#commit-date").text((commitDate.getMonth()+1) + "/" + commitDate.getFullYear());
+            var commitMonth = commitDate.getMonth() + 1;
+            var commitPaddedMonth = (commitMonth < 10 ? "0" : "") + commitMonth;
+            $("#commit-date").text(commitPaddedMonth + "/" + commitDate.getFullYear());
             $(".last-commit-info").prop("hidden", false);
         },
         error: function(jqXHR, textStatus, errorThrown) {
