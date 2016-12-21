@@ -16,6 +16,14 @@ div {
     box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Maven Pro", sans-serif;
+}
+
 a {
     color: inherit;
     text-decoration: underline;
@@ -60,9 +68,7 @@ li ul {
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .page-container {
@@ -75,7 +81,7 @@ img {
 
 @media print { .page-container {
     max-width: 100%;
-    padding: 0;
+    padding: 1.3em;
 }}
 
 .contact-container {
@@ -86,12 +92,7 @@ img {
     margin-top: 0;
 }}
 
-.name {
-    padding: 0;
-    margin: 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
+h1.name {
     font-size: 1.2em;
 }
 
@@ -118,17 +119,23 @@ img {
     display: none;
 }}
 
-.navigation-list {
-    margin: 0.25em 0;
+.navigation-list-container {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: left;
 }
 
-.navigation-list li {
+.inline-list li {
     margin-left: 0;
     display: inline;
 }
 
-.navigation-list li:first-child::before {
+.inline-list li:first-child::before {
     content: none;
+}
+
+.navigation-list {
+    margin: 0.25em 0;
 }
 
 .navigation-list a {
@@ -140,38 +147,32 @@ img {
     padding-bottom: 3em;
 }
 
+@media print { .content-container {
+    padding-bottom: 0;
+}}
+
 .content-panel {
     margin-top: 1em;
 }
 
 h2.fallback-header {
-    width: 100%;
-    text-align:center;
+    text-align: center;
     padding: 0.25em 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
     font-size: 1.1em;
     border-top: 1px solid rgba(0,0,0,0.15);
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-@media print { .display-resume:not(#resume) {
+@media print { .print-resume {
     /* positioning adjust on the single-page print resume */
-    padding-top: 1.5em;
+    margin-top: 3em;
 }}
 
 h3.resume-section {
-    display: block;
-    padding: 0;
-    margin: 0;
     margin-top: 1em;
     margin-bottom: 0.25em;
-    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
-    text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
     font-size: 1.1em;
 }
 
@@ -198,6 +199,30 @@ h3.resume-section {
 
 .resume-company {
     font-style: italic;
+}
+
+.project-header-wrapper {
+    text-align: center;
+}
+
+.project-pictures {
+    text-align: center;
+}
+
+.img-wrapper {
+    display: inline-block;
+    padding: 1em 0.5em 0 0.5em;
+    max-width: 100%;
+}
+
+.project-pictures img {
+    border: 1px solid #000;
+    max-height: 16em;
+    max-width: 100%;
+}
+
+.project-highlights {
+    text-align: center;
 }
 
 .footer-container {

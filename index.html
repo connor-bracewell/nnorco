@@ -1,14 +1,14 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>co.nnor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script src="https://use.fontawesome.com/0e775b0a4e.js"></script>
 </head>
 <body>
@@ -22,11 +22,13 @@
         </span>
     </div>
     <div class="navigation-container">
-        <ul class="navigation-list">
-            <li><a href="#" id="nav-home" data-show="#panel-home">home</a></li>
-            <li><a href="#resume" id="nav-resume" data-show="#panel-resume">r&eacute;sum&eacute;</a></li>
-            <li><a href="#projects" id="nav-projects" data-show="#panel-projects">projects</a></li>
-        </ul>
+        <div class="navigation-list-container">
+            <ul class="navigation-list inline-list">
+                <li><a href="#" id="nav-home" data-show="#panel-home">home</a></li>
+                <li><a href="#resume" id="nav-resume" data-show="#panel-resume">r&eacute;sum&eacute;</a></li>
+                <li><a href="#projects" id="nav-projects" data-show="#panel-projects">projects</a></li>
+            </ul>
+        </div>
     </div>
     <div class="content-container">
 
@@ -41,9 +43,9 @@
             </ul>
         </div>
 
-        <div class="content-panel" id="resume">
+        <div class="content-panel print-resume" id="resume">
             <h2 class="fallback-header noscript-only">R&eacute;sum&eacute;</h2>
-            <h3 class="resume-section">Education<div class="resume-fill-line"></h3>
+            <h3 class="resume-section">Education<span class="resume-fill-line"></span></h3>
             <ul class="resume-list">
                 <li>BSc Student, University of Victoria
                     <ul>
@@ -54,7 +56,7 @@
                     </ul>
                 </li>
             </ul>
-            <h3 class="resume-section">Technical Skills<div class="resume-fill-line"></h3>
+            <h3 class="resume-section">Technical Skills<span class="resume-fill-line"></span></h3>
             <ul>
                 <li>Languages: Java SE/EE, PHP, Javascript/jQuery, SQL, HTML5/CSS3, Python, C/C++</li>
                 <li>Tools &amp; Infrastructure: Git, Subversion, Maven, Unix Shell, Vim, MySQL, Oracle Database, GlassFish</li>
@@ -63,7 +65,7 @@
                 <li>Experience managing and working in both agile and waterfall project life cycles</li>
                 <li>Comfortable with common data structure design patterns and algorithm design techniques</li>
             </ul>
-            <h3 class="resume-section">Work Experience<div class="resume-fill-line"></h3>
+            <h3 class="resume-section">Work Experience<span class="resume-fill-line"></span></h3>
             <ul class="resume-list">
                 <li>Systems Developer - Java Technologies, <span class="resume-company">CGI Group Inc.</span> (May 2016 - Present)
                     <ul>
@@ -104,7 +106,32 @@
 
         <div class="content-panel" id="projects">
             <h2 class="fallback-header noscript-only">Projects</h2>
-            <p>Project info coming soon.</p>
+            <div class="project-header-wrapper">
+                <h3 title="Science Venture Online Registration System">Science Venture Online Registration System</h3>
+                <div class="project-url"><a href="https://www.scienceventure.ca/register/" target="_blank">www.scienceventure.ca/register</a></div>
+            </div>
+            <div class="project-pictures">
+                <div class="img-wrapper">
+                    <img src="img/sv-registration-desktop.png" alt="SV Registration Desktop Screenshot" />
+                </div><!--
+             --><div class="img-wrapper">
+                    <img src="img/sv-registration-mobile.png" alt="SV Registration Mobile Screenshot" />
+                </div>
+            </div>
+            <p class="project-highlights">
+                PHP &middot; Javascript/jQuery &middot; MySQL &middot; HTML5/CSS3<br />
+                Built for <a href="http://scienceventure.ca" target="_blank">Science Venture</a><br />
+                June - August 2015
+            </p>
+            <p>
+                The Science Venture online registration system allows users to quickly and easily register for the group's extremely popular youth STEM programs.
+            </p>
+            <p>
+                It features a simple account-based system that allows users to pre-enter their camper information and for a streamlined experience on registration day &mdash; many programs sell out in just minutes! It also provides powerful and flexible tools that allow program administrators to manage program information with fine-grain control.
+            </p>
+            <p>
+                I was responsible for the design and technical implementation of the entire system, including the database, backend, and frontend. I worked closely with program administrators and technical staff to develop and deploy the system, which now registers hundreds of campers each year.
+            </p>
         </div>
 
     </div>
