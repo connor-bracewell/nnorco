@@ -83,7 +83,7 @@ img {
 
 @media print { .page-container {
     max-width: 100%;
-    padding: 0;
+    padding: 1.3em;
 }}
 
 .contact-container {
@@ -149,6 +149,10 @@ h1.name {
     padding-bottom: 3em;
 }
 
+@media print { .content-container {
+    padding-bottom: 0;
+}}
+
 .content-panel {
     margin-top: 1em;
 }
@@ -161,9 +165,9 @@ h2.fallback-header {
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
-@media print { .display-resume:not(#resume) {
+@media print { .print-resume {
     /* positioning adjust on the single-page print resume */
-    padding-top: 1.5em;
+    margin-top: 3em;
 }}
 
 h3.resume-section {
@@ -171,7 +175,6 @@ h3.resume-section {
     margin-bottom: 0.25em;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
     font-size: 1.1em;
 }
 
