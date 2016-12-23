@@ -68,6 +68,7 @@ li ul {
 }
 
 img {
+    display: block;
     box-sizing: border-box;
 }
 
@@ -211,6 +212,7 @@ h3.resume-section {
 
 .project-pictures {
     text-align: center;
+    line-height: 0;
 }
 
 .img-wrapper {
