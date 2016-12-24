@@ -221,16 +221,12 @@ h3.resume-section {
     max-width: 100%;
 }
 
-.overlay {
+.overlay-container {
     display: inline-block;
     position: relative;
 }
 
-.overlay:after {
-    content: "\1f50d"; /* utf-8 magnifying glass */
-    color: #fff;
-    font-size: 8em;
-    line-height: 2em;
+.overlay {
     position: absolute;
     display: none;
     top: 0;
@@ -238,17 +234,24 @@ h3.resume-section {
     width: 100%;
     height: 100%;
     text-align: center;
+    line-height: 16em;
 }
 
-.overlay:hover:after {
+.overlay-container:hover .overlay {
     display: block;
     background-color: rgba(0,0,0,0.3);
 }
 
+.overlay i {
+    font-size: 3em;
+    color: #fff;
+    text-outline: 1px #000;
+}
+
+
 .project-pictures img {
     border: 1px solid #000;
     height: auto;
-    width: auto;
     max-height: 16em;
     max-width: 100%;
 }
@@ -284,3 +287,43 @@ h3.resume-section {
 .nostyle-only {
     display: none;
 }
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 90vh;
+    background-color: rgba(0,0,0,0.7);
+    display: table;
+}
+
+.lightbox-container {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+}
+
+.lightbox-content {
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.lightbox-content img {
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.lightbox-close-button {
+    position: absolute;
+    top: 0.15em;
+    right: 0.3em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5em
+}
+
