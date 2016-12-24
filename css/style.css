@@ -211,6 +211,12 @@ h3.resume-section {
     font-size: 1.1em;
 }
 
+.project-url {
+    font-family: inherit;
+    font-weight: normal;
+    text-transform: none;
+}
+
 .project-pictures {
     text-align: center;
     line-height: 0;
