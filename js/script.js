@@ -58,8 +58,11 @@ $(document).ready( function() {
         }  
     });
 
+    //The lightbox element is referenced several times.
     var overlayEl = $(".lightbox-overlay");
-    function hideLightbox(allowBubble) {
+
+    //Onclick function to hide the lightbox (with or without target bubbling).
+    function hideLightbox(allowBubble = false) {
         function impl(e) {
             if (allowBubble || e.target == this) {
                 overlayEl.hide();
@@ -67,23 +70,10 @@ $(document).ready( function() {
         }
         return impl;
     }
-    overlayEl.click(hideLightbox(false));
-    $(".lightbox-close-button").click(hideLightbox(true));
 
-    function showLightbox(imageSrc) {
-        $(".lightbox-image").attr("src", imageSrc);
-        overlayEl.show();
-        resizeLightbox();
-    }
-
-    $(".overlay-container").click(function() {
-        var imageSrc = $(this).children(".lightbox-source").attr("src");
-        showLightbox(imageSrc);
-    });
-
+    //Resizes the open lightbox to fill the lightbox container as much as possible.
     function resizeLightbox() {
         if (overlayEl.is(":visible")) {
-            console.log("redrawing...");
             var boundEl = $(".lightbox-overlay");
             var imageEl = $(".lightbox-image");
             var contentEl = $(".lightbox-content");
@@ -110,7 +100,43 @@ $(document).ready( function() {
         }
     }
 
+    //Onclick function to show the lightbox.
+    function showLightbox(imageSrc, imageAlt) {
+        //Remove the existing image, if it exists.
+        $(".lightbox-image").remove();
+        //Create the new image.
+        var imageEl = $(document.createElement("img"));
+        imageEl.addClass("lightbox-image");
+        imageEl.attr("src", imageSrc);
+        imageEl.attr("alt", imageAlt);
+        $(".lightbox-content").prepend(imageEl);
+        //Add the new image to the DOM and show it.
+        overlayEl.show();
+        resizeLightbox();
+    }
+
+    //Set the lightbox to close when an appropriate element is clicked.
+    //(Enable bubbling on the button since the inner <i> is what gets pressed.)
+    overlayEl.click(hideLightbox());
+    $(".lightbox-close-button").click(hideLightbox(true));
+
+    //Set the lightbox to open with the clicked-on project image.
+    $(".overlay-container").click(function() {
+        var sourceEl = $(this).children(".lightbox-source");
+        var imageSrc = sourceEl.attr("src");
+        var imageAlt = sourceEl.attr("alt");
+        showLightbox(imageSrc, imageAlt);
+    });
+
+    //Set the lightbox to resize when the window is.
     $(window).resize(resizeLightbox);
-    resizeLightbox();
+
+    //Disable the direct image links.
+    $(".img-directlink").click(function(e) {
+        e.preventDefault();
+    });
+
+    //Enable the overlay hover style.
+    $(".overlay-container").addClass("overlay-container-enabled");
 
 });

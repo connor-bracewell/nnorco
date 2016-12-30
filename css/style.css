@@ -220,12 +220,18 @@ h3.resume-section {
 .project-pictures {
     text-align: center;
     line-height: 0;
+    /*allows img padding to overflow the container edges so img can use full container width*/
+    margin: 0 -0.5em;
 }
 
 .img-wrapper {
     display: inline-block;
     padding: 1em 0.5em 0 0.5em;
     max-width: 100%;
+}
+
+.img-directlink {
+    display: inline-block;
 }
 
 .overlay-container {
@@ -244,7 +250,7 @@ h3.resume-section {
     line-height: 16em;
 }
 
-.overlay-container:hover .overlay {
+.overlay-container-enabled:hover .overlay {
     display: block;
     background-color: rgba(0,0,0,0.3);
 }
@@ -253,7 +259,6 @@ h3.resume-section {
     font-size: 3em;
     color: #fff;
 }
-
 
 .project-pictures img {
     border: 1px solid #000;
@@ -317,8 +322,12 @@ h3.resume-section {
     position: absolute;
     top: 0.15em;
     right: 0.3em;
-    color: #fff;
     cursor: pointer;
-    font-size: 1.5em
+    font-size: 1.5em;
+    color: rgba(0,0,0,0.7);
+}
+
+.lightbox-close-button:hover {
+    color: #fff;
 }
 
