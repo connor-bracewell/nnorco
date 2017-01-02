@@ -61,11 +61,10 @@ $(document).ready( function() {
     //The lightbox element is referenced several times.
     var overlayEl = $(".lightbox-overlay");
 
-    //Onclick function to hide the lightbox (with or without target bubbling).
-    function hideLightbox(allowBubble = false) {
+    function ignoreBubble(f) {
         function impl(e) {
-            if (allowBubble || e.target == this) {
-                overlayEl.hide();
+            if (e.target == this) {
+                f(e);
             }
         }
         return impl;
@@ -117,8 +116,9 @@ $(document).ready( function() {
 
     //Set the lightbox to close when an appropriate element is clicked.
     //(Enable bubbling on the button since the inner <i> is what gets pressed.)
-    overlayEl.click(hideLightbox());
-    $(".lightbox-close-button").click(hideLightbox(true));
+    overlayEl.click(ignoreBubble(function(e) {
+       overlayEl.hide(); 
+    }));
 
     //Set the lightbox to open with the clicked-on project image.
     $(".overlay-container").click(function() {
