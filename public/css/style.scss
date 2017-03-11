@@ -1,3 +1,21 @@
+$font-scale: 90%;
+
+$head-font: "Maven Pro", sans-serif;
+$body-font: "Droid Serif", serif;
+$code-font: "Anonymous Pro", monospace;
+
+$medium-font-size: 1.1em;
+$large-font-size: 1.2em;
+
+$background-color: #fff;
+$text-color: rgba(0,0,0,0.9);
+$line-color: rgba(0,0,0,0.15);
+$overlay-color: rgba(0,0,0,0.3);
+$overlay-icon-color: #fff;
+$lightbox-color: rgba(0,0,0,0.7);
+
+$line-border: 1px solid $line-color;
+
 html, body {
     padding: 0;
     margin: 0;
@@ -6,9 +24,10 @@ html, body {
 }
 
 body {
-    color: rgba(0,0,0,0.9);
-    font-family: "Droid Serif", serif;
-    font-size: 90%;
+    background-color: $background-color;
+    color: $text-color;
+    font-family: $body-font;
+    font-size: $font-scale;
     overflow-y: scroll;
 }
 
@@ -21,7 +40,7 @@ h1, h2, h3, h4, h5 {
     padding: 0;
     font-weight: bold;
     text-transform: uppercase;
-    font-family: "Maven Pro", sans-serif;
+    font-family: $head-font;
 }
 
 a {
@@ -94,7 +113,7 @@ img {
 }}
 
 h1.name {
-    font-size: 1.2em;
+    font-size: $large-font-size;
 }
 
 .contact-info a {
@@ -112,8 +131,8 @@ h1.name {
 .navigation-container {
     margin-top: 1.5em;
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.15);
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-top: $line-border;
+    border-bottom: $line-border;
 }
 
 @media print { .navigation-container {
@@ -129,6 +148,10 @@ h1.name {
 .inline-list li {
     margin-left: 0;
     display: inline;
+}
+
+.inline-list li::before {
+    content: "\b7\a0";
 }
 
 .inline-list li:first-child::before {
@@ -159,9 +182,9 @@ h1.name {
 h2.fallback-header {
     text-align: center;
     padding: 0.25em 0;
-    font-size: 1.1em;
-    border-top: 1px solid rgba(0,0,0,0.15);
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-size: $medium-font-size;
+    border-top: $line-border;
+    border-bottom: $line-border;
 }
 
 @media print { .print-resume {
@@ -175,7 +198,7 @@ h3.transcript-section {
     margin-bottom: 0.25em;
     white-space: nowrap;
     overflow: hidden;
-    font-size: 1.1em;
+    font-size: $medium-font-size;
 }
 
 .resume-fill-line,
@@ -183,7 +206,7 @@ h3.transcript-section {
     display: inline-block;
     width: 100%;
     height: 1px;
-    background-color: rgba(0,0,0,0.9);
+    background-color: $text-color;
     margin-left: 0.25em;
 }
 
@@ -216,9 +239,14 @@ h3.transcript-section {
     text-align: center;
 }
 
+.project-header-wrapper:not(:first-of-type) {
+    margin-top: 1em;
+    border-top: $line-border;
+}
+
 .project-title {
     margin-top: 1em;
-    font-size: 1.1em;
+    font-size: $medium-font-size;
 }
 
 .project-url {
@@ -262,16 +290,16 @@ h3.transcript-section {
 
 .overlay-container-enabled:hover .overlay {
     display: block;
-    background-color: rgba(0,0,0,0.3);
+    background-color: $overlay-color;
 }
 
 .overlay i {
     font-size: 3em;
-    color: #fff;
+    color: $overlay-icon-color;
 }
 
 .project-pictures img {
-    border: 1px solid #000;
+    border: 1px solid $text-color;
     height: auto;
     max-height: 16em;
     max-width: 100%;
@@ -297,7 +325,7 @@ h3.transcript-section {
 }}
 
 .footer-content {
-    border-top: 1px solid rgba(0,0,0,0.15);
+    border-top: $line-border;
     padding-top: 0.4em
 }
 
@@ -313,9 +341,9 @@ h3.transcript-section {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background-color: rgba(0,0,0,0.7);
+    background-color: $lightbox-color;
     padding: 1em;
 }
 
@@ -326,19 +354,6 @@ h3.transcript-section {
 .lightbox-image {
     width: 100%;
     height: 100%;
-}
-
-.lightbox-close-button {
-    position: absolute;
-    top: 0.15em;
-    right: 0.3em;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: rgba(0,0,0,0.7);
-}
-
-.lightbox-close-button:hover {
-    color: #fff;
 }
 
 .page-container-404 {
@@ -352,6 +367,6 @@ h3.transcript-section {
 .text-404 {
     padding: 0.25em;
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.15);
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-top: $line-border;
+    border-bottom: $line-border;
 }

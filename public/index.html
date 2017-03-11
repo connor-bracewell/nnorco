@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://use.fontawesome.com/0e775b0a4e.js"></script>
 </head>
 <body>
 
@@ -32,14 +35,14 @@
     <div class="content-container">
 
         <div class="content-panel" id="panel-about">
-            <p>Hi! My name is Connor Bracewell, and I'm a Computer Science &amp; Mathematics honours student at the <a href="http://www.uvic.ca/" target="_blank">University of Victoria</a>.</p>
-            <p>I'm currently seeking an exciting co-op opportunity for May - August 2016. If you have an opening, feel free to <a href="mailto:cbrace@uvic.ca">contact me</a>.</p> 
-            <p>Right now I'm in classes full time, but I've previously worked as an enterprise Java developer at <a href="https://www.cgi.com/" target="_blank">CGI</a>, a web developer at <a href="http://scienceventure.ca" target="_blank">Science Venture</a>, and a 3D printing expert at <a href="http://revolution3dprinters.com" target="_blank">Revolution 3D Printers</a>. You can check out my <a href="#resume" data-show="#panel-resume">r&eacute;sum&eacute;</a> for more info.</p>
+            <p>Hey there! I'm Connor Bracewell, a Computer Science &amp; Mathematics honours student at the <a href="http://www.uvic.ca/" target="_blank">University of Victoria</a>.</p>
+            <p>I'm currently seeking an exciting co-op opportunity for May - August 2016. If you're looking for a talented, self-motivated programmer, feel free to <a href="mailto:cbrace@uvic.ca">contact me</a>.</p> 
+            <p>In the past, I've worked as an enterprise Java developer at <a href="https://www.cgi.com/" target="_blank">CGI</a>, a web developer at <a href="http://scienceventure.ca" target="_blank">Science Venture</a>, and a 3D printing expert at <a href="http://revolution3dprinters.com" target="_blank">Revolution 3D Printers</a>. You can check out my <a href="#resume" data-show="#panel-resume">r&eacute;sum&eacute;</a> for more info.</p>
             <p>I hope you have the chance to take a look at the rest of my site. If anything catches your interest, or you have an opportunity you think would interest me, I'd love to <a href="mailto:cbrace@uvic.ca">hear from you</a>.
-            <p>You can also check out some of my other online profiles:</p>
+            <p>You can also check out some of my other stuff:</p>
             <ul>
-                <li><a href="https://github.com/connor-bracewell/" target="_blank">connor-bracewell</a> @ GitHub <i class="fa fa-github" aria-hidden="true"></i></li>
-                <li><a href="https://www.linkedin.com/in/connorbracewell" target="_blank">Connor Bracewell</a> @ LinkedIn <i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
+                <li>On GitHub: <a href="https://www.github.com/connor-bracewell/" target="_blank">github.com/connor-bracewell</a></li>
+                <li>On LinkedIn: <a href="https://www.linkedin.com/in/connorbracewell" target="_blank">linkedin.com/in/connorbracewell</a></li>
             </ul>
         </div>
 
@@ -106,7 +109,7 @@
 
         <div class="content-panel" id="transcript">
             <h2 class="fallback-header noscript-only">Transcript</h2>
-            <p>This page lists all of my completed post-secondary coursework as listed on my official university transcript. For privacy reasons, this site does not include the university-provided transcript itself; if you are interested in obtaining a copy, please <a href="mailto:cbrace@uvic.ca">contact me</a>.</p>
+            <p>This section lists all of my completed post-secondary coursework as listed on my official university transcript. For privacy reasons, this site does not include the university-provided transcript itself; if you are interested in obtaining a copy, please <a href="mailto:cbrace@uvic.ca">contact me</a>.</p>
             <h3 class="transcript-section">Spring 2016<span class="transcript-fill-line"></span></h3>
             <ul>
                 <li><!--
@@ -245,13 +248,13 @@
                     &middot; Matrix Algebra I &middot; <span class="transcript-grade">A+</span>
                 </li>
             </ul>
-            <p>* <span class="transcript-asterisk-explain">Prior to fall 2014, the University of Victoria did not record percentage scores as part of the final grade.</span></p>
+            <p>* <span class="transcript-asterisk-explain">Prior to fall 2014, the University of Victoria did not record percentages as part of a final grade.</span></p>
         </div>
 
         <div class="content-panel" id="projects">
             <h2 class="fallback-header noscript-only">Projects</h2>
             <div class="project-header-wrapper">
-                <h3 class="project-title">Science Venture Online Registration System</h3>
+                <h3 class="project-title">Science Venture Online Registration Site</h3>
                 <h4 class="project-url"><a href="https://www.scienceventure.ca/register/" target="_blank">www.scienceventure.ca/register</a></h4>
             </div>
             <div class="project-pictures">
@@ -279,17 +282,39 @@
             <p class="project-highlights">
                 PHP &middot; MySQL &middot; HTML5/CSS3 &middot; Javascript/jQuery<br />
                 Built for <a href="http://scienceventure.ca" target="_blank">Science Venture</a><br />
-                June - August 2015
+                June - August 2015, Updates Ongoing
             </p>
-            <p>
-                The Science Venture online registration system allows users to quickly and easily register for the group's extremely popular youth STEM programs.
+            <p>Each year, thousands of users register for the Science Venture STEM youth programs on their online registration site. This project involved replacing the existing form-based implementation with a new system that would allow users to more easily and reliably register for these fast-selling programs.</p>
+            <p>I was responsible for the design and technical implementation of the entire registration site, from the database and backend to the frontend and admin tools. I worked closely with program leaders and UVic technical staff to develop and deploy the system, which includes a full user account system, real-time registration updates, and payment processing.</p>
+            <div class="project-header-wrapper">
+                <h3 class="project-title">My Personal Site</h3>
+                <h4 class="project-url"><a href="http://www.nnor.co" target="_blank">www.nnor.co</a></h4>
+            </div>
+            <div class="project-pictures">
+                <div class="img-wrapper">
+                    <a class="img-directlink" href="img/nnorco.png">
+                        <span class="overlay-container">
+                            <img class="lightbox-source" src="img/nnorco.png" height="256" alt="Personal Site Screenshot" />
+                            <span class="overlay">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <p class="project-highlights">
+                HTML5/CSS3 &middot; Javascript/jQuery &middot; SASS<br />
+                Built just for me!<br />
+                April 2016 - Present
             </p>
-            <p>
-                It features a simple account-based system that allows users to pre-enter their camper information and for a streamlined experience on registration day &mdash; many programs sell out in just minutes! It also provides powerful and flexible tools that allow program administrators to manage program information with fine-grain control.
-            </p>
-            <p>
-                I was responsible for the design and technical implementation of the entire system, including the database, backend, and frontend. I worked closely with program administrators and technical staff to develop and deploy the system, which now registers hundreds of campers each year.
-            </p>
+            <p>Did this just get too meta?</p>
+            <p>I built this site as both a portfolio for my achievements and a sandbox where I can try out new technologies and techniques (right now it's being served by <a href="https://www.heroku.com">Heroku</a> on a <a href="https://www.harpjs.com">Harp</a> server). My key focus is to keep it clean, simple, and lightweight, in keeping with my own design ideals.</p>
+            <p>It has a few interesting features:</p>
+            <ul>
+                <li>It's designed to look and work great with JavaScript and/or CSS disabled, which is surprisingly complicated even for a site of this modest size. I really should make a demo of this at some point.</li>
+                <li>It's also designed for printing, with custom print CSS. In fact, this site is the only copy of my resume I maintain; if I need a copy I can just print the page to a great-looking PDF.</li>
+                <li>The domain lets me use the namespace 'co.nnor.bracewell' which I think is pretty neat.</li>
+            </ul>
         </div>
 
     </div>
@@ -302,7 +327,7 @@
                 Failed to fetch commit info
             </span>
             <span class="default-footer-message noscript-only">
-                Proudly NoScript <span class="nostyle-only">(and NoStyle)</span> compatible &middot; Updated sometime in 2016
+                Proudly NoScript <span class="nostyle-only">(and NoStyle)</span> compatible &middot; Updated sometime in 2017
             </span>
         </div>
     </div>
@@ -313,10 +338,6 @@
         <!-- content added by js -->
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script src="https://use.fontawesome.com/0e775b0a4e.js"></script>
 
 </body>
 </html>
