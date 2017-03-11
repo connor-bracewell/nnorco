@@ -1,6 +1,5 @@
-/uploads/*
-!/uploads/index.php
-!/uploads/.htaccess
+/public/uploads/*
+!/public/uploads/index.php
+!/public/uploads/.htaccess
 .DS_Store
 *.swp
-
