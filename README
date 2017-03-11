@@ -1,0 +1,3 @@
+nnorco is my personal site, hosting a resume and some other project information.
+
+At present, it is configured to be hosted on the Heroku platform (https://www.heroku.com/) using the Harp static webserver (https://harpjs.com/).
