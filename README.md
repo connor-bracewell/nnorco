@@ -1,8 +1,6 @@
 ## nnorco
 My personal site - http://www.nnor.co
 
-Includes a public copy of my resume and transcript, as well as an overview of some of my projects and some othe miscellaneous info.
+Includes a public resume, transcript, and project overview.
 
-At present, it is configured to be hosted on [Heroku](https://www.heroku.com/) with [Harp](https://harpjs.com/).
-
-I don't know why you'd want to deploy your own instance, but it's simple to do - just create a new Heroku project with this repository as the source.
+Currently configured for [Harp](https://harpjs.com/) on [Heroku](https://www.heroku.com/). I don't know why you'd want to deploy your own instance, but it's simple to do - just create a new Heroku project with this repository as the source.
