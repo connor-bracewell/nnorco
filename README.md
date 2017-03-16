@@ -1,5 +1,5 @@
 ## nnorco
-My personal site
+My personal site - http://www.nnor.co
 
 Includes a public copy of my resume and transcript, as well as an overview of some of my projects and some othe miscellaneous info.
 
