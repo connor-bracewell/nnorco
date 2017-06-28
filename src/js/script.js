@@ -40,7 +40,7 @@ $(document).ready( function() {
 
     //Load the last commit info from the GitHub API.
     $.ajax({
-        url: "https://api.github.com/repos/connor-bracewell/nnorco/commits?path=public/index.html",
+        url: "https://api.github.com/repos/connor-bracewell/nnorco/commits?path=src/index.html",
         dataType: "json",
         success: function(data, textStatus, jqXHR) {
             var commit = data[0];
