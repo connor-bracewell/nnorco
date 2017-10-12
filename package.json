@@ -1,0 +1,23 @@
+{
+  "name": "nnorco",
+  "version": "1.0.0",
+  "description": "Connor Bracewell's personal site.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connor-bracewell/nnorco.git"
+  },
+  "author": "connor-bracewell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/connor-bracewell/nnorco/issues"
+  },
+  "homepage": "https://github.com/connor-bracewell/nnorco#readme",
+  "devDependencies": {
+    "sass": "^1.0.0-beta.2",
+    "surge": "^0.19.0"
+  }
+}
