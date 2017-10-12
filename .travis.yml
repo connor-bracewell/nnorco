@@ -4,6 +4,7 @@ node_js:
 after_success:
   - rm /home/travis/build/connor-bracewell/nnorco/www
   - cp -r /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
-  - sass /home/travis/build/connor-bracewell/nnorco/www/sass /home/travis/build/connor-bracewell/nnorco/www/css
-  - rm /home/travis/build/connor-bracewell/nnorco/www/sass
+  - mkdir /home/travis/build/connor-bracewell/nnorco/www/css
+  - sass /home/travis/build/connor-bracewell/nnorco/www/sass/style.scss /home/travis/build/connor-bracewell/nnorco/www/css/style.css
+  - rm -r /home/travis/build/connor-bracewell/nnorco/www/sass
   - surge /home/travis/build/connor-bracewell/nnorco/www
