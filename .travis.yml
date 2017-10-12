@@ -3,7 +3,7 @@ node_js:
   - "0.12"
 after_success:
   - rm /home/travis/build/connor-bracewell/nnorco/www
-  - cp /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
-  - sass /home/travis/build/connor-bracewell/nnorco/www/scss /home/travis/build/connor-bracewell/nnorco/www/css
-  - rm /home/travis/build/connor-bracewell/nnorco/www/scss
+  - cp -r /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
+  - sass /home/travis/build/connor-bracewell/nnorco/www/sass /home/travis/build/connor-bracewell/nnorco/www/css
+  - rm /home/travis/build/connor-bracewell/nnorco/www/sass
   - surge /home/travis/build/connor-bracewell/nnorco/www
