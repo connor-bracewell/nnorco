@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script src="https://use.fontawesome.com/0e775b0a4e.js"></script>
 </head>
 <body>
 
@@ -272,24 +271,15 @@
                 <h4 class="project-url"><a href="https://www.scienceventure.ca/register/" target="_blank">www.scienceventure.ca/register</a></h4>
             </div>
             <div class="project-pictures">
+                <!-- Comments prevent whitespace between elements. -->
                 <div class="img-wrapper">
                     <a class="img-directlink" href="img/sv-registration-desktop.png">
-                        <span class="overlay-container">
-                            <img class="lightbox-source" src="img/sv-registration-desktop.png" height="256" alt="SV Registration Desktop Screenshot" />
-                            <span class="overlay">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                        </span>
+                        <img class="lightbox-source" src="img/sv-registration-desktop.png" data-fullsize-src="img/sv-registration-desktop.png" height="256" alt="SV Registration Desktop Screenshot" />
                     </a>
                 </div><!--
              --><div class="img-wrapper">
                     <a class="img-directlink" href="img/sv-registration-mobile.png">
-                        <span class="overlay-container">
-                            <img class="lightbox-source" src="img/sv-registration-mobile.png" height="256" alt="SV Registration Mobile Screenshot" />
-                            <span class="overlay">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                        </span>
+                        <img class="lightbox-source" src="img/sv-registration-mobile.png" data-fullsize-src="img/sv-registration-mobile.png" height="256" alt="SV Registration Mobile Screenshot" />
                     </a>
                 </div>
             </div>
@@ -307,12 +297,7 @@
             <div class="project-pictures">
                 <div class="img-wrapper">
                     <a class="img-directlink" href="img/nnorco.png">
-                        <span class="overlay-container">
-                            <img class="lightbox-source" src="img/nnorco.png" height="256" alt="Personal Site Screenshot" />
-                            <span class="overlay">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                        </span>
+                        <img class="lightbox-source" src="img/nnorco.png" data-fullsize-src="img/nnorco.png" height="256" alt="Personal Site Screenshot" />
                     </a>
                 </div>
             </div>
@@ -349,7 +334,8 @@
 
 <div class="lightbox-overlay" hidden>
     <div class="lightbox-content">
-        <!-- content added by js -->
+        <!-- img is set to a static 1px gif to avoid loading errors. -->
+        <img class="lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" alt="placeholder"></img>
     </div>
 </div>
 

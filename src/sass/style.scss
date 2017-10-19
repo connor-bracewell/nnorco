@@ -10,7 +10,6 @@ $large-font-size: 1.2em;
 $background-color: #fff;
 $text-color: rgba(0,0,0,0.9);
 $line-color: rgba(0,0,0,0.15);
-$overlay-color: rgba(0,0,0,0.3);
 $overlay-icon-color: #fff;
 $lightbox-color: rgba(0,0,0,0.7);
 
@@ -288,21 +287,12 @@ h3.transcript-section {
     line-height: 16em;
 }
 
-.overlay-container-enabled:hover .overlay {
-    display: block;
-    background-color: $overlay-color;
-}
-
-.overlay i {
-    font-size: 3em;
-    color: $overlay-icon-color;
-}
-
 .project-pictures img {
     border: 1px solid $text-color;
     height: auto;
     max-height: 16em;
     max-width: 100%;
+    cursor: zoom-in;
 }
 
 .project-highlights {
@@ -345,6 +335,7 @@ h3.transcript-section {
     height: 100vh;
     background-color: $lightbox-color;
     padding: 1em;
+    cursor: zoom-out;
 }
 
 .lightbox-content {

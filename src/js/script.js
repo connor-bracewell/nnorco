@@ -60,6 +60,7 @@ $(document).ready( function() {
 
     //The lightbox element is referenced several times.
     var overlayEl = $(".lightbox-overlay");
+    var imageEl = $(".lightbox-image");
 
     function ignoreBubble(f) {
         function impl(e) {
@@ -74,7 +75,6 @@ $(document).ready( function() {
     function resizeLightbox() {
         if (overlayEl.is(":visible")) {
             var boundEl = $(".lightbox-overlay");
-            var imageEl = $(".lightbox-image");
             var contentEl = $(".lightbox-content");
             var boundX = boundEl.width();
             var boundY = boundEl.height();
@@ -101,29 +101,28 @@ $(document).ready( function() {
 
     //Onclick function to show the lightbox.
     function showLightbox(imageSrc, imageAlt) {
-        //Remove the existing image, if it exists.
-        $(".lightbox-image").remove();
-        //Create the new image.
-        var imageEl = $(document.createElement("img"));
-        imageEl.addClass("lightbox-image");
-        imageEl.attr("src", imageSrc);
-        imageEl.attr("alt", imageAlt);
-        $(".lightbox-content").prepend(imageEl);
-        //Add the new image to the DOM and show it.
-        overlayEl.show();
-        resizeLightbox();
+        //Create a new image to load asynchronously.
+        var asyncImage = new Image();
+        //Set the image to show when done loading
+        asyncImage.onload = function() {
+            imageEl.attr("src", imageSrc);
+            imageEl.attr("alt", imageAlt);
+            overlayEl.show();
+            resizeLightbox();
+        }
+        //Set src to start the download.
+        asyncImage.src = imageSrc;
     }
 
-    //Set the lightbox to close when an appropriate element is clicked.
-    //(Enable bubbling on the button since the inner <i> is what gets pressed.)
-    overlayEl.click(ignoreBubble(function(e) {
-       overlayEl.hide(); 
-    }));
+    //Set the lightbox to close when clicked
+    overlayEl.click(function(e) {
+        overlayEl.hide();
+    });
 
     //Set the lightbox to open with the clicked-on project image.
-    $(".overlay-container").click(function() {
-        var sourceEl = $(this).children(".lightbox-source");
-        var imageSrc = sourceEl.attr("src");
+    $(".lightbox-source").click(function() {
+        var sourceEl = $(this);
+        var imageSrc = sourceEl.attr("data-fullsize-src");
         var imageAlt = sourceEl.attr("alt");
         showLightbox(imageSrc, imageAlt);
     });
@@ -135,8 +134,5 @@ $(document).ready( function() {
     $(".img-directlink").click(function(e) {
         e.preventDefault();
     });
-
-    //Enable the overlay hover style.
-    $(".overlay-container").addClass("overlay-container-enabled");
 
 });
