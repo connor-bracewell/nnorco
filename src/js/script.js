@@ -2,6 +2,11 @@ $(document).ready( function() {
     //Hide the NoScript fallback content.
     $(".noscript-only").hide();
 
+    //Disable the direct image links used for NoScript.
+    $(".img-directlink").click(function(e) {
+        e.preventDefault();
+    });
+
     //Update all the container IDs to match the data-show values instead of URL hashes.
     //ie. "#resume" has its ID set to "resume-panel"
     $(".navigation-list a").each(function(){
@@ -99,6 +104,9 @@ $(document).ready( function() {
         }
     }
 
+    //Set the lightbox to resize when the window is.
+    $(window).resize(resizeLightbox);
+
     //Onclick function to show the lightbox.
     function showLightbox(imageSrc, imageAlt) {
         //Create a new image to load asynchronously.
@@ -126,13 +134,4 @@ $(document).ready( function() {
         var imageAlt = sourceEl.attr("alt");
         showLightbox(imageSrc, imageAlt);
     });
-
-    //Set the lightbox to resize when the window is.
-    $(window).resize(resizeLightbox);
-
-    //Disable the direct image links.
-    $(".img-directlink").click(function(e) {
-        e.preventDefault();
-    });
-
 });
