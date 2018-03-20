@@ -1,11 +1,8 @@
-nnorco
-===
-
 My personal site @ https://nnor.co
 
 Includes resume, transcript, and project overview.
 
-## Deployment Information
+### Deployment Information
 
 * Domain through iPage
 * DNS through Cloudflare (`@` and `www`)
