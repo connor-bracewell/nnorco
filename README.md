@@ -1,6 +1,13 @@
-## nnorco
-My personal site - https://nnor.co
+nnorco
+===
 
-Includes a public resume, transcript, and project overview.
+My personal site @ https://nnor.co
 
-Currently configured to be deployed to [Surge](https://surge.sh) using [Travis CI](https://travis-ci.org/).
+Includes resume, transcript, and project overview.
+
+## Deployment Information
+
+* Domain through iPage
+* DNS through Cloudflare (`@` and `www`)
+* Hosting through Surge (`www` redirected to `@` automatically)
+* Continuous deployment through Travis CI
