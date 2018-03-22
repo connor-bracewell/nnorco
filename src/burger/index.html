@@ -10,7 +10,7 @@
 $(document).ready(function() {
     var menuUrl = "http://www.bin4burgerlounge.com/our-downtown-menu/";
     $.ajax({
-        url: "http://www.corsmirror.com/v1/cors?url=" + menuUrl,
+        url: "https://crossorigin.me/" + menuUrl,
         dataType: "html",
         crossDomain: true,
         success: writeData
