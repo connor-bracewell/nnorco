@@ -26,7 +26,7 @@ $(document).ready(function() {
     }
 
     function writeItem(root, name) {
-        $itemElem = root.find(".slide-features .menu-item")
+        var itemElem = root.find(".slide-features .menu-item")
             .filter(function(index, elem) {
                 var text = jQuery(elem).find(".item-label").first().text();
                 return (text == name);
