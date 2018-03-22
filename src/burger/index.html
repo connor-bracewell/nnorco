@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<title>Bin 4 Features</title>
 <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -17,16 +18,15 @@ $(document).ready(function() {
     });
 
     function writeData(data, textStatus, jqXHR) {
-        jQuery("#store").html(data);
-        writeItem("burger");
-        writeItem("appy");
-        writeItem("feature cocktail");
-        writeItem("dessert");
+        var root = $($.parseHTML(data));
+        writeItem(root, "burger");
+        writeItem(root, "appy");
+        writeItem(root, "feature cocktail");
+        writeItem(root, "dessert");
     }
 
-    function writeItem(name) {
-        var itemElem = jQuery("#store")
-            .find(".slide-features .menu-item")
+    function writeItem(root, name) {
+        root.find(".slide-features .menu-item")
             .filter(function(index, elem) {
                 var text = jQuery(elem).find(".item-label").first().text();
                 return (text == name);
