@@ -18,22 +18,43 @@ $(document).ready(function() {
 
     function writeData(data, textStatus, jqXHR) {
         jQuery("#store").html(data);
-        var burgerElem = jQuery("#store")
+        writeItem("burger");
+        writeItem("appy");
+        writeItem("feature cocktail");
+        writeItem("dessert");
+    }
+
+    function writeItem(name) {
+        var itemElem = jQuery("#store")
             .find(".slide-features .menu-item")
             .filter(function(index, elem) {
                 var text = jQuery(elem).find(".item-label").first().text();
-                return (text == "burger");
+                return (text == name);
             }).first();
-        jQuery("#burger_name").text(burgerElem.find(".item-title").text());
-        jQuery("#burger_price").text(burgerElem.find(".item-price").text());
-        jQuery("#burger_description").text(burgerElem.find("p").text());
+        name = name.replace(" ","");
+        jQuery("#" + name + "_name").text(itemElem.find(".item-title").text());
+        jQuery("#" + name + "_price").text(itemElem.find(".item-price").text());
+        jQuery("#" + name + "_description").text(itemElem.find("p").text());
     }
+
 });
 </script>
 <body>
     <div id="burger_name"></div>
     <div id="burger_price"></div>
     <div id="burger_description"></div>
+    <br />
+    <div id="appy_name"></div>
+    <div id="appy_price"></div>
+    <div id="appy_description"></div>
+    <br />
+    <div id="featurecocktail_name"></div>
+    <div id="featurecocktail_price"></div>
+    <div id="featurecocktail_description"></div>
+    <br />
+    <div id="dessert_name"></div>
+    <div id="dessert_price"></div>
+    <div id="dessert_description"></div>
     <div id="store" style="display:none;"></div>
 </body>
 </html>
