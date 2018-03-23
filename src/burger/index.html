@@ -1,60 +1,56 @@
 <!doctype html>
 <html>
 <head>
-<title>Bin 4 Features</title>
-<script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous">
-</script>
-<script>
-$(document).ready(function() {
-    var menuUrl = "https://www.bin4burgerlounge.com/our-downtown-menu/";
-    $.ajax({
-        url: "https://crossorigin.me/" + menuUrl,
-        dataType: "html",
-        crossDomain: true,
-        success: writeData
-    });
-
-    function writeData(data, textStatus, jqXHR) {
-        var root = $($.parseHTML(data));
-        writeItem(root, "burger");
-        writeItem(root, "appy");
-        writeItem(root, "feature cocktail");
-        writeItem(root, "dessert");
-    }
-
-    function writeItem(root, name) {
-        var itemElem = root.find(".slide-features .menu-item")
-            .filter(function(index, elem) {
-                var text = jQuery(elem).find(".item-label").first().text();
-                return (text == name);
-            }).first();
-        name = name.replace(" ","");
-        jQuery("#" + name + "_name").text(itemElem.find(".item-title").text());
-        jQuery("#" + name + "_price").text(itemElem.find(".item-price").text());
-        jQuery("#" + name + "_description").text(itemElem.find("p").text());
-    }
-
-});
-</script>
+    <title>Bin4 Features</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bin4features.css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="/js/bin4features.js"></script>
+</head>
 <body>
-    <div id="burger_name"></div>
-    <div id="burger_price"></div>
-    <div id="burger_description"></div>
-    <br />
-    <div id="appy_name"></div>
-    <div id="appy_price"></div>
-    <div id="appy_description"></div>
-    <br />
-    <div id="featurecocktail_name"></div>
-    <div id="featurecocktail_price"></div>
-    <div id="featurecocktail_description"></div>
-    <br />
-    <div id="dessert_name"></div>
-    <div id="dessert_price"></div>
-    <div id="dessert_description"></div>
-    <div id="store" style="display:none;"></div>
+<div class="page-container">
+    <div class="burger-title-container">
+        <h1 class="burger-title">Bin4 Features</h1>
+        <h4 class="burger-url">via <a href="https://www.bin4burgerlounge.com/our-downtown-menu/" target="_blank">bin4burgerlounge.com</a></h4>
+    </div>
+    <div class="burger-item-container">
+        <div class="burger-item">
+            <h4>
+                <span id="burger_name">Burger Name</span>
+                &middot;
+                <span id="burger_price">$XX</span>
+            </h4>
+            <p class="burger-item-description" id="burger_description">Description</p>
+        </div>
+        <div class="burger-item">
+            <h4>
+                <span id="appy_name">Burger Name</span>
+                &middot;
+                <span id="appy_price">$XX</span>
+            </h4>
+            <p class="burger-item-description" id="appy_description">Description</p>
+        </div>
+        <div class="burger-item">
+            <h4>
+                <span id="featurecocktail_name">Burger Name</span>
+                &middot;
+                <span id="featurecocktail_price">$XX</span>
+            </h4>
+            <p class="burger-item-description" id="featurecocktail_description">Description</p>
+        </div>
+        <div class="burger-item">
+            <h4>
+                <span id="dessert_name">Burger Name</span>
+                &middot;
+                <span id="dessert_price">$XX</span>
+            </h4>
+            <p class="burger-item-description" id="dessert_description">Description</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
