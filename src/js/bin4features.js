@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var menuUrl = "https://www.bin4burgerlounge.com/our-downtown-menu/";
     $.ajax({
-        url: "https://crossorigin.me/" + menuUrl,
+        url: "https://cors-anywhere.herokuapp.com/" + menuUrl,
         dataType: "html",
         crossDomain: true,
         success: writeData
