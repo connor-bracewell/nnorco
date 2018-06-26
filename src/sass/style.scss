@@ -1,5 +1,3 @@
-$font-scale: 90%;
-
 $head-font: "Maven Pro", sans-serif;
 $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
@@ -25,7 +23,6 @@ body {
     background-color: $background-color;
     color: $text-color;
     font-family: $body-font;
-    font-size: $font-scale;
     overflow-y: scroll;
 }
 
@@ -91,7 +88,7 @@ img {
 
 .page-container {
     min-height: 100%;
-    max-width: 50em;
+    max-width: 46em;
     padding: 1.5em 1em 0 1em;
     margin: 0 auto;
     position: relative;
