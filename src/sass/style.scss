@@ -3,7 +3,7 @@ $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
 $page-width: 46em;
-$mobile-break: 34em;
+$mobile-break: 39.5em; //to stop breaks in transcript
 
 $footer-height: 3.1em;
 
@@ -383,4 +383,3 @@ h3.transcript-section {
     border-top: $line-border;
     border-bottom: $line-border;
 }
-
