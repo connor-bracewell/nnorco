@@ -2,6 +2,8 @@ $head-font: "Maven Pro", sans-serif;
 $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
+$page-width: 46em;
+
 $medium-font-size: 1.1em;
 $large-font-size: 1.2em;
 
@@ -29,7 +31,7 @@ body {
     overflow-y: scroll;
 }
 
-@media print { a {
+@media print { body {
     background-color: $print-background-color;
     color: $print-text-color;
 }}
@@ -58,7 +60,7 @@ a {
 p {
     padding: 0;
     margin: 1em 0 0 0;
-    line-height: 1.5em;
+    line-height: 1.3em;
 }
 
 ul, ol {
@@ -71,8 +73,7 @@ li {
     list-style: none;
     /* approximates the width added by the ::before element in row 1   */
     text-indent: -0.8em;
-    /* emulate 1.5em line height, but keep lines in the same row tight */
-    line-height: 1.1em;
+    line-height: 1.3em;
     padding: 0.2em 0;
 }
 
@@ -85,7 +86,6 @@ li > * {
 }
 
 li ul {
-    /* also for emulating 1.5 em line height */
     margin-top: 0.2em;
 }
 
@@ -96,7 +96,7 @@ img {
 
 .page-container {
     min-height: 100%;
-    max-width: 46em;
+    max-width: $page-width;
     padding: 1.5em 1em 0 1em;
     margin: 0 auto;
     position: relative;
