@@ -10,9 +10,9 @@ $(document).ready( function() {
     //Update all the container IDs to match the data-show values instead of URL hashes.
     //ie. "#resume" has its ID set to "resume-panel"
     $(".navigation-list a").each(function(){
-        var target = $(this);
-        var urlHash = target.attr("href");
-        var panelId = target.attr("data-show").substring(1);
+        let target = $(this);
+        let urlHash = target.attr("href");
+        let panelId = target.attr("data-show").substring(1);
         if (urlHash !== "#") {
             $(urlHash).attr("id", panelId);
         }
@@ -38,26 +38,24 @@ $(document).ready( function() {
     //Hide all the panels, then show the panel corresponding to the URL hash.
     //Defaults to the item from the first link if there is no hash.
     $(".content-container").children().hide();
-    var initialShow;
-    if (window.location.hash) {
-        initialShow = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
-    } else {
-        initialShow = $(".navigation-list a").first()
+    let initialShowLink = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
+    if (initialShowLink.length === 0) {
+        initialShowLink = $(".navigation-list a").first()
     }
-    initialShow.click();
+    initialShowLink.click();
 
     //Load the last commit info from the GitHub API.
     $.ajax({
         url: "https://api.github.com/repos/connor-bracewell/nnorco/commits?path=src/index.html",
         dataType: "json",
         success: function(data, textStatus, jqXHR) {
-            var commit = data[0];
-            var shaEl = $("#commit-sha");
+            let commit = data[0];
+            let shaEl = $("#commit-sha");
             shaEl.text(commit.sha.substring(0,7));
             shaEl.attr("href", commit.html_url);
-            var commitDate = new Date(commit.commit.committer.date);
-            var commitMonth = commitDate.getMonth() + 1;
-            var commitPaddedMonth = (commitMonth < 10 ? "0" : "") + commitMonth;
+            let commitDate = new Date(commit.commit.committer.date);
+            let commitMonth = commitDate.getMonth() + 1;
+            let commitPaddedMonth = (commitMonth < 10 ? "0" : "") + commitMonth;
             $("#commit-date").text(commitPaddedMonth + "/" + commitDate.getFullYear());
             $(".last-commit-info").show();
         },
@@ -67,8 +65,8 @@ $(document).ready( function() {
     });
 
     //The lightbox element is referenced several times.
-    var overlayEl = $(".lightbox-overlay");
-    var imageEl = $(".lightbox-image");
+    let overlayEl = $(".lightbox-overlay");
+    let imageEl = $(".lightbox-image");
 
     function ignoreBubble(f) {
         function impl(e) {
@@ -82,16 +80,16 @@ $(document).ready( function() {
     //Resizes the open lightbox to fill the lightbox container as much as possible.
     function resizeLightbox() {
         if (overlayEl.is(":visible")) {
-            var boundEl = $(".lightbox-overlay");
-            var contentEl = $(".lightbox-content");
-            var boundX = boundEl.width();
-            var boundY = boundEl.height();
-            var boundR = boundX / boundY;
-            var imageX = imageEl.get(0).naturalWidth;
-            var imageY = imageEl.get(0).naturalHeight;
-            var imageR = imageX / imageY;
-            var contentX;
-            var contentY;
+            let boundEl = $(".lightbox-overlay");
+            let contentEl = $(".lightbox-content");
+            let boundX = boundEl.width();
+            let boundY = boundEl.height();
+            let boundR = boundX / boundY;
+            let imageX = imageEl.get(0).naturalWidth;
+            let imageY = imageEl.get(0).naturalHeight;
+            let imageR = imageX / imageY;
+            let contentX;
+            let contentY;
             if (imageR <= boundR) {
                 contentY = Math.min(boundY, imageY);
                 contentX = contentY * imageR;
@@ -99,8 +97,8 @@ $(document).ready( function() {
                 contentX = Math.min(boundX, imageX);
                 contentY = contentX / imageR;
             }
-            var contentPadX = (boundX-contentX)/2;
-            var contentPadY = (boundY-contentY)/2;
+            let contentPadX = (boundX-contentX)/2;
+            let contentPadY = (boundY-contentY)/2;
             contentEl.width(contentX);
             contentEl.height(contentY);
             contentEl.css("margin", contentPadY + "px " + contentPadX + "px");
@@ -113,7 +111,7 @@ $(document).ready( function() {
     //Onclick function to show the lightbox.
     function showLightbox(imageSrc, imageAlt) {
         //Create a new image to load asynchronously.
-        var asyncImage = new Image();
+        let asyncImage = new Image();
         //Set the image to show when done loading
         asyncImage.onload = function() {
             imageEl.attr("src", imageSrc);
@@ -132,9 +130,9 @@ $(document).ready( function() {
 
     //Set the lightbox to open with the clicked-on project image.
     $(".lightbox-source").click(function() {
-        var sourceEl = $(this);
-        var imageSrc = sourceEl.attr("data-fullsize-src");
-        var imageAlt = sourceEl.attr("alt");
+        let sourceEl = $(this);
+        let imageSrc = sourceEl.attr("data-fullsize-src");
+        let imageAlt = sourceEl.attr("alt");
         showLightbox(imageSrc, imageAlt);
     });
 });
