@@ -30,7 +30,7 @@ $(document).ready( function() {
         history.replaceState(
             null,
             document.title,
-            window.location.pathname + $(e.target).attr("href")
+            window.location.pathname + window.location.search + $(e.target).attr("href")
         );
         e.preventDefault();
     });
