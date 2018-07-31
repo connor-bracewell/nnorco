@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.12"
+  - "node"
 after_success:
   - cp -r /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
   - mkdir /home/travis/build/connor-bracewell/nnorco/www/css
