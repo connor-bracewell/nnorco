@@ -134,8 +134,8 @@ h1.name {
 .navigation-container {
     margin-top: 1.5em;
     text-align: center;
-    border-top: $line-border;
-    border-bottom: $line-border;
+    color: $background-color;
+    background-color: $text-color;
 }
 
 @media print { .navigation-container {
@@ -166,7 +166,6 @@ h1.name {
 }
 
 .navigation-list a {
-    text-decoration: none;
     text-transform: lowercase;
 }
 
