@@ -112,7 +112,7 @@ img {
 .page-container {
     min-height: 100%;
     max-width: $page-width;
-    padding: 1.5em 1em 0 1em;
+    padding: 1em 1em 0 1em;
     margin: 0 auto;
     position: relative;
 }
@@ -147,7 +147,7 @@ h1.name {
 }}
 
 .navigation-container {
-    margin-top: 1.5em;
+    margin-top: 1em;
     text-align: center;
     color: $background-color;
     background-color: $text-color;
@@ -190,8 +190,7 @@ h1.name {
 }
 
 .content-container {
-    margin-top: 1.5em;
-    padding-bottom: 3.5em;
+    padding-bottom: 3.2em;
 }
 
 @media print { .content-container {
@@ -324,9 +323,9 @@ h3.transcript-section {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3.5em;
+    height: 3.2em;
     box-sizing: border-box;
-    padding: 1.5em 1em 0 1em;
+    padding: 1em 1em 0 1em;
     width: 100%;
     text-align: center;
 }
