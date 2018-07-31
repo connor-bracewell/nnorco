@@ -3,6 +3,7 @@ $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
 $page-width: 46em;
+$mobile-break: 23em;
 
 $medium-font-size: 1.1em;
 $large-font-size: 1.2em;
@@ -92,6 +93,20 @@ li ul {
 img {
     display: block;
     box-sizing: border-box;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media screen and (max-width: $mobile-break) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: unset;
+    }
 }
 
 .page-container {
@@ -230,10 +245,6 @@ h3.transcript-section {
     content: none;
 }
 
-.resume-company {
-    font-style: italic;
-}
-
 .transcript-grade {
     font-weight: bold;
 }
@@ -370,3 +381,4 @@ h3.transcript-section {
     border-top: $line-border;
     border-bottom: $line-border;
 }
+
