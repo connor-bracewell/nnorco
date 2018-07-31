@@ -166,11 +166,12 @@ h1.name {
 }
 
 .navigation-list a {
+    text-decoration: none;
     text-transform: lowercase;
 }
 
 .navigation-list a.open {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .content-container {
