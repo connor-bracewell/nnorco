@@ -169,6 +169,10 @@ h1.name {
     text-transform: lowercase;
 }
 
+.navigation-list a.open {
+    text-decoration: none;
+}
+
 .content-container {
     padding-bottom: 3em;
 }

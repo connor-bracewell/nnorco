@@ -18,22 +18,14 @@ $(document).ready( function() {
         }
     });
 
-    //Hide all the panels, then show the panel corresponding to the URL hash.
-    //Defaults to the item from the first link if there is no hash.
-    $(".content-container").children().hide();
-    var initialShow;
-    if (window.location.hash) {
-        initialShow = $(".navigation-list a[href=\"" + window.location.hash + "\"]").attr("data-show");
-    } else {
-        initialShow = $(".navigation-list a").first().attr("data-show");
-    }
-    $(initialShow).show();
-
     //Add click events to all the navigation links (including the ones in the body).
     $("a[data-show]").click(function(e) {
         //Show the corresponding panel.
         $(".content-container").children().hide();
         $($(e.target).attr("data-show")).show();
+        //tag the current tab as open
+        $(".open").removeClass("open");
+        $(e.target).addClass("open");
         //Update the URL to match the hash from the link.
         history.replaceState(
             null,
@@ -42,6 +34,17 @@ $(document).ready( function() {
         );
         e.preventDefault();
     });
+
+    //Hide all the panels, then show the panel corresponding to the URL hash.
+    //Defaults to the item from the first link if there is no hash.
+    $(".content-container").children().hide();
+    var initialShow;
+    if (window.location.hash) {
+        initialShow = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
+    } else {
+        initialShow = $(".navigation-list a").first()
+    }
+    initialShow.click();
 
     //Load the last commit info from the GitHub API.
     $.ajax({
