@@ -5,6 +5,8 @@ $code-font: "Anonymous Pro", monospace;
 $page-width: 46em;
 $mobile-break: 23em;
 
+$footer-height: 3.1em;
+
 $medium-font-size: 1.1em;
 $large-font-size: 1.2em;
 
@@ -190,7 +192,7 @@ h1.name {
 }
 
 .content-container {
-    padding-bottom: 3.2em;
+    padding-bottom: $footer-height;
 }
 
 @media print { .content-container {
@@ -323,7 +325,7 @@ h3.transcript-section {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3.2em;
+    height: $footer-height;
     box-sizing: border-box;
     padding: 1em 1em 0 1em;
     width: 100%;
