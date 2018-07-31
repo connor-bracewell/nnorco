@@ -205,10 +205,10 @@ h1.name {
 
 h2.fallback-header {
     text-align: center;
-    padding: 0.25em 0;
+    padding: 0.2em 0;
     font-size: $medium-font-size;
-    border-top: $line-border;
-    border-bottom: $line-border;
+    color: $background-color;
+    background-color: $text-color;
 }
 
 @media print { .print-resume {
