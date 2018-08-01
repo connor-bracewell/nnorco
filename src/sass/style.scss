@@ -265,7 +265,7 @@ h3.transcript-section {
     text-align: center;
 }
 
-.project-header-wrapper:not(:first-of-type) {
+.project-header-wrapper:not(.first) {
     margin-top: 1em;
     border-top: $line-border;
 }

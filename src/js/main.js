@@ -1,7 +1,8 @@
 if (window.location.search !== "?noscript") {
 $(document).ready(function() {
-    //Hide the NoScript fallback content.
+    //hide the NoScript fallback content, and vice-versa
     $(".noscript-only").hide();
+    $(".script-only").show();
 
     //Disable the direct image links used for NoScript.
     $(".img-directlink").click(function(e) {
