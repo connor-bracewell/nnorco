@@ -4,6 +4,9 @@ node_js:
 after_success:
   - cp -r /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
   - mkdir /home/travis/build/connor-bracewell/nnorco/www/css
+  - mustache /home/travis/build/connor-bracewell/nnorco/www/data/transcript.json /home/travis/build/connor-bracewell/nnorco/www/index.mustache > /home/travis/build/connor-bracewell/nnorco/www/index.html
+  - rm -r /home/travis/build/connor-bracewell/nnorco/www/data
+  - rm /home/travis/build/connor-bracewell/nnorco/www/index.moustache
   - sass /home/travis/build/connor-bracewell/nnorco/www/sass/style.scss > /home/travis/build/connor-bracewell/nnorco/www/css/style.css
   - sass /home/travis/build/connor-bracewell/nnorco/www/sass/bin4features.scss > /home/travis/build/connor-bracewell/nnorco/www/css/bin4features.css
   - rm -r /home/travis/build/connor-bracewell/nnorco/www/sass

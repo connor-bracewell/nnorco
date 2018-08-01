@@ -1,0 +1,33 @@
+{
+    "terms": [
+        {
+            "name": "Spring 2018",
+            "courses": [
+                {
+                    "name": "Documenting and Understanding Software Systems",
+                    "url": "https://web.uvic.ca/calendar2018-01/CDs/CSC/485A.html",
+                    "code": "CSC 485A",
+                    "grade": "93% (A+)"
+                },
+                {
+                    "name":  "Compiler Construction",
+                    "url":   "https://web.uvic.ca/calendar2018-01/CDs/CSC/435.html",
+                    "code":  "CSC 435",
+                    "grade": "100% (A+)"
+                },
+                {
+                    "name":  "Analysis of Algorithms",
+                    "url":   "https://web.uvic.ca/calendar2018-01/CDs/CSC/425.html",
+                    "code":  "CSC 425",
+                    "grade": "99% (A+)"
+                },
+                {
+                    "name":  "Introduction to Topology",
+                    "url":   "https://web.uvic.ca/calendar2018-01/CDs/MATH/365.html",
+                    "code":  "MATH 365",
+                    "grade": "94% (A+)"
+                }
+            ]
+        }
+    ]
+}

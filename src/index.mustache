@@ -128,41 +128,21 @@
                 <h2 class="fallback-header">Transcript</h2>
             </div>
             <p>This section lists all of my completed post-secondary coursework as listed on my official university transcript. For privacy reasons, this site does not include the university-provided transcript itself; if you are interested in obtaining a copy, please <a href="mailto:connor.bracewell@gmail.com">contact me</a>.</p>
-            <h3 class="transcript-section">Spring 2018<span class="transcript-fill-line"></span></h3>
+            {{#terms}}
+            <h3 class="transcript-section">{{name}}<span class="transcript-fill-line"></span></h3>
             <ul>
+                {{#courses}}
                 <li><!--
-                 -->Documenting and Understanding Software Systems
+                 -->{{name}}
                     <span class="desktop-only">&middot;</span>
                     <br class="mobile-only" />
-                    <a href="https://web.uvic.ca/calendar2018-01/CDs/CSC/485A.html" target="_blank">CSC 485A</a>
+                    <a href="{{&url}}" target="_blank">{{code}}</a>
                     &middot;
-                    <span class="transcript-grade">93% (A+)</span>
+                    <span class="transcript-grade">{{grade}}</span>
                 </li>
-                <li><!--
-                 -->Compiler Construction
-                    <span class="desktop-only">&middot;</span>
-                    <br class="mobile-only" />
-                    <a href="https://web.uvic.ca/calendar2018-01/CDs/CSC/435.html" target="_blank">CSC 435</a>
-                    &middot;
-                    <span class="transcript-grade">100% (A+)</span>
-                </li>
-                <li><!--
-                 -->Analysis of Algorithms
-                    <span class="desktop-only">&middot;</span>
-                    <br class="mobile-only" />
-                    <a href="https://web.uvic.ca/calendar2018-01/CDs/CSC/425.html" target="_blank">CSC 425</a>
-                    &middot;
-                    <span class="transcript-grade">99% (A+)</span>
-                </li>
-                <li><!--
-                 -->Introduction to Topology
-                    <span class="desktop-only">&middot;</span>
-                    <br class="mobile-only" />
-                    <a href="https://web.uvic.ca/calendar2018-01/CDs/MATH/365.html" target="_blank">MATH 365</a>
-                    &middot;
-                    <span class="transcript-grade">94% (A+)</span>
-                </li>
+                {{/courses}}
             </ul>
+            {{/terms}}
             <h3 class="transcript-section">Fall 2017<span class="transcript-fill-line"></span></h3>
             <ul>
                 <li><!--
