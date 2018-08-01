@@ -10,9 +10,9 @@ $footer-height: 3.2em;
 $medium-font-size: 1.1em;
 $large-font-size: 1.2em;
 
-$background-color: #22222a;
-$text-color: rgba(255,255,245,0.9);
-$line-color: rgba(255,255,245,0.9);
+$background-color: var(--bg-color);
+$text-color: var(--text-color);
+$line-color: var(--line-color);
 $lightbox-color: rgba(0,0,0,0.7);
 
 $print-background-color: #fff;
@@ -32,6 +32,12 @@ body {
     color: $text-color;
     font-family: $body-font;
     overflow-y: scroll;
+}
+
+body {
+    --bg-color: #22222a;
+    --text-color: rgba(255,255,245,0.9);
+    --line-color: rgba(255,255,245,0.9);
 }
 
 @media print { body {
