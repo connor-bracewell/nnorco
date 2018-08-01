@@ -40,6 +40,12 @@ body {
     --line-color: rgba(255,255,245,0.9);
 }
 
+body.light {
+    --bg-color: rgba(255,255,245,1);
+    --text-color: rgba(34,34,42,0.9);
+    --line-color: rgba(34,34,42,0.9);
+}
+
 @media print { body {
     background-color: $print-background-color;
     color: $print-text-color;
