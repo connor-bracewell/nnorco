@@ -4,9 +4,9 @@
             "name": "Spring 2018",
             "courses": [
                 {
-                    "name": "Documenting and Understanding Software Systems",
-                    "url": "https://web.uvic.ca/calendar2018-01/CDs/CSC/485A.html",
-                    "code": "CSC 485A",
+                    "name":  "Documenting and Understanding Software Systems",
+                    "url":   "https://web.uvic.ca/calendar2018-01/CDs/CSC/485A.html",
+                    "code":  "CSC 485A",
                     "grade": "93% (A+)"
                 },
                 {
@@ -26,6 +26,268 @@
                     "url":   "https://web.uvic.ca/calendar2018-01/CDs/MATH/365.html",
                     "code":  "MATH 365",
                     "grade": "94% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Fall 2017",
+            "courses": [
+                {
+                    "name":  "Combinatorial Algorithms",
+                    "url":   "https://web.uvic.ca/calendar2017-09/CDs/CSC/428A.html",
+                    "code":  "CSC 428A",
+                    "grade": "100% (A+)"
+                },
+                {
+                    "name":  "Randomized Algorithms",
+                    "url":   "https://web.uvic.ca/calendar2017-09/CDs/CSC/423.html",
+                    "code":  "CSC 423",
+                    "grade": "100% (A+)"
+                },
+                {
+                    "name":  "Graph Theory",
+                    "url":   "https://web.uvic.ca/calendar2017-09/CDs/MATH/423.html",
+                    "code":  "MATH 423",
+                    "grade": "99% (A+)"
+                },
+                {
+                    "name":  "Geometry",
+                    "url":   "https://web.uvic.ca/calendar2017-09/CDs/MATH/366.html",
+                    "code":  "MATH 366",
+                    "grade": "98% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Spring 2017",
+            "courses": [
+                {
+                    "name":  "Cryptography",
+                    "url":   "https://web.uvic.ca/calendar2017-05/CDs/CSC/429.html",
+                    "code":  "CSC 429",
+                    "grade": "95% (A+)"
+                },
+                {
+                    "name":  "Computer Communications and Networks",
+                    "url":   "https://web.uvic.ca/calendar2017-05/CDs/CSC/361.html",
+                    "code":  "CSC 361",
+                    "grade": "100% (A+)"
+                },
+                {
+                    "name":  "Combinatorial Mathematics",
+                    "url":   "https://web.uvic.ca/calendar2017-05/CDs/MATH/422.html",
+                    "code":  "MATH 422",
+                    "grade": "94% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Spring 2016",
+            "courses": [
+                {
+                    "name":  "Programming Languages",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/CSC/330.html",
+                    "code":  "CSC 330",
+                    "grade": "96% (A+)"
+                },
+                {
+                    "name":  "Foundations of Computer Science",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/CSC/320.html",
+                    "code":  "CSC 320",
+                    "grade": "100% (A+)"
+                },
+                {
+                    "name":  "Introduction to Computer Graphics",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/CSC/305.html",
+                    "code":  "CSC 305",
+                    "grade": "96% (A+)"
+                },
+                {
+                    "name":  "Introduction to Partial Differential Equations",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/MATH/346.html",
+                    "code":  "MATH 346",
+                    "grade": "96% (A+)"
+                },
+                {
+                    "name":  "Linear Algebra",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/MATH/311.html",
+                    "code":  "MATH 311",
+                    "grade": "90% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Fall 2015",
+            "courses": [
+                {
+                    "name":  "Operating Systems",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/CSC/360.html",
+                    "code":  "CSC 360",
+                    "grade": "98% (A+)"
+                },
+                {
+                    "name":  "Numerical Analysis",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/CSC/349A.html",
+                    "code":  "CSC 349A",
+                    "grade": "98% (A+)"
+                },
+                {
+                    "name":  "Mathematical Modelling",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/MATH/377.html",
+                    "code":  "MATH 377",
+                    "grade": "97% (A+)"
+                },
+                {
+                    "name":  "Intermediate Ordinary Differential Equations",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/MATH/342.html",
+                    "code":  "MATH 342",
+                    "grade": "91% (A+)"
+                },
+                {
+                    "name":  "Advanced Calculus",
+                    "url":   "https://web.uvic.ca/calendar2016-05/CDs/MATH/300.html",
+                    "code":  "MATH 300",
+                    "grade": "97% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Spring 2015",
+            "courses": [
+                {
+                    "name":  "Algorithms and Data Structures II",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/CSC/226.html",
+                    "code":  "CSC 226",
+                    "grade": "98% (A+)"
+                },
+                {
+                    "name":  "Discrete and Combinatorial Mathematics",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/MATH/222.html",
+                    "code":  "MATH 222",
+                    "grade": "93% (A+)"
+                },
+                {
+                    "name":  "Introduction to Algebra",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/MATH/212.html",
+                    "code":  "MATH 212",
+                    "grade": "97% (A+)"
+                },
+                {
+                    "name":  "Calculus of Several Variables",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/MATH/200.html",
+                    "code":  "MATH 200",
+                    "grade": "88% (A)"
+                },
+                {
+                    "name":  "Software Development Methods",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/SENG/265.html",
+                    "code":  "SENG 265",
+                    "grade": "92% (A+)"
+                }
+            ]
+        },
+        {
+            "name": "Fall 2014",
+            "courses": [
+                {
+                    "name":  "Introduction to Computer Architecture",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/CSC/230.html",
+                    "code":  "CSC 230",
+                    "grade": "98% (A+)"
+                },
+                {
+                    "name":  "Algorithms and Data Structures I",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/CSC/225.html",
+                    "code":  "CSC 225",
+                    "grade": "97% (A+)"
+                },
+                {
+                    "name":  "Introduction to Real Analysis",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/MATH/236.html",
+                    "code":  "MATH 236",
+                    "grade": "92% (A+)"
+                },
+                {
+                    "name":  "Introduction to Differential Equations",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/MATH/201.html",
+                    "code":  "MATH 201",
+                    "grade": "76% (B)"
+                },
+                {
+                    "name":  "Technical Writing",
+                    "url":   "https://web.uvic.ca/calendar2014/CDs/ENGR/240.html",
+                    "code":  "ENGR 240",
+                    "grade": "87% (A)"
+                }
+            ]
+        },
+        {
+            "name": "Spring 2014",
+            "courses": [
+                {
+                    "name":  "Fundamentals of Programming II",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/CSC/115.html",
+                    "code":  "CSC 115",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "The Practice of Computer Science",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/CSC/106.html",
+                    "code":  "CSC 106",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "Logic and Foundations",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/MATH/122.html",
+                    "code":  "MATH 122",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "Calculus II",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/MATH/101.html",
+                    "code":  "MATH 101",
+                    "grade": "A"
+                },
+                {
+                    "name":  "Introduction to Probability and Statistics I",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/STAT/260.html",
+                    "code":  "STAT 260",
+                    "grade": "A+"
+                }
+            ]
+        },
+        {
+            "name": "Fall 2013",
+            "courses": [
+                {
+                    "name":  "Game Strategy, Interaction, and Design",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/CSC/167.html",
+                    "code":  "CSC 167",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "Fundamentals of Programming I",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/CSC/110.html",
+                    "code":  "CSC 110",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "Matrix Algebra I",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/MATH/211.html",
+                    "code":  "MATH 211",
+                    "grade": "A+"
+                },
+                {
+                    "name":  "Calculus I",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/MATH/100.html",
+                    "code":  "MATH 100",
+                    "grade": "A"
+                },
+                {
+                    "name":  "Academic Reading and Writing",
+                    "url":   "https://web.uvic.ca/calendar2013/CDs/ENGL/135.html",
+                    "code":  "ENGL 135",
+                    "grade": "B+"
                 }
             ]
         }
