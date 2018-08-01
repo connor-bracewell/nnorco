@@ -1,4 +1,5 @@
-$(document).ready( function() {
+if (window.location.search !== "?noscript") {
+$(document).ready(function() {
     //Hide the NoScript fallback content.
     $(".noscript-only").hide();
 
@@ -136,3 +137,4 @@ $(document).ready( function() {
         showLightbox(imageSrc, imageAlt);
     });
 });
+}
