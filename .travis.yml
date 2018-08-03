@@ -2,12 +2,16 @@ language: node_js
 node_js:
   - "node"
 after_success:
-  - cp -r /home/travis/build/connor-bracewell/nnorco/src /home/travis/build/connor-bracewell/nnorco/www
-  - mkdir /home/travis/build/connor-bracewell/nnorco/www/css
-  - mustache /home/travis/build/connor-bracewell/nnorco/www/data/transcript.json /home/travis/build/connor-bracewell/nnorco/www/index.mustache > /home/travis/build/connor-bracewell/nnorco/www/index.html
-  - rm -r /home/travis/build/connor-bracewell/nnorco/www/data
-  - rm /home/travis/build/connor-bracewell/nnorco/www/index.mustache
-  - sass /home/travis/build/connor-bracewell/nnorco/www/sass/style.scss > /home/travis/build/connor-bracewell/nnorco/www/css/style.css
-  - sass /home/travis/build/connor-bracewell/nnorco/www/sass/bin4features.scss > /home/travis/build/connor-bracewell/nnorco/www/css/bin4features.css
-  - rm -r /home/travis/build/connor-bracewell/nnorco/www/sass
-  - surge /home/travis/build/connor-bracewell/nnorco/www
+  - mkdir www
+  - mustache src/data.json src/index.mustache > www/index.html
+  - cp src/404.html www
+  - cp -r src/js www
+  - cp -r src/img www
+  - mkdir www/burger
+  - cp burger.html www/burger/index.html
+  - cp src/meta/.surgeignore www
+  - cp src/meta/CNAME www
+  - mkdir www/css
+  - sass src/sass/style.scss > www/css/style.css
+  - sass src/sass/bin4features.scss > www/css/bin4features.css
+  - surge www
