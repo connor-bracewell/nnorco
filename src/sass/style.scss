@@ -80,12 +80,8 @@ a {
 
 p {
     padding: 0;
-    margin: 0;
-    line-height: 1.3em;
-}
-
-* + p {
     margin: 1em 0 0 0;
+    line-height: 1.3em;
 }
 
 ul, ol {
@@ -224,7 +220,6 @@ h1.name {
 /////////////
 
 .content-container {
-    margin-top: 1em;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
