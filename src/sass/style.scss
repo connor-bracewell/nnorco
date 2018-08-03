@@ -1,9 +1,14 @@
+///////////////
+// variables //
+///////////////
+
 $head-font: "Maven Pro", sans-serif;
 $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
 $page-width: 46em;
 $mobile-break: 40em; //to stop breaks in transcript
+$nav-break: 22em; //to stop breaks in nav
 
 $footer-height: 3.2em;
 
@@ -19,6 +24,10 @@ $print-background-color: #fff;
 $print-text-color: #000;
 
 $line-border: 1px solid $line-color;
+
+///////////////
+// overrides //
+///////////////
 
 html, body {
     padding: 0;
@@ -109,6 +118,10 @@ img {
     box-sizing: border-box;
 }
 
+////////////////////////
+// general responsive //
+////////////////////////
+
 .mobile-only {
     display: none;
 }
@@ -127,12 +140,15 @@ img {
     display: none;
 }
 
+////////////////////
+// page container //
+////////////////////
+
 .page-container {
     min-height: 100%;
     max-width: $page-width;
-    padding: 1em 1em 0 1em;
+    padding: 0 1em;
     margin: 0 auto;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -143,7 +159,12 @@ img {
     padding: 1.3em;
 }}
 
+////////////
+// header //
+////////////
+
 .contact-container {
+    margin-top: 1em;
     text-align: center;
 }
 
@@ -167,6 +188,10 @@ h1.name {
     display: initial;
 }}
 
+////////////////
+// navigation //
+////////////////
+
 .navigation-container {
     margin-top: 1em;
     text-align: center;
@@ -188,14 +213,11 @@ h1.name {
     content: "\b7\a0";
 }
 
-@media screen and (min-width: 20em) {
+@media screen and (min-width: $nav-break) {
     .inline-list li {
         margin-left: 0;
         display: inline;
     }
-}
-
-@media screen and (max-width: 20em) {
     .inline-list li:first-child::before {
         content: none;
     }
@@ -358,7 +380,7 @@ h3.transcript-section {
 
 .footer-content {
     border-top: $line-border;
-    padding-top: 0.4em
+    padding: 0.3em 0;
 }
 
 .fetch-failed-message, .default-footer-message {
