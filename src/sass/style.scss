@@ -6,11 +6,8 @@ $head-font: "Maven Pro", sans-serif;
 $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
-$page-width: 46em;
-$mobile-break: 40em; //to stop breaks in transcript
+$page-width: 34em;
 $nav-break: 22em; //to stop breaks in nav
-
-$footer-height: 3.2em;
 
 $medium-font-size: 1.1em;
 $large-font-size: 1.2em;
@@ -120,24 +117,6 @@ li ul {
 img {
     display: block;
     box-sizing: border-box;
-}
-
-////////////////////////
-// general responsive //
-////////////////////////
-
-.mobile-only {
-    display: none;
-}
-
-@media screen and (max-width: $mobile-break) {
-    .desktop-only {
-        display: none;
-    }
-
-    .mobile-only {
-        display: unset;
-    }
 }
 
 .nostyle-only {
