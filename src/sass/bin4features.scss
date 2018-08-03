@@ -1,20 +1,22 @@
-.burger-title-container {
-    text-align: center;
+.burger-page-container {
+    justify-content: center;
 }
 
-h1.burger-title {
+.burger-title-container {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.burger-title {
     font-size: 1.3em;
 }
 
 .burger-url {
-    font-family: inherit;
-    font-weight: normal;
-    text-transform: none;
+    display: block;
 }
 
 .burger-item-container {
-    margin: 2em auto 2em auto;
-    max-width: 35em;
+    margin: 1em 0;
 }
 
 .burger-item {
