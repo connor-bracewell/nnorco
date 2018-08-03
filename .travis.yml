@@ -8,7 +8,7 @@ after_success:
   - cp -r src/js www
   - cp -r src/img www
   - mkdir www/burger
-  - cp burger.html www/burger/index.html
+  - cp src/burger.html www/burger/index.html
   - cp src/meta/.surgeignore www
   - cp src/meta/CNAME www
   - mkdir www/css
