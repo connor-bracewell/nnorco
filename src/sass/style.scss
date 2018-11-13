@@ -98,6 +98,14 @@ li {
     padding: 0.2em 0;
 }
 
+@media print { li {
+    padding: 0.15em 0;
+}}
+
+@media print { li li {
+    padding: 0.1em 0 {
+}}
+
 li::before {
     content: "\b7\a0\a0";
 }
@@ -106,9 +114,9 @@ li > * {
     text-indent: initial;
 }
 
-li ul {
+@media screen { li ul {
     margin-top: 0.2em;
-}
+}}
 
 img {
     display: block;
@@ -135,7 +143,7 @@ img {
 
 @media print { .page-container {
     max-width: 100%;
-    padding: 1.3em;
+    padding: 1em;
 }}
 
 ////////////
@@ -239,8 +247,12 @@ h2.fallback-header {
     background-color: $text-color;
 }
 
+////////////
+// resume //
+////////////
+
 @media print { .print-resume {
-    margin-top: 3em; //adjusts spacing for single-page print
+    margin-top: 0.4em; //adjusts spacing for single-page print
 }}
 
 h3.resume-section,
@@ -250,6 +262,11 @@ h3.transcript-section {
     white-space: nowrap;
     overflow: hidden;
     font-size: $medium-font-size;
+}
+
+@media print { h3.resume-section {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
 }
 
 .resume-fill-line,
@@ -266,13 +283,17 @@ h3.transcript-section {
     text-indent: 0;
 }
 
-@media screen { .resume-list > li:not(:first-child) {
+.resume-list > li:not(:first-child) {
     padding-top: 0.5em;
-}}
+}
 
 .resume-list > li::before {
     content: none;
 }
+
+////////////////
+// transcript //
+////////////////
 
 .transcript-grade {
     font-weight: bold;
@@ -282,6 +303,10 @@ h3.transcript-section {
     font-style: italic;
     text-align: center;
 }
+
+//////////////
+// projects //
+//////////////
 
 .project-header-wrapper {
     text-align: center;
