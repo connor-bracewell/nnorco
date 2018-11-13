@@ -291,6 +291,10 @@ h3.transcript-section {
     content: none;
 }
 
+@media print { .no-orphan {
+    white-space: nowrap;
+}}
+
 ////////////////
 // transcript //
 ////////////////
