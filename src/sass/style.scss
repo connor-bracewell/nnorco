@@ -266,9 +266,9 @@ h3.transcript-section {
     text-indent: 0;
 }
 
-.resume-list >li:not(:first-child) {
+@media screnn { .resume-list > li:not(:first-child) {
     padding-top: 0.5em;
-}
+}}
 
 .resume-list > li::before {
     content: none;
