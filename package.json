@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/connor-bracewell/nnorco#readme",
   "devDependencies": {
-    "mustache": "^2.3.0",
-    "sass": "^1.10.1",
+    "mustache": "^2.3.2",
+    "sass": "^1.14.3",
     "surge": "^0.20.1"
   }
 }
