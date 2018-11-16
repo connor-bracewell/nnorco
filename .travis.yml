@@ -9,8 +9,6 @@ after_success:
   - cp -r src/img www
   - mkdir www/burger
   - cp src/burger.html www/burger/index.html
-  - cp src/meta/.surgeignore www
-  - cp src/meta/CNAME www
   - mkdir www/css
   - sass src/sass/style.scss > www/css/style.css
   - sass src/sass/bin4features.scss > www/css/bin4features.css
