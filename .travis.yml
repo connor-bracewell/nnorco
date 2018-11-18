@@ -7,12 +7,10 @@ after_success:
   - cp src/404.html www
   - mkdir www/js
   - tcs --outFile www/js/main.js src/ts/main.ts
-  - cp -r src/js/* www
+  - cp -r src/js/* www/js
   - cp -r src/img www
   - mkdir www/burger
   - cp src/burger.html www/burger/index.html
-  - cp src/meta/.surgeignore www
-  - cp src/meta/CNAME www
   - mkdir www/css
   - sass src/sass/style.scss > www/css/style.css
   - sass src/sass/bin4features.scss > www/css/bin4features.css

@@ -4,7 +4,7 @@
   "description": "Connor Bracewell's personal site.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"No tests configured.\""
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,10 @@
   },
   "homepage": "https://github.com/connor-bracewell/nnorco#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.22",
     "mustache": "^2.3.2",
     "sass": "^1.14.3",
-    "surge": "^0.20.1"
-  },
-  "dependencies": {
-    "@types/jquery": "^3.3.22",
+    "surge": "^0.20.1",
     "typescript": "^3.1.6"
   }
 }
