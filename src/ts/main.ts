@@ -93,8 +93,9 @@ $(document).ready(function() {
             let boundX = boundEl.width();
             let boundY = boundEl.height();
             let boundR = boundX / boundY;
-            let imageX = imageEl.get(0).naturalWidth;
-            let imageY = imageEl.get(0).naturalHeight;
+            let imageElRaw = imageEl.get(0) as HTMLImageElement;
+            let imageX = imageElRaw.naturalWidth;
+            let imageY = imageElRaw.naturalHeight;
             let imageR = imageX / imageY;
             let contentX;
             let contentY;

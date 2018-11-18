@@ -5,7 +5,9 @@ after_success:
   - mkdir www
   - mustache src/data.json src/index.mustache > www/index.html
   - cp src/404.html www
-  - cp -r src/js www
+  - mkdir www/js
+  - tsc --outFile www/js/main.js src/ts/main.ts
+  - cp -r src/js/* www/js
   - cp -r src/img www
   - mkdir www/burger
   - cp src/burger.html www/burger/index.html
