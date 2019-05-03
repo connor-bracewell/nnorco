@@ -15,14 +15,9 @@
         writeItem(root, "feature cocktail");
         writeItem(root, "dessert");
     }
-
-    function writeItem(root, name) {
-        writeItem(root, name, null);
-    }
-
     function writeItem(root, name, alt) {
         let itemElem = getItemElem(root, name);
-        if (itemElem.length === 0 && alt !== null) {
+        if (itemElem.length === 0 && alt !== undefined) {
             itemElem = getItemElem(root, alt);
         }
         name = name.replace(" ","");
