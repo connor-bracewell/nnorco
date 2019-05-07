@@ -16,7 +16,7 @@ after_success:
   - sass src/sass/bin4features.scss > www/css/bin4features.css
   - |
       if [ "$TRAVIS_BRANCH" = "master" ]; then
-        surge www nnor.co
+        surge www https://nnor.co
       elif [ "$TRAVIS_BRANCH" = "dev" ]; then
-        surge www dev.nnor.co
+        surge www https://dev.nnor.co
       fi
