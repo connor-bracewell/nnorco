@@ -157,11 +157,11 @@ $(document).ready(function() {
 
     // Set the lightbox to open with the clicked-on project image.
     $(".lightbox-source").click(function() {
+        $(".lightbox-image").hide();
         let sourceEl = $(this);
         let imageSrc = sourceEl.attr("data-fullsize-src");
         if (imageCache[imageSrc]) {
             // Use cached image
-            $(".lightbox-image").hide();
             imageCache[imageSrc].show();
             overlayEl.show();
             resizeLightbox();
