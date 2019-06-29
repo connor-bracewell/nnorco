@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     //Hide all the panels, then show the panel corresponding to the URL hash.
     //Defaults to the item from the first link if there is no hash.
-    $(".content-container").children().hide();
+    $(".content-panel").hide();
     let initialShowLink = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
     if (initialShowLink.length === 0) {
         initialShowLink = $(".navigation-list a").first()
