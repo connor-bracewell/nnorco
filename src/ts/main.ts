@@ -153,6 +153,7 @@ $(document).ready(function() {
         overlayEl.hide();
     });
 
+    // Cache lightbox image elements to prevent further requests eg. in Chrome.
     let imageCache = {};
 
     // Set the lightbox to open with the clicked-on project image.
