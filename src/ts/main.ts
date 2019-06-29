@@ -83,7 +83,6 @@ $(document).ready(function() {
 
     // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
-    let imageEl = $(".lightbox-image");
 
     function ignoreBubble(f) {
         function impl(e) {
@@ -102,9 +101,9 @@ $(document).ready(function() {
             let boundX = boundEl.width();
             let boundY = boundEl.height();
             let boundR = boundX / boundY;
-            let imageElRaw = imageEl.get(0) as HTMLImageElement;
-            let imageX = imageElRaw.naturalWidth;
-            let imageY = imageElRaw.naturalHeight;
+            let imageEl = $(".lightbox-image:visible").get(0) as HTMLImageElement;
+            let imageX = imageEl.naturalWidth;
+            let imageY = imageEl.naturalHeight;
             let imageR = imageX / imageY;
             let contentX;
             let contentY;
@@ -126,18 +125,27 @@ $(document).ready(function() {
     // Set the lightbox to resize whenever the window is resized.
     $(window).resize(resizeLightbox);
 
+    // Show the lightbox after the image loads.
     function showLightbox(imageSrc, imageAlt) {
-        // Create an object for asynchronous image download.
-        let asyncImage = new Image();
-        // Set the image to show when done loading.
-        asyncImage.onload = function() {
-            imageEl.attr("src", imageSrc);
-            imageEl.attr("alt", imageAlt);
-            overlayEl.show();
-            resizeLightbox();
+        let imageEl = new Image();
+        imageEl.src = imageSrc;
+        imageEl.alt = imageAlt;
+        imageEl.classList.add("lightbox-image");
+        imageCache[imageSrc] = $(imageEl);
+        $(".lightbox-content").append(imageEl);
+        if (typeof imageEl.decode === "function") {
+            // Use `decode()` if available.
+            imageEl.decode().then(function() {
+                overlayEl.show();
+                resizeLightbox();
+            });
+        } else {
+            // Otherwise fallback to `onload`
+            imageEl.onload = function() {
+                overlayEl.show();
+                resizeLightbox();
+            }
         }
-        // Set `src` to start the download.
-        asyncImage.src = imageSrc;
     }
 
     // Set the lightbox to close when clicked.
@@ -145,12 +153,23 @@ $(document).ready(function() {
         overlayEl.hide();
     });
 
+    // Cache lightbox image elements to prevent further requests eg. in Chrome.
+    let imageCache = {};
+
     // Set the lightbox to open with the clicked-on project image.
     $(".lightbox-source").click(function() {
+        $(".lightbox-image").hide();
         let sourceEl = $(this);
         let imageSrc = sourceEl.attr("data-fullsize-src");
-        let imageAlt = sourceEl.attr("alt");
-        showLightbox(imageSrc, imageAlt);
+        if (imageCache[imageSrc]) {
+            // Use cached image
+            imageCache[imageSrc].show();
+            overlayEl.show();
+            resizeLightbox();
+        } else {
+            let imageAlt = sourceEl.attr("alt");
+            showLightbox(imageSrc, imageAlt);
+        }
     });
 
 });
