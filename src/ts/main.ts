@@ -133,10 +133,19 @@ $(document).ready(function() {
         imageEl.attr("src", imageSrc);
         imageEl.attr("alt", imageAlt);
         let imageElRaw = imageEl.get(0) as HTMLImageElement;
-        imageElRaw.decode().then(function() {
-            overlayEl.show();
-            resizeLightbox();
-        });
+        if (typeof imageElRaw.decode === "function") {
+            // Use `decode()` if available.
+            imageElRaw.decode().then(function() {
+                overlayEl.show();
+                resizeLightbox();
+            });
+        } else {
+            // Otherwise fallback to `onload`
+            imageElRaw.onload = function() {
+                overlayEl.show();
+                resizeLightbox();
+            }
+        }
     }
 
     // Set the lightbox to close when clicked.
