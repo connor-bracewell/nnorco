@@ -132,10 +132,10 @@ $(document).ready(function() {
     function showLightbox(imageSrc, imageAlt) {
         imageEl.attr("src", imageSrc);
         imageEl.attr("alt", imageAlt);
-        imageEl.get(0).onload = function() {
+        imageEl.get(0).decode().then(function() {
             overlayEl.show();
             resizeLightbox();
-        }
+        });
     }
 
     // Set the lightbox to close when clicked.
