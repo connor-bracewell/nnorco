@@ -131,6 +131,7 @@ $(document).ready(function() {
         imageEl.src = imageSrc;
         imageEl.alt = imageAlt;
         imageCache[imageSrc] = imageEl;
+        $(".lightbox-content").append(imageEl);
         if (typeof imageEl.decode === "function") {
             // Use `decode()` if available.
             imageEl.decode().then(function() {
