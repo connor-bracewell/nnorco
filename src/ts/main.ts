@@ -15,6 +15,7 @@ $(document).ready(function() {
 
     // Apply light theme if requested.
     if (params.has("light")) {
+        console.log("Applying light theme");
         $("body").addClass("light");
     }
 
