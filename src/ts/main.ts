@@ -83,7 +83,6 @@ $(document).ready(function() {
 
     // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
-    let imageEl = $(".lightbox-image");
 
     function ignoreBubble(f) {
         function impl(e) {
@@ -102,9 +101,9 @@ $(document).ready(function() {
             let boundX = boundEl.width();
             let boundY = boundEl.height();
             let boundR = boundX / boundY;
-            let imageElRaw = imageEl.get(0) as HTMLImageElement;
-            let imageX = imageElRaw.naturalWidth;
-            let imageY = imageElRaw.naturalHeight;
+            let imageEl = $(".lightbox-image:visible").get(0) as HTMLImageElement;
+            let imageX = imageEl.naturalWidth;
+            let imageY = imageEl.naturalHeight;
             let imageR = imageX / imageY;
             let contentX;
             let contentY;
@@ -128,18 +127,19 @@ $(document).ready(function() {
 
     // Show the lightbox after the image loads.
     function showLightbox(imageSrc, imageAlt) {
-        imageEl.attr("src", imageSrc);
-        imageEl.attr("alt", imageAlt);
-        let imageElRaw = imageEl.get(0) as HTMLImageElement;
-        if (typeof imageElRaw.decode === "function") {
+        let imageEl = new Image();
+        imageEl.src = imageSrc;
+        imageEl.alt = imageAlt;
+        imageCache[imageSrc] = imageEl;
+        if (typeof imageEl.decode === "function") {
             // Use `decode()` if available.
-            imageElRaw.decode().then(function() {
+            imageEl.decode().then(function() {
                 overlayEl.show();
                 resizeLightbox();
             });
         } else {
             // Otherwise fallback to `onload`
-            imageElRaw.onload = function() {
+            imageEl.onload = function() {
                 overlayEl.show();
                 resizeLightbox();
             }
@@ -151,12 +151,22 @@ $(document).ready(function() {
         overlayEl.hide();
     });
 
+    let imageCache = {};
+
     // Set the lightbox to open with the clicked-on project image.
     $(".lightbox-source").click(function() {
         let sourceEl = $(this);
         let imageSrc = sourceEl.attr("data-fullsize-src");
-        let imageAlt = sourceEl.attr("alt");
-        showLightbox(imageSrc, imageAlt);
+        if (imageCache[imageSrc]) {
+            // Use cached image
+            $(".lightbox-image").hide();
+            imageCache[imageSrc].show();
+            overlayEl.show();
+            resizeLightbox();
+        } else {
+            let imageAlt = sourceEl.attr("alt");
+            showLightbox(imageSrc, imageAlt);
+        }
     });
 
 });
