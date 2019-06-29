@@ -83,7 +83,7 @@ $(document).ready(function() {
 
     // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
-    let imageEl = $(".lightbox-image").get(0);
+    let imageEl = $(".lightbox-image");
 
     function ignoreBubble(f) {
         function impl(e) {
@@ -102,7 +102,7 @@ $(document).ready(function() {
             let boundX = boundEl.width();
             let boundY = boundEl.height();
             let boundR = boundX / boundY;
-            let imageElRaw = imageEl as HTMLImageElement;
+            let imageElRaw = imageEl.get(0) as HTMLImageElement;
             let imageX = imageElRaw.naturalWidth;
             let imageY = imageElRaw.naturalHeight;
             console.log("naturalWidth: " + imageX);
@@ -128,14 +128,14 @@ $(document).ready(function() {
     // Set the lightbox to resize whenever the window is resized.
     $(window).resize(resizeLightbox);
 
-    imageEl.onload = function() {
-        overlayEl.show();
-        resizeLightbox();
-    }
-
+    // Show the lightbox after the image loads.
     function showLightbox(imageSrc, imageAlt) {
         imageEl.attr("src", imageSrc);
         imageEl.attr("alt", imageAlt);
+        imageEl.get(0).onload = function() {
+            overlayEl.show();
+            resizeLightbox();
+        }
     }
 
     // Set the lightbox to close when clicked.
