@@ -105,6 +105,8 @@ $(document).ready(function() {
             let imageElRaw = imageEl.get(0) as HTMLImageElement;
             let imageX = imageElRaw.naturalWidth;
             let imageY = imageElRaw.naturalHeight;
+            console.log("naturalWidth: " + imageX);
+            console.log("naturalHeight: " + imageY);
             let imageR = imageX / imageY;
             let contentX;
             let contentY;
