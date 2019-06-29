@@ -132,7 +132,8 @@ $(document).ready(function() {
     function showLightbox(imageSrc, imageAlt) {
         imageEl.attr("src", imageSrc);
         imageEl.attr("alt", imageAlt);
-        imageEl.get(0).decode().then(function() {
+        let imageElRaw = imageEl.get(0) as HTMLImageElement;
+        imageElRaw.decode().then(function() {
             overlayEl.show();
             resizeLightbox();
         });
