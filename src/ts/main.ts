@@ -74,9 +74,9 @@ $(document).ready(function() {
             let commitMonth = commitDate.getMonth() + 1;
             let commitPaddedMonth = (commitMonth < 10 ? "0" : "") + commitMonth;
             $("#commit-date").text(commitPaddedMonth + "/" + commitDate.getFullYear());
-            $(".last-commit-info").show();
         },
         error: function(jqXHR, textStatus, errorThrown) {
+            $(".last-commit-info").hide();
             $(".fetch-failed-message").show();
         }  
     });
