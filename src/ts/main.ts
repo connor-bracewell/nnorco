@@ -26,7 +26,7 @@ $(document).ready(function() {
     $("a[data-show]").click(function(e) {
         e.preventDefault();
         //show the corresponding panel.
-        $(".content-container").children().hide();
+        $(".content-panel").hide();
         $($(e.target).attr("data-show")).show();
         //tag the current tab as open
         $(".open").removeClass("open");
