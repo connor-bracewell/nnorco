@@ -130,6 +130,7 @@ $(document).ready(function() {
         let imageEl = new Image();
         imageEl.src = imageSrc;
         imageEl.alt = imageAlt;
+        imageEl.classList.add("lightbox-image");
         imageCache[imageSrc] = $(imageEl);
         $(".lightbox-content").append(imageEl);
         if (typeof imageEl.decode === "function") {
