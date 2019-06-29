@@ -1,16 +1,25 @@
-if (window.location.search !== "?noscript") {
+let params = new URLSearchParams(window.location.search);
+
+if (!params.has("noscript")) { // Emulate noscript behavior if requested.
+
 $(document).ready(function() {
-    //hide the NoScript fallback content, and vice-versa
+
+    // Hide fallback content and show script-only content.
     $(".noscript-only").hide();
     $(".script-only").show();
 
-    //Disable the direct image links used for NoScript.
+    // Disable direct image links used for NoScript.
     $(".img-directlink").click(function(e) {
         e.preventDefault();
     });
 
-    //Update all the container IDs to match the data-show values instead of URL hashes.
-    //ie. "#resume" has its ID set to "resume-panel"
+    // Apply light theme if requested.
+    if (params.has("light")) {
+        $("body").addClass("light");
+    }
+
+    // Update all the container IDs to match the data-show values instead of URL hashes.
+    // eg. "#resume" has its ID set to "resume-panel"
     $(".navigation-list a").each(function(){
         let target = $(this);
         let urlHash = target.attr("href");
@@ -22,16 +31,16 @@ $(document).ready(function() {
         }
     });
 
-    //Add click events to all the navigation links (including the ones in the body).
+    // Add click events to all the navigation links (including the ones in the body).
     $("a[data-show]").click(function(e) {
         e.preventDefault();
-        //show the corresponding panel.
+        // Show only the corresponding panel.
         $(".content-panel").hide();
         $($(e.target).attr("data-show")).show();
-        //tag the current tab as open
+        // Tag only the current tab as open.
         $(".open").removeClass("open");
         $(e.target).addClass("open");
-        //update the URL to match the hash from the link.
+        // Update the URL to match the hash from the link.
         let hash = $(e.target).attr("href");
         if (hash === "#") {
             hash = "";
@@ -43,8 +52,8 @@ $(document).ready(function() {
         );
     });
 
-    //Hide all the panels, then show the panel corresponding to the URL hash.
-    //Defaults to the item from the first link if there is no hash.
+    // Hide all the panels, then show the panel corresponding to the URL hash.
+    // Defaults to the item from the first link if there is no hash.
     $(".content-panel").hide();
     let initialShowLink = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
     if (initialShowLink.length === 0) {
@@ -52,7 +61,7 @@ $(document).ready(function() {
     }
     initialShowLink.click();
 
-    //Load the last commit info from the GitHub API.
+    // Load the last commit info from the GitHub API.
     $.ajax({
         url: "https://api.github.com/repos/connor-bracewell/nnorco/commits",
         dataType: "json",
@@ -72,7 +81,7 @@ $(document).ready(function() {
         }  
     });
 
-    //The lightbox element is referenced several times.
+    // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
     let imageEl = $(".lightbox-image");
 
@@ -85,7 +94,7 @@ $(document).ready(function() {
         return impl;
     }
 
-    //Resizes the open lightbox to fill the lightbox container as much as possible.
+    // Resize the open lightbox to fill the lightbox container as much as possible.
     function resizeLightbox() {
         if (overlayEl.is(":visible")) {
             let boundEl = $(".lightbox-overlay");
@@ -114,35 +123,36 @@ $(document).ready(function() {
         }
     }
 
-    //Set the lightbox to resize when the window is.
+    // Set the lightbox to resize whenever the window is resized.
     $(window).resize(resizeLightbox);
 
-    //Onclick function to show the lightbox.
     function showLightbox(imageSrc, imageAlt) {
-        //Create a new image to load asynchronously.
+        // Create an object for asynchronous image download.
         let asyncImage = new Image();
-        //Set the image to show when done loading
+        // Set the image to show when done loading.
         asyncImage.onload = function() {
             imageEl.attr("src", imageSrc);
             imageEl.attr("alt", imageAlt);
             overlayEl.show();
             resizeLightbox();
         }
-        //Set src to start the download.
+        // Set `src` to start the download.
         asyncImage.src = imageSrc;
     }
 
-    //Set the lightbox to close when clicked
+    // Set the lightbox to close when clicked.
     overlayEl.click(function(e) {
         overlayEl.hide();
     });
 
-    //Set the lightbox to open with the clicked-on project image.
+    // Set the lightbox to open with the clicked-on project image.
     $(".lightbox-source").click(function() {
         let sourceEl = $(this);
         let imageSrc = sourceEl.attr("data-fullsize-src");
         let imageAlt = sourceEl.attr("alt");
         showLightbox(imageSrc, imageAlt);
     });
+
 });
+
 }
