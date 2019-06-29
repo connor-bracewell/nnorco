@@ -19,4 +19,5 @@ after_success:
         surge www https://nnor.co
       elif [ "$TRAVIS_BRANCH" = "dev" ]; then
         surge www https://dev.nnor.co
+        surge www nnorco.surge.sh
       fi
