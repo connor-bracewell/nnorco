@@ -3,6 +3,9 @@ node_js:
   - "node"
 after_success:
   - mkdir www
+  - jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > src/data.json
+  - jq ".commit_hash=\"$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].commit.sha.[0,7])\"" src/data.json > src/data.json
+  - jq ".commit_url=\"$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].commit.html_url)\"" src/data.json > src/data.json
   - mustache src/data.json src/index.mustache > www/index.html
   - cp src/404.html www
   - mkdir www/js
