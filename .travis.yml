@@ -4,8 +4,8 @@ node_js:
 after_success:
   - mkdir www
   - jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > src/data2.json
-  - jq ".commit_hash=\"$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].sha[0:7])\"" src/data2.json > src/data3.json
-  - jq ".commit_url=\"$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].html_url)\"" src/data3.json > src/data4.json
+  - jq ".commit_hash=$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].sha[0:7])" src/data2.json > src/data3.json
+  - jq ".commit_url=$(curl https://api.github.com/repos/connor-bracewell/nnorco/commits | jq .[0].html_url)" src/data3.json > src/data4.json
   - mustache src/data4.json src/index.mustache > www/index.html
   - cp src/404.html www
   - mkdir www/js
