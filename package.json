@@ -17,10 +17,11 @@
   },
   "homepage": "https://github.com/connor-bracewell/nnorco#readme",
   "devDependencies": {
-    "@types/jquery": "^3.3.22",
+    "@types/jquery": "^3.3.30",
     "mustache": "^2.3.2",
-    "sass": "^1.14.3",
-    "surge": "^0.20.1",
-    "typescript": "^3.1.6"
+    "node-jq": "^1.9.0",
+    "sass": "^1.22.3",
+    "surge": "^0.21.3",
+    "typescript": "^3.5.2"
   }
 }
