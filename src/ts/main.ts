@@ -62,6 +62,8 @@ $(document).ready(function() {
     initialShowLink.click();
 
     // Load the last commit info from the GitHub API.
+    // This has been disabled in favor of setting at build time.
+    /*
     $.ajax({
         url: "https://api.github.com/repos/connor-bracewell/nnorco/commits",
         dataType: "json",
@@ -80,6 +82,7 @@ $(document).ready(function() {
             $(".fetch-failed-message").show();
         }  
     });
+    */
 
     // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
