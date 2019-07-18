@@ -20,8 +20,8 @@
     "@types/jquery": "^3.3.30",
     "mustache": "^2.3.2",
     "node-jq": "^1.9.0",
-    "sass": "^1.22.3",
+    "sass": "^1.22.6",
     "surge": "^0.21.3",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   }
 }
