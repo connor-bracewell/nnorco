@@ -33,7 +33,9 @@ $(document).ready(function() {
 
     // Blur links when clicked so they lose the :focus styling.
     $("a").click(function(e) {
-        $(e.target).blur();
+        setTimeout(function() {
+            $(e.target).blur();
+        }, 500);
     });
 
     // Add click events to all the navigation links (including the ones in the body).
