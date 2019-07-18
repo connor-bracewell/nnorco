@@ -76,7 +76,9 @@ a {
 
 a:focus {
     outline: none;
-    text-shadow: 0 0 1px;
+    border: 1px solid;
+    margin: -1px -2px;
+    padding: 0 1px;
 }
 
 @media print { a {
