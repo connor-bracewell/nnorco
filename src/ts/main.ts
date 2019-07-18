@@ -41,9 +41,10 @@ $(document).ready(function() {
         $(".open").removeClass("open");
         $(e.target).addClass("open");
         // Remove focus from the element after a brief delay.
+        $(e.target).focus(); // (Experimenting) Push this element into the focus stack again so it will have tab-focus after blur().
         setTimeout(function() {
             $(e.target).blur();
-        }, 100);
+        }, 50);
         // Update the URL to match the hash from the link.
         let hash = $(e.target).attr("href");
         if (hash === "#") {
