@@ -364,7 +364,7 @@ h3.transcript-section {
     display: inline-block;
 }
 
-.img-directlink:focus {
+.img-directlink:not(.hide-focus):focus {
     // Override the main a:focus style
     border: 1px solid;
     padding: 2px;
