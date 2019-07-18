@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     // Remove the hide-focus class from a nav item whenever it regains focus.
     // See the above, where we add this class on click.
-    $("navigation-list a").focus(function(e) {
+    $(".navigation-list a").focus(function(e) {
         $(e.target).removeClass("hide-focus");
     }
 

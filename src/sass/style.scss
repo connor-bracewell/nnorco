@@ -74,8 +74,11 @@ a {
     text-decoration: underline;
 }
 
-a:not(.hide-focus):focus {
+a:focus {
     outline: none;
+}
+
+a:not(.hide-focus):focus {
     border: 1px solid;
     margin: -1px -3px -2px -3px;
     padding: 0    2px  1px  2px;
