@@ -31,14 +31,6 @@ $(document).ready(function() {
         }
     });
 
-    $(".navigation-list a").focus(function(e) {
-        console.log("focus" + $(e.target).text());
-    });
-
-    $(".navigation-list a").click(function(e) {
-        console.log("click " + $(e.target).text());
-    });
-
     // Add click events to all the navigation links (including the ones in the body).
     $("a[data-show]").click(function(e) {
         e.preventDefault();
@@ -48,6 +40,10 @@ $(document).ready(function() {
         // Tag only the current tab as open.
         $(".open").removeClass("open");
         $(e.target).addClass("open");
+        // Remove focus from the element after a brief delay.
+        setTimeout(function() {
+            $(e.target).blur();
+        }, 100);
         // Update the URL to match the hash from the link.
         let hash = $(e.target).attr("href");
         if (hash === "#") {
