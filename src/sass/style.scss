@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5 {
 a {
     color: inherit;
     text-decoration: underline;
+    transition-delay: 0.5s;
 }
 
 a:focus {
