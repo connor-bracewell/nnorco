@@ -72,14 +72,9 @@ h1, h2, h3, h4, h5 {
 a {
     color: inherit;
     text-decoration: underline;
-    // Fade out border on focused nav elements after a short delay.
-    //transition-property: border-color;
-    //transition-delay: 0.5s;
-    //transition-duration: 0.5s;
-    //transition-timing-function: ease;
 }
 
-a:focus {
+a:not(.hide-focus):focus {
     outline: none;
     border: 1px solid;
     margin: -1px -3px -2px -3px;
@@ -233,14 +228,6 @@ h1.name {
 .navigation-list a.open {
     text-decoration: underline;
 }
-
-//.navigation-list a.open:focus {
-//    border-color: rgba(0,0,0,0);
-//}
-
-//.navigation-list a.open.refocused:focus {
-//    border-color: initial;
-//}
 
 /////////////
 // content //
