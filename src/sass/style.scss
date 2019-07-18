@@ -72,7 +72,9 @@ h1, h2, h3, h4, h5 {
 a {
     color: inherit;
     text-decoration: underline;
+    // Fade out border on focused nav elements after a short delay.
     transition-property: border-color;
+    transition-delay: 0.5s;
     transition-duration: 0.5s;
     transition-timing-function: ease;
 }
@@ -366,6 +368,13 @@ h3.transcript-section {
 
 .img-directlink {
     display: inline-block;
+}
+
+.img-directlink:focus {
+    // Override the main a:focus style
+    border: 1px solid;
+    padding: 1px;
+    margin: -2px;
 }
 
 .overlay-container {
