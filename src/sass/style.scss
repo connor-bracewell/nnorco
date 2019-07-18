@@ -73,10 +73,10 @@ a {
     color: inherit;
     text-decoration: underline;
     // Fade out border on focused nav elements after a short delay.
-    transition-property: border-color;
-    transition-delay: 0.5s;
-    transition-duration: 0.5s;
-    transition-timing-function: ease;
+    //transition-property: border-color;
+    //transition-delay: 0.5s;
+    //transition-duration: 0.5s;
+    //transition-timing-function: ease;
 }
 
 a:focus {
@@ -234,13 +234,13 @@ h1.name {
     text-decoration: underline;
 }
 
-.navigation-list a.open:focus {
-    border-color: rgba(0,0,0,0);
-}
+//.navigation-list a.open:focus {
+//    border-color: rgba(0,0,0,0);
+//}
 
-.navigation-list a.open.refocused:focus {
-    border-color: initial;
-}
+//.navigation-list a.open.refocused:focus {
+//    border-color: initial;
+//}
 
 /////////////
 // content //

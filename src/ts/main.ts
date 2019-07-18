@@ -31,6 +31,14 @@ $(document).ready(function() {
         }
     });
 
+    $(".navigation-list a").focus(function(e) {
+        console.log("focus" + $(e.target).text());
+    });
+
+    $(".navigation-list a").click(function(e) {
+        console.log("click " + $(e.target).text());
+    });
+
     // Add click events to all the navigation links (including the ones in the body).
     $("a[data-show]").click(function(e) {
         e.preventDefault();
@@ -50,12 +58,6 @@ $(document).ready(function() {
             document.title,
             window.location.pathname + window.location.search + hash
         );
-    });
-
-    // Override the style to focus a .open navigation link, but only after revisiting it/
-    $(".navigation-list a").focus(function(e) {
-        // Add the .refocused class to the element if it is .open
-        console.log($(e.target).text());
     });
 
     // Hide all the panels, then show the panel corresponding to the URL hash.
