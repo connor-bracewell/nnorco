@@ -40,6 +40,10 @@ $(document).ready(function() {
         // Tag only the current tab as open.
         $(".open").removeClass("open");
         $(e.target).addClass("open");
+        // Hide focus from the element after a brief delay.
+        setTimeout(function() {
+            $(e.target).addClass("hide-focus");
+        }, 50);
         // Update the URL to match the hash from the link.
         let hash = $(e.target).attr("href");
         if (hash === "#") {
@@ -50,6 +54,12 @@ $(document).ready(function() {
             document.title,
             window.location.pathname + window.location.search + hash
         );
+    });
+
+    // Remove the hide-focus class from a nav item whenever it regains focus.
+    // See the above, where we add this class on click.
+    $(".navigation-list a").focus(function(e) {
+        $(e.target).removeClass("hide-focus");
     });
 
     // Hide all the panels, then show the panel corresponding to the URL hash.

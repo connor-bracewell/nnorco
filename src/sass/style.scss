@@ -78,6 +78,12 @@ a:focus {
     outline: none;
 }
 
+a:not(.hide-focus):focus {
+    border: 1px solid;
+    margin: -1px -3px -2px -3px;
+    padding: 0    2px  1px  2px;
+}
+
 @media print { a {
     text-decoration: none;
 }}
@@ -195,7 +201,6 @@ h1.name {
 
 .navigation-list-container {
     display: inline-block;
-    margin: 0 auto;
     text-align: left;
 }
 
@@ -215,6 +220,7 @@ h1.name {
 
 .navigation-list {
     margin: 0.25em 0;
+    white-space: nowrap; // Prevents an overflow wrapping bug in Firefox.
 }
 
 .navigation-list a {
@@ -356,6 +362,13 @@ h3.transcript-section {
 
 .img-directlink {
     display: inline-block;
+}
+
+.img-directlink:not(.hide-focus):focus {
+    // Override the main a:focus style
+    border: 1px solid;
+    padding: 2px;
+    margin: -3px;
 }
 
 .overlay-container {
