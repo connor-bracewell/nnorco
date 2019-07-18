@@ -52,6 +52,12 @@ $(document).ready(function() {
         );
     });
 
+    // Override the style to focus a .open navigation link, but only after revisiting it/
+    $(".navigation-list a").focus(function(e) {
+        // Add the .refocused class to the element if it is .open
+        console.log($(e.target).text());
+    });
+
     // Hide all the panels, then show the panel corresponding to the URL hash.
     // Defaults to the item from the first link if there is no hash.
     $(".content-panel").hide();

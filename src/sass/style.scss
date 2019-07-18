@@ -82,8 +82,8 @@ a {
 a:focus {
     outline: none;
     border: 1px solid;
-    margin: -1px -2px -2px -2px;
-    padding: 0    1px  1px  1px;
+    margin: -1px -3px -2px -3px;
+    padding: 0    2px  1px  2px;
 }
 
 @media print { a {
@@ -238,6 +238,10 @@ h1.name {
     border-color: rgba(0,0,0,0);
 }
 
+.navigation-list a.open.refocused:focus {
+    border-color: initial;
+}
+
 /////////////
 // content //
 /////////////
@@ -373,8 +377,8 @@ h3.transcript-section {
 .img-directlink:focus {
     // Override the main a:focus style
     border: 1px solid;
-    padding: 1px;
-    margin: -2px;
+    padding: 2px;
+    margin: -3px;
 }
 
 .overlay-container {
