@@ -60,7 +60,7 @@ $(document).ready(function() {
     // See the above, where we add this class on click.
     $(".navigation-list a").focus(function(e) {
         $(e.target).removeClass("hide-focus");
-    }
+    });
 
     // Hide all the panels, then show the panel corresponding to the URL hash.
     // Defaults to the item from the first link if there is no hash.
