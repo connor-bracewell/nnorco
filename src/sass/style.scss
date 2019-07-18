@@ -72,6 +72,9 @@ h1, h2, h3, h4, h5 {
 a {
     color: inherit;
     text-decoration: underline;
+    transition-property: border-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
 }
 
 a:focus {
@@ -230,10 +233,7 @@ h1.name {
 }
 
 .navigation-list a.open:focus {
-    // Undo the :focus style applied by to all <a>'s
-    border: none;
-    margin: 0;
-    padding: 0;
+    border-color: rgba(0,0,0,0);
 }
 
 /////////////
