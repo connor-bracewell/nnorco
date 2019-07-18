@@ -40,9 +40,6 @@ $(document).ready(function() {
         // Tag only the current tab as open.
         $(".open").removeClass("open");
         $(e.target).addClass("open");
-        // Update the tabindex attributes to skip the open tab.
-        $(".nav-link").attr("tabindex", "0");
-        $(e.target).attr("tabindex", "-1");
         // Update the URL to match the hash from the link.
         let hash = $(e.target).attr("href");
         if (hash === "#") {

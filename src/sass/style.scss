@@ -74,7 +74,7 @@ a {
     text-decoration: underline;
 }
 
-a:not(.open):focus {
+a:focus {
     outline: none;
     border: 1px solid;
     margin: -1px -2px -2px -2px;
@@ -227,6 +227,13 @@ h1.name {
 
 .navigation-list a.open {
     text-decoration: underline;
+}
+
+.navigation-list a.open:focus {
+    // Undo the :focus style applied by to all <a>'s
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 /////////////
