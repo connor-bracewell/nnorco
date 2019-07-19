@@ -32,16 +32,18 @@ $(document).ready(function() {
     });
 
     // Add click events to all the navigation links (including the ones in the body).
-    $("a[data-show]").click(function(e) {
+    $("a[data-show]").click(e => {
         e.preventDefault();
+        let clicked = $(e.target);
         // Show only the corresponding panel.
+        let show_selector = clicked.attr("data-show");
         $(".content-panel").hide();
-        $($(e.target).attr("data-show")).show();
+        $(show_selector).show();
         // Tag only the current tab as open.
         $(".open").removeClass("open");
-        $(e.target).addClass("open");
+        clicked.addClass("open");
         // Update the URL to match the hash from the link.
-        let hash = $(e.target).attr("href");
+        let hash = clicked.attr("href");
         if (hash === "#") {
             hash = "";
         }
@@ -60,12 +62,7 @@ $(document).ready(function() {
         clicked.addClass("just-clicked");
         clicked.attr("data-last-clicked", click_time);
         setTimeout(() => {
-            console.log(clicked.attr("data-last-clicked"));
-            console.log(click_time);
-            console.log(clicked.attr("data-last-clicked") == click_time);
-            console.log(clicked.attr("data-last-clicked") === click_time);
-            console.log(clicked.attr("data-last-clicked") === click_time.toString());
-            if (clicked.attr("data-last-clicked") === click_time) {
+            if (clicked.attr("data-last-clicked") === click_time.toString()) {
                 clicked.removeClass("just-clicked")
             }
         }, 50);
