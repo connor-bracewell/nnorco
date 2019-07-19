@@ -3,7 +3,7 @@ node_js:
   - "node"
 after_success:
   - mkdir www
-  - curl -H 'User-Agent: connor-bracewell' https://api.github.com/repos/connor-bracewell/nnorco/commits > src/commit.json
+  - curl -H "User-Agent: connor-bracewell" https://api.github.com/repos/connor-bracewell/nnorco/commits > src/commit.json
   - cat src/commit.json
   - cat src/data.json
   - jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > src/data2.json
