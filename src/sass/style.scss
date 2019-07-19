@@ -303,7 +303,7 @@ h3.transcript-section {
 }
 
 .resume-list-with-bullets {
-    padding-top: 0.5em;
+    padding-top: 0.5em; // Maintain parity with top padding from resume-list <li>'s.
 }
 
 @media print { .no-orphan {
