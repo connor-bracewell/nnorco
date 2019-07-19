@@ -321,6 +321,8 @@ h3.transcript-section {
 
 .transcript-explain {
     text-align: center;
+    margin: 1em auto 0 auto;
+    max-width: 21em; // Approximate value for nice wrapping.
 }
 
 //////////////
