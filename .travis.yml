@@ -4,13 +4,13 @@ node_js:
 after_success:
   - mkdir www
   - curl https://api.github.com/repos/connor-bracewell/nnorco/commits > src/commit.json
-  - cat commit.json
+  - cat src/commit.json
   - cat src/data.json
   - jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > src/data2.json
   - cat src/data2.json
-  - jq ".commit_hash=$(cat commit.json | jq .[0].sha[0:7])" src/data2.json > src/data3.json
+  - jq ".commit_hash=$(cat src/commit.json | jq .[0].sha[0:7])" src/data2.json > src/data3.json
   - cat src/data3.json
-  - jq ".commit_url=$(cat commit.json | jq .[0].html_url)" src/data3.json > src/data4.json
+  - jq ".commit_url=$(cat src/commit.json | jq .[0].html_url)" src/data3.json > src/data4.json
   - cat src/data4.json
   - mustache src/data4.json src/index.mustache > www/index.html
   - cp src/404.html www
