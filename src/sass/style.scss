@@ -107,8 +107,7 @@ li {
     margin-left: 1.5em;
     list-style: none;
     text-indent: -0.8em; // approximates the width added by the ::before element in row 1
-    line-height: 1.3em;
-    padding: 0.2em 0;
+    padding-top: 0.2em;
 }
 
 @media print { li {
@@ -274,7 +273,6 @@ h2.fallback-header {
 h3.resume-section,
 h3.transcript-section {
     margin-top: 1em;
-    margin-bottom: 0.25em;
     white-space: nowrap;
     overflow: hidden;
     font-size: $medium-font-size;
@@ -296,15 +294,16 @@ h3.transcript-section {
 
 .resume-list > li {
     margin-left: 0.5em;
+    padding-top: 0.7em;
     text-indent: 0;
-}
-
-.resume-list > li:not(:first-child) {
-    padding-top: 0.5em;
 }
 
 .resume-list > li::before {
     content: none;
+}
+
+.resume-list-with-bullets {
+    padding-top: 0.5em; // Maintain parity with top padding from resume-list <li>'s.
 }
 
 @media print { .no-orphan {
@@ -320,8 +319,9 @@ h3.transcript-section {
 }
 
 .transcript-explain {
-    font-style: italic;
     text-align: center;
+    margin: 1em auto 0 auto;
+    max-width: 21em; // Approximate value for nice wrapping.
 }
 
 //////////////
