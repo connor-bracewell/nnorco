@@ -24,8 +24,8 @@ $(document).ready(function() {
         let target = $(this);
         let urlHash = target.attr("href");
         let panelId = target.attr("data-show").substring(1);
-        //the main tab uses an empty hash for noscript reasons, so this approach doesn't work.
-        //its panel should simply start with the "-panel" name applied.
+        // The main tab uses an empty hash for noscript reasons, so this approach doesn't work.
+        // The associated panel should simply start with the "-panel" name applied.
         if (urlHash !== "#") {
             $(urlHash).attr("id", panelId);
         }
@@ -55,6 +55,8 @@ $(document).ready(function() {
     });
 
     // Don't show focus styles for nav links that are clicked on.
+    // This is (somewhat of) an alternative for the :focus-visible
+    // pseudo-class, which isn't well suppported right now.
     $(".navigation-list a").mousedown(e => {
         let clicked = $(e.target);
         let click_time = e.timeStamp;
@@ -69,7 +71,7 @@ $(document).ready(function() {
     });
 
     // Remove the hide-focus class when a nav link regains focus.
-    // (Unless it is being focused from _just_ being clicked; see above).
+    // (Unless it is being focused from _just_ being clicked; see above)
     $(".navigation-list a").focus(e => {
         let focused = $(e.target);
         if (!focused.hasClass("just-clicked")) {
@@ -168,7 +170,7 @@ $(document).ready(function() {
                 resizeLightbox();
             });
         } else {
-            // Otherwise fallback to `onload`
+            // Else, fallback to `onload`.
             imageEl.onload = function() {
                 overlayEl.show();
                 resizeLightbox();
@@ -190,7 +192,7 @@ $(document).ready(function() {
         let sourceEl = $(this);
         let imageSrc = sourceEl.attr("data-fullsize-src");
         if (imageCache[imageSrc]) {
-            // Use cached image
+            // Use cached image.
             imageCache[imageSrc].show();
             overlayEl.show();
             resizeLightbox();
