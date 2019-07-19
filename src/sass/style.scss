@@ -302,6 +302,10 @@ h3.transcript-section {
     content: none;
 }
 
+.resume-list-with-bullets {
+    padding-top: 0.5em;
+}
+
 @media print { .no-orphan {
     white-space: nowrap;
 }}
