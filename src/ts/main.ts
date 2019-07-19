@@ -52,15 +52,32 @@ $(document).ready(function() {
         );
     });
 
+    // Don't show focus styles for nav links that are clicked on.
     $(".navigation-list a").mousedown(e => {
-        $(e.target).addClass("hide-focus");
-        setTimeout(() => $(e.target).removeClass("hide-focus"), 2000);
+        let clicked = $(e.target);
+        let click_time = e.timeStamp;
+        clicked.addClass("hide-focus");
+        clicked.addClass("just-clicked");
+        clicked.attr("data-last-clicked", click_time);
+        setTimeout(() => {
+            console.log(clicked.attr("data-last-clicked"));
+            console.log(clicked_time);
+            console.log(clicked.attr("data-last-clicked") == clicked_time);
+            console.log(clicked.attr("data-last-clicked") === clicked_time);
+            console.log(clicked.attr("data-last-clicked") === clicked_time.toString());
+            if (clicked.attr("data-last-clicked") === clicked_time) {
+                clicked.removeClass("just-clicked")
+            }
+        }, 50);
     });
 
-    // Remove the hide-focus class from a nav item whenever it regains focus.
-    // See the above, where we add this class on click.
+    // Remove the hide-focus class when a nav link regains focus.
+    // (Unless it is being focused from _just_ being clicked; see above).
     $(".navigation-list a").focus(e => {
-        //$(e.target).removeClass("hide-focus");
+        let focused = $(e.target);
+        if (!focused.hasClass("just-clicked")) {
+            focused.removeClass("hide-focus");
+        }
     });
 
     // Hide all the panels, then show the panel corresponding to the URL hash.
