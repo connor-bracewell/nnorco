@@ -32,20 +32,18 @@ $(document).ready(function() {
     });
 
     // Add click events to all the navigation links (including the ones in the body).
-    $("a[data-show]").click(function(e) {
+    $("a[data-show]").click(e => {
         e.preventDefault();
+        let clicked = $(e.target);
         // Show only the corresponding panel.
+        let show_selector = clicked.attr("data-show");
         $(".content-panel").hide();
-        $($(e.target).attr("data-show")).show();
+        $(show_selector).show();
         // Tag only the current tab as open.
         $(".open").removeClass("open");
-        $(e.target).addClass("open");
-        // Hide focus from the element after a brief delay.
-        setTimeout(function() {
-            $(e.target).addClass("hide-focus");
-        }, 50);
+        clicked.addClass("open");
         // Update the URL to match the hash from the link.
-        let hash = $(e.target).attr("href");
+        let hash = clicked.attr("href");
         if (hash === "#") {
             hash = "";
         }
@@ -56,10 +54,27 @@ $(document).ready(function() {
         );
     });
 
-    // Remove the hide-focus class from a nav item whenever it regains focus.
-    // See the above, where we add this class on click.
-    $(".navigation-list a").focus(function(e) {
-        $(e.target).removeClass("hide-focus");
+    // Don't show focus styles for nav links that are clicked on.
+    $(".navigation-list a").mousedown(e => {
+        let clicked = $(e.target);
+        let click_time = e.timeStamp;
+        clicked.addClass("hide-focus");
+        clicked.addClass("just-clicked");
+        clicked.attr("data-last-clicked", click_time);
+        setTimeout(() => {
+            if (clicked.attr("data-last-clicked") === click_time.toString()) {
+                clicked.removeClass("just-clicked")
+            }
+        }, 50);
+    });
+
+    // Remove the hide-focus class when a nav link regains focus.
+    // (Unless it is being focused from _just_ being clicked; see above).
+    $(".navigation-list a").focus(e => {
+        let focused = $(e.target);
+        if (!focused.hasClass("just-clicked")) {
+            focused.removeClass("hide-focus");
+        }
     });
 
     // Hide all the panels, then show the panel corresponding to the URL hash.
