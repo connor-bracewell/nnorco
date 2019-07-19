@@ -61,11 +61,11 @@ $(document).ready(function() {
         clicked.attr("data-last-clicked", click_time);
         setTimeout(() => {
             console.log(clicked.attr("data-last-clicked"));
-            console.log(clicked_time);
-            console.log(clicked.attr("data-last-clicked") == clicked_time);
-            console.log(clicked.attr("data-last-clicked") === clicked_time);
-            console.log(clicked.attr("data-last-clicked") === clicked_time.toString());
-            if (clicked.attr("data-last-clicked") === clicked_time) {
+            console.log(click_time);
+            console.log(clicked.attr("data-last-clicked") == click_time);
+            console.log(clicked.attr("data-last-clicked") === click_time);
+            console.log(clicked.attr("data-last-clicked") === click_time.toString());
+            if (clicked.attr("data-last-clicked") === click_time) {
                 clicked.removeClass("just-clicked")
             }
         }, 50);
