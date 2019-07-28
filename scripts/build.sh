@@ -3,7 +3,7 @@
 rm -rf tmp web
 mkdir tmp web
 cat src/data.json
-curl -H \"User-Agent: connor-bracewell\" https://api.github.com/repos/connor-bracewell/nnorco/commits > tmp/commit.json
+curl -u $GITHUB_AUTH_USER:$GITHUB_AUTH_KEY https://api.github.com/repos/connor-bracewell/nnorco/commits > tmp/commit.json
 cat tmp/commit.json
 jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > tmp/data2.json
 cat tmp/data2.json
