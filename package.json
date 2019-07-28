@@ -4,7 +4,9 @@
   "description": "Connor Bracewell's personal site.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"No tests configured.\""
+    "pretest":  "./scripts/build.sh",
+    "test":     "./scripts/test.sh",
+    "posttest": "./scripts/deploy.sh"
   },
   "repository": {
     "type": "git",

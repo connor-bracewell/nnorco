@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rm -rf tmp web
 mkdir tmp web
 cat src/data.json
@@ -10,19 +12,16 @@ cat tmp/data3.json
 jq  ".commit_url=$(cat tmp/commit.json | jq .[0].html_url)" tmp/data3.json > tmp/data4.json
 cat tmp/data4.json
 mustache tmp/data4.json src/index.mustache > web/index.html
+mustache src/data.json src/index.mustache > web/index.html
 cp src/404.html web
 mkdir web/js
 tsc --outFile web/js/main.js src/ts/main.ts
 cp -r src/js/* web/js
+cp -r lib/* web/js
 cp -r src/img web
 mkdir web/burger
 cp src/burger.html web/burger/index.html
 mkdir web/css
 sass src/sass/style.scss > web/css/style.css
 sass src/sass/bin4features.scss > web/css/bin4features.css
-if [ "$TRAVIS_BRANCH" = "master" ]; then
-  surge web https://nnor.co
-elif [ "$TRAVIS_BRANCH" = "dev" ]; then
-  surge web https://dev.nnor.co
-  surge web nnorco.surge.sh
-fi
+rm -rf tmp
