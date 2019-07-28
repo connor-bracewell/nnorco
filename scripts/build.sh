@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e # Bail out on first error.
+
 rm -rf tmp web
 mkdir tmp web
 cat src/data.json
@@ -16,7 +18,6 @@ cp src/404.html web
 mkdir web/js
 tsc --outFile web/js/main.js src/ts/main.ts
 cp -r src/js/* web/js
-cp -r lib/* web/js
 cp -r src/img web
 mkdir web/burger
 cp src/burger.html web/burger/index.html
