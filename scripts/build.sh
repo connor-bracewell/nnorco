@@ -12,7 +12,6 @@ cat tmp/data3.json
 jq  ".commit_url=$(cat tmp/commit.json | jq .[0].html_url)" tmp/data3.json > tmp/data4.json
 cat tmp/data4.json
 mustache tmp/data4.json src/index.mustache > web/index.html
-mustache src/data.json src/index.mustache > web/index.html
 cp src/404.html web
 mkdir web/js
 tsc --outFile web/js/main.js src/ts/main.ts
