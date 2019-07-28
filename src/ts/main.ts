@@ -111,6 +111,13 @@ $(document).ready(function() {
     });
     */
 
+    // Scroll the viewport back to the top. This is necessary since anchored links
+    // move the viewport before the above scripts run and the page is re-drawn.
+    if (window.performance && performance.navigation.type !== 1) {
+        // If we can detect the load type and it wasn't a reload:
+        window.scrollTo(0,0);
+    }
+
     // Give the lightbox elements a name since they are used multiple times.
     let overlayEl = $(".lightbox-overlay");
 
