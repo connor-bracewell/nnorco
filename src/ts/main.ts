@@ -10,8 +10,8 @@ if (params.has('noscript')) {
 
 function init() {
   // Hide fallback content and show script-only content.
-  $(".noscript-only").hide();
-  $(".script-only").show();
+  $(".noscript-only").prop("hidden", true);
+  $(".script-only").prop("hidden", false);
 
   // Disable direct image links used for NoScript.
   $(".img-directlink").click(function(e) {
@@ -23,15 +23,16 @@ function init() {
     $("body").addClass("light");
   }
 
-  // Update all the container IDs to match the data-show values instead of URL hashes.
+  // Update all the panel IDs to match the data-show values instead of URL hashes.
   // eg. "#resume" has its ID set to "resume-panel"
   $(".navigation-list a").each(function(){
     let target = $(this);
+    // By chance, the anchor prefix "#" and the id prefix "#" are the same, which saves a step compared to below.
     let urlHash = target.attr("href");
     let panelId = target.attr("data-show").substring(1);
-    // The main tab uses an empty hash for noscript reasons, so this approach doesn't work.
+    // The main tab uses an empty href for noscript reasons, so this approach doesn't work.
     // The associated panel should simply start with the "-panel" name applied.
-    if (urlHash !== "#") {
+    if (urlHash !== "") {
       $(urlHash).attr("id", panelId);
     }
   });
@@ -49,9 +50,6 @@ function init() {
     clicked.addClass("open");
     // Update the URL to match the hash from the link.
     let hash = clicked.attr("href");
-    if (hash === "#") {
-      hash = "";
-    }
     history.replaceState(
       null,
       document.title,

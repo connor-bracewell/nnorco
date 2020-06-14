@@ -40,6 +40,10 @@ body {
     overflow-y: scroll;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
     --bg-color: #22222a;
     --text-color: rgba(255,255,245,0.9);
@@ -185,31 +189,47 @@ h1.name {
 
 .navigation-container {
     margin-top: 1em;
-    text-align: center;
     color: $background-color;
     background-color: $text-color;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 @media print { .navigation-container {
     display: none;
 }}
 
-.navigation-list-container {
-    display: inline-block;
-    text-align: left;
+.jump-to-label {
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.inline-list {
+  display: inline-block;
+  text-transform: lowercase;
 }
 
 .inline-list li::before {
     content: "\b7\a0";
 }
 
+// Display inline list on one line.
 @media screen and (min-width: $nav-break) {
+    .jump-to-label {
+      margin-right: 0.5em;
+    }
     .inline-list li {
         margin-left: 0;
         display: inline;
     }
-    .inline-list li:first-child::before {
+    // First item gets nothing, subsequent items get a middot.
+    .inline-list li::before {
         content: none;
+    }
+    .inline-list > li:not([hidden]) ~ li::before {
+        content: "\b7\a0";
     }
 }
 
