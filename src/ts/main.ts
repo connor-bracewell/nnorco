@@ -1,9 +1,14 @@
 let params = new URLSearchParams(window.location.search);
 
-if (!params.has("noscript")) { // Emulate noscript behavior if requested.
+if (params.has('noscript')) {
+  // NoScript behavior requested. Do nothing.
+} else if (document.readyState != 'loading') {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init);
+}
 
-$(document).ready(function() {
-
+function init() {
     // Hide fallback content and show script-only content.
     $(".noscript-only").hide();
     $(".script-only").show();
@@ -208,7 +213,4 @@ $(document).ready(function() {
             showLightbox(imageSrc, imageAlt);
         }
     });
-
-});
-
 }
