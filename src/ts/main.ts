@@ -176,13 +176,13 @@ function init() {
     if (typeof imageEl.decode === "function") {
       // Use `decode()` if available.
       imageEl.decode().then(function() {
-        overlayEl.show();
+        overlayEl.prop("hidden", false);
         resizeLightbox();
       });
     } else {
       // Else, fallback to `onload`.
       imageEl.onload = function() {
-        overlayEl.show();
+        overlayEl.prop("hidden", false);
         resizeLightbox();
       }
     }
@@ -190,7 +190,7 @@ function init() {
 
   // Set the lightbox to close when clicked.
   overlayEl.click(function(e) {
-    overlayEl.hide();
+    overlayEl.prop("hidden", true);
   });
 
   // Cache lightbox image elements to prevent further requests eg. in Chrome.
@@ -204,7 +204,7 @@ function init() {
     if (imageCache[imageSrc]) {
       // Use cached image.
       imageCache[imageSrc].show();
-      overlayEl.show();
+      overlayEl.prop("hidden", false);
       resizeLightbox();
     } else {
       let imageAlt = sourceEl.attr("alt");
