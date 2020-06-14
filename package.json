@@ -4,8 +4,8 @@
   "description": "Connor Bracewell's personal site.",
   "main": "index.html",
   "scripts": {
-    "pretest":  "./scripts/build.sh",
-    "test":     "./scripts/test.sh",
+    "pretest": "./scripts/build.sh",
+    "test": "./scripts/test.sh",
     "posttest": "./scripts/deploy.sh"
   },
   "repository": {
