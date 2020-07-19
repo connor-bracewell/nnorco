@@ -4,8 +4,8 @@
   "description": "Connor Bracewell's personal site.",
   "main": "index.html",
   "scripts": {
-    "pretest":  "./scripts/build.sh",
-    "test":     "./scripts/test.sh",
+    "pretest": "./scripts/build.sh",
+    "test": "./scripts/test.sh",
     "posttest": "./scripts/deploy.sh"
   },
   "repository": {
@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/connor-bracewell/nnorco#readme",
   "devDependencies": {
-    "@types/jquery": "^3.3.30",
+    "@types/jquery": "^3.5.0",
     "mustache": "^2.3.2",
-    "node-jq": "^1.9.0",
-    "sass": "^1.22.6",
-    "surge": "^0.21.3",
-    "typescript": "^3.5.3"
+    "node-jq": "^1.11.1",
+    "sass": "^1.26.10",
+    "surge": "^0.21.6",
+    "typescript": "^3.9.7"
   }
 }
