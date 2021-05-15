@@ -10,8 +10,8 @@ if (params.has('noscript')) {
 
 function init() {
   // Hide fallback content and show script-only content.
-  $(".noscript-only").prop("hidden", true);
-  $(".script-only").prop("hidden", false);
+  document.querySelectorAll(".noscript-only").forEach(e => e.setAttribute("hidden", ""));
+  document.querySelectorAll(".script-only").forEach(e => e.removeAttribute("hidden"));
 
   // Disable direct image links used for NoScript.
   $(".img-directlink").click(function(e) {
