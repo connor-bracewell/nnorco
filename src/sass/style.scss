@@ -265,9 +265,13 @@ h1.name {
     flex-grow: 2.5;
 }
 
+// These provide the noscript fallback with (1) padding between sections;
+// (2) space above the header when navigating directly.
+.fallback-header-pad {
+  height: 2em;
+}
 .fallback-header-container {
-    margin-top: 3em;
-    padding-top: 1em; //to give a nice space above when navigating
+  padding-top: 1em;
 }
 
 h2.fallback-header {
