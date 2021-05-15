@@ -10,52 +10,53 @@ if (params.has('noscript')) {
 
 function init() {
   // Hide fallback content and show script-only content.
-  document.querySelectorAll(".noscript-only").forEach(e => e.setAttribute("hidden", ""));
-  document.querySelectorAll(".script-only").forEach(e => e.removeAttribute("hidden"));
+  document.querySelectorAll('.noscript-only').forEach(el => el.setAttribute('hidden', ''));
+  document.querySelectorAll('.script-only').forEach(el => el.removeAttribute('hidden'));
 
   // Disable direct image links used for NoScript.
-  $(".img-directlink").click(function(e) {
-    e.preventDefault();
-  });
+  document.querySelectorAll('.img-directlink')
+    .forEach(el => el.addEventListener('click', ev => ev.preventDefault()));
 
   // Apply light theme if requested.
-  if (params.has("light")) {
-    $("body").addClass("light");
+  if (params.has('light')) {
+    document.body.classList.add('light');
   }
 
   // Update all the panel IDs to match the data-show values instead of URL hashes.
-  // eg. "#resume" has its ID set to "resume-panel"
-  $(".navigation-list a").each(function(){
-    let target = $(this);
-    // By chance, the anchor prefix "#" and the id prefix "#" are the same, which saves a step compared to below.
-    let urlHash = target.attr("href");
-    let panelId = target.attr("data-show").substring(1);
-    // The main tab uses an empty href for noscript reasons, so this approach doesn't work.
-    // The associated panel should simply start with the "-panel" name applied.
-    if (urlHash !== "") {
-      $(urlHash).attr("id", panelId);
+  // eg. "#resume" has its ID set to "resume-panel".
+  document.querySelectorAll('.navigation-list a').forEach(el => {
+    let url_hash = el.getAttribute('href');
+    let panel_id = el.getAttribute('data-show').substring(1);
+    if (url_hash == '') {
+      // The main tab uses an empty href for noscript reasons, so the below approach won't work.
+      // The associated panel should simply start with the "-panel" name applied.
+      return;
     }
+    // By chance, the anchor prefix "#" and the id prefix "#" are the same,
+    // so url_hash can be used directly as a selector without any fuss.
+    document.querySelector(url_hash).setAttribute('id', panel_id);
   });
 
   // Add click events to all the navigation links (including the ones in the body).
-  $("a[data-show]").click(e => {
-    e.preventDefault();
-    let clicked = $(e.target);
-    // Show only the corresponding panel.
-    let show_selector = clicked.attr("data-show");
-    $(".content-panel").hide();
-    $(show_selector).show();
+  document.querySelectorAll('a[data-show]').forEach(el => el.addEventListener("click", ev => {
+    ev.preventDefault();
+    // Hide all the content panels.
+    document.querySelectorAll('.content-panel').forEach(el => el.setAttribute('hidden', ''));
+    // Then show only the one corresponding to the clicked link.
+    let show_selector = el.getAttribute('data-show');
+    console.log(document.querySelector(show_selector));
+    document.querySelector(show_selector).removeAttribute('hidden');
     // Tag only the current tab as open.
-    $(".open").removeClass("open");
-    clicked.addClass("open");
+    document.querySelector('.open')?.classList.remove('open');
+    el.classList.add('open');
     // Update the URL to match the hash from the link.
-    let hash = clicked.attr("href");
+    let hash = el.getAttribute('href');
     history.replaceState(
       null,
       document.title,
       window.location.pathname + window.location.search + hash
     );
-  });
+  }));
 
   // Don't show focus styles for nav links that are clicked on.
   // This is (somewhat of) an alternative for the :focus-visible
@@ -82,14 +83,15 @@ function init() {
     }
   });
 
-  // Hide all the panels, then show the panel corresponding to the URL hash.
-  // Defaults to the item from the first link if there is no hash.
-  $(".content-panel").hide();
-  let initialShowLink = $(".navigation-list a[href=\"" + window.location.hash + "\"]");
-  if (initialShowLink.length === 0) {
-    initialShowLink = $(".navigation-list a").first()
+  // On load, run the click event from the link corresponding to the URL hash;
+  // this shows the requested panel and hides the other ones.
+  let initial_url_hash = window.location.hash;
+  let initial_link = document.querySelector(`.navigation-list a[href="${initial_url_hash}"]`);
+  if (initial_link === null) {
+    // If the hash doesn't point to a link, use the first entry (ie. the landing page) instead.
+    initial_link = document.querySelector('.navigation-list a')
   }
-  initialShowLink.click();
+  (initial_link as HTMLElement).click();
 
   // Load the last commit info from the GitHub API.
   // This has been disabled in favor of setting at build time.
