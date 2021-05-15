@@ -8,14 +8,18 @@ if (params.has('noscript')) {
   document.addEventListener('DOMContentLoaded', init);
 }
 
+// DOM helper function.
+function forall(selector, f) {
+  document.querySelectorAll(selector).forEach(f);
+}
+
 function init() {
   // Hide fallback content and show script-only content.
-  document.querySelectorAll('.noscript-only').forEach(el => el.setAttribute('hidden', ''));
-  document.querySelectorAll('.script-only').forEach(el => el.removeAttribute('hidden'));
+  forall('.noscript-only', el => el.setAttribute('hidden', ''));
+  forall('.script-only', el => el.removeAttribute('hidden'));
 
   // Disable direct image links used for NoScript.
-  document.querySelectorAll('.img-directlink')
-    .forEach(el => el.addEventListener('click', ev => ev.preventDefault()));
+  forall('.img-directlink', el => el.addEventListener('click', ev => ev.preventDefault()));
 
   // Apply light theme if requested.
   if (params.has('light')) {
@@ -24,7 +28,7 @@ function init() {
 
   // Update all the panel IDs to match the data-show values instead of URL hashes.
   // eg. "#resume" has its ID set to "resume-panel".
-  document.querySelectorAll('.navigation-list a').forEach(el => {
+  forall('.navigation-list a', el => {
     let url_hash = el.getAttribute('href');
     let panel_id = el.getAttribute('data-show').substring(1);
     if (url_hash == '') {
@@ -38,10 +42,10 @@ function init() {
   });
 
   // Add click events to all the navigation links (including the ones in the body).
-  document.querySelectorAll('a[data-show]').forEach(el => el.addEventListener("click", ev => {
+  forall('a[data-show]', el => el.addEventListener("click", ev => {
     ev.preventDefault();
     // Hide all the content panels.
-    document.querySelectorAll('.content-panel').forEach(el => el.setAttribute('hidden', ''));
+    forall('.content-panel', el => el.setAttribute('hidden', ''));
     // Then show only the one corresponding to the clicked link.
     let show_selector = el.getAttribute('data-show');
     console.log(document.querySelector(show_selector));
