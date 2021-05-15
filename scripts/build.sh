@@ -2,6 +2,8 @@
 
 set -e # Bail out on first error.
 
+SASS="node node_modules/sass/sass.js"
+
 rm -rf tmp web
 mkdir tmp web
 cat src/data.json
@@ -13,15 +15,15 @@ cat tmp/data2.json
 cat tmp/data3.json
 ./node_modules/node-jq/bin/jq  ".commit_url=$(cat tmp/commit.json | ./node_modules/node-jq/bin/jq .[0].html_url)" tmp/data3.json > tmp/data4.json
 cat tmp/data4.json
-mustache tmp/data4.json src/index.mustache > web/index.html
+./node_modules/mustache/bin/mustache tmp/data4.json src/index.mustache > web/index.html
 cp src/404.html web
 mkdir web/js
-tsc --lib "es2015,dom" --outFile web/js/main.js src/ts/main.ts
+./node_modules/typescript/bin/tsc --lib "es2015,dom" --outFile web/js/main.js src/ts/main.ts
 cp -r src/js/* web/js
 cp -r src/img web
 mkdir web/burger
 cp src/burger.html web/burger/index.html
 mkdir web/css
-sass src/sass/style.scss > web/css/style.css
-sass src/sass/bin4features.scss > web/css/bin4features.css
+$SASS src/sass/style.scss > web/css/style.css
+$SASS src/sass/bin4features.scss > web/css/bin4features.css
 rm -rf tmp
