@@ -65,25 +65,23 @@ function init() {
   // Don't show focus styles for nav links that are clicked on.
   // This is (somewhat of) an alternative for the :focus-visible
   // pseudo-class, which isn't well suppported right now.
-  $(".navigation-list a").mousedown(e => {
-    let clicked = $(e.target);
-    let click_time = e.timeStamp;
-    clicked.addClass("hide-focus");
-    clicked.addClass("just-clicked");
-    clicked.attr("data-last-clicked", click_time);
-    setTimeout(() => {
-      if (clicked.attr("data-last-clicked") === click_time.toString()) {
-        clicked.removeClass("just-clicked")
+  forall('.navigation-list a', el => el.addEventListener('mousedown', ev => {
+    let click_time = ev.timeStamp;
+    el.classList.add('hide-focus');
+    el.classList.add('just-clicked');
+    el.setAttribute('data-last-clicked', click_time);
+    let remove_just_clicked = () => {
+      if (el.getAttribute('data-last-clicked') === click_time.toString()) {
+        el.classList.remove('just-clicked');
       }
-    }, 50);
-  });
-
+    };
+    setTimeout(remove_just_clicked, 50);
+  }));
   // Remove the hide-focus class when a nav link regains focus.
   // (Unless it is being focused from _just_ being clicked; see above)
-  $(".navigation-list a").focus(e => {
-    let focused = $(e.target);
-    if (!focused.hasClass("just-clicked")) {
-      focused.removeClass("hide-focus");
+  forall('.navigation-list a', el => el.addEventListener('focus', ev => {
+    if (!el.hasClass('just-clicked')) {
+      el.removeClass('hide-focus');
     }
   });
 
