@@ -102,12 +102,12 @@ function init() {
   }
 
   // Give the lightbox elements a name since they are used multiple times.
-  let overlayEl = $(".lightbox-overlay");
+  let overlayEl = document.querySelector('.lightbox-overlay') as HTMLElement;
 
   function ignoreBubble(f) {
-    function impl(e) {
-      if (e.target == this) {
-        f(e);
+    function impl(ev) {
+      if (ev.target == this) {
+        f(ev);
       }
     }
     return impl;
@@ -115,13 +115,12 @@ function init() {
 
   // Resize the open lightbox to fill the lightbox container as much as possible.
   function resizeLightbox() {
-    if (overlayEl.is(":visible")) {
-      let boundEl = $(".lightbox-overlay");
-      let contentEl = $(".lightbox-content");
-      let boundX = boundEl.width();
-      let boundY = boundEl.height();
+    if (!overlayEl.hasAttribute('hidden')) {
+      let boundEl = document.querySelector('.lightbox-content') as HTMLElement;
+      let boundX = boundEl.clientWidth;
+      let boundY = boundEl.clientHeight;
       let boundR = boundX / boundY;
-      let imageEl = $(".lightbox-image:visible").get(0) as HTMLImageElement;
+      let imageEl = document.querySelector('.lightbox-image:not([hidden])') as HTMLImageElement;
       let imageX = imageEl.naturalWidth;
       let imageY = imageEl.naturalHeight;
       let imageR = imageX / imageY;
@@ -134,43 +133,39 @@ function init() {
         contentX = Math.min(boundX, imageX);
         contentY = contentX / imageR;
       }
-      let contentPadX = (boundX-contentX)/2;
-      let contentPadY = (boundY-contentY)/2;
-      contentEl.width(contentX);
-      contentEl.height(contentY);
-      contentEl.css("margin", contentPadY + "px " + contentPadX + "px");
+      imageEl.setAttribute('style', `width: ${contentX}px; height: ${contentY}px;`);
     }
   }
 
   // Set the lightbox to resize whenever the window is resized.
-  $(window).resize(resizeLightbox);
+  window.addEventListener('resize', resizeLightbox);
 
   // Show the lightbox after the image loads.
   function showLightbox(imageSrc, imageAlt) {
     let imageEl = new Image();
     imageEl.src = imageSrc;
     imageEl.alt = imageAlt;
-    imageEl.classList.add("lightbox-image");
+    imageEl.classList.add('lightbox-image');
     imageCache[imageSrc] = $(imageEl);
     $(".lightbox-content").append(imageEl);
     if (typeof imageEl.decode === "function") {
       // Use `decode()` if available.
       imageEl.decode().then(function() {
-        overlayEl.prop("hidden", false);
+        overlayEl.removeAttribute('hidden');
         resizeLightbox();
       });
     } else {
       // Else, fallback to `onload`.
       imageEl.onload = function() {
-        overlayEl.prop("hidden", false);
+        overlayEl.removeAttribute('hidden');
         resizeLightbox();
       }
     }
   }
 
   // Set the lightbox to close when clicked.
-  overlayEl.click(function(e) {
-    overlayEl.prop("hidden", true);
+  overlayEl.addEventListener('click', ev => {
+    overlayEl.setAttribute('hidden', '');
   });
 
   // Cache lightbox image elements to prevent further requests eg. in Chrome.
@@ -179,12 +174,14 @@ function init() {
   // Set the lightbox to open with the clicked-on project image.
   $(".lightbox-source").click(function() {
     $(".lightbox-image").hide();
+    forall('.lightbox-image', el => el.setAttribute('hidden', ''));
     let sourceEl = $(this);
     let imageSrc = sourceEl.attr("data-fullsize-src");
     if (imageCache[imageSrc]) {
       // Use cached image.
       imageCache[imageSrc].show();
-      overlayEl.prop("hidden", false);
+      imageCache[imageSrc].get(0).removeAttribute('hidden');
+      overlayEl.removeAttribute('hidden');
       resizeLightbox();
     } else {
       let imageAlt = sourceEl.attr("alt");
