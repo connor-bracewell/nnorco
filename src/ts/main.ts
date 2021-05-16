@@ -48,7 +48,6 @@ function init() {
     forall('.content-panel', el => el.setAttribute('hidden', ''));
     // Then show only the one corresponding to the clicked link.
     let show_selector = el.getAttribute('data-show');
-    console.log(document.querySelector(show_selector));
     document.querySelector(show_selector).removeAttribute('hidden');
     // Tag only the current tab as open.
     document.querySelector('.open')?.classList.remove('open');
@@ -80,10 +79,10 @@ function init() {
   // Remove the hide-focus class when a nav link regains focus.
   // (Unless it is being focused from _just_ being clicked; see above)
   forall('.navigation-list a', el => el.addEventListener('focus', ev => {
-    if (!el.hasClass('just-clicked')) {
-      el.removeClass('hide-focus');
+    if (!el.classList.contains('just-clicked')) {
+      el.classList.remove('hide-focus');
     }
-  });
+  }));
 
   // On load, run the click event from the link corresponding to the URL hash;
   // this shows the requested panel and hides the other ones.
