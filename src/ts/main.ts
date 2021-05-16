@@ -94,29 +94,6 @@ function init() {
   }
   (initial_link as HTMLElement).click();
 
-  // Load the last commit info from the GitHub API.
-  // This has been disabled in favor of setting at build time.
-  /*
-  $.ajax({
-    url: "https://api.github.com/repos/connor-bracewell/nnorco/commits",
-    dataType: "json",
-    success: function(data, textStatus, jqXHR) {
-      let commit = data[0];
-      let shaEl = $("#commit-sha");
-      shaEl.text(commit.sha.substring(0,7));
-      shaEl.attr("href", commit.html_url);
-      let commitDate = new Date(commit.commit.committer.date);
-      let commitMonth = commitDate.getMonth() + 1;
-      let commitPaddedMonth = (commitMonth < 10 ? "0" : "") + commitMonth;
-      $("#commit-date").text(commitPaddedMonth + "/" + commitDate.getFullYear());
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      $(".last-commit-info").hide();
-      $(".fetch-failed-message").show();
-    }
-  });
-  */
-
   // Scroll the viewport back to the top. This is necessary since anchored links
   // move the viewport before the above scripts run and the page is re-drawn.
   if (window.performance && performance.navigation.type !== 1) {
