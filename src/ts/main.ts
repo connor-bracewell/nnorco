@@ -61,29 +61,6 @@ function init() {
     );
   }));
 
-  // Don't show focus styles for nav links that are clicked on.
-  // This is (somewhat of) an alternative for the :focus-visible
-  // pseudo-class, which isn't well suppported right now.
-  forall('.navigation-list a', el => el.addEventListener('mousedown', ev => {
-    let click_time = ev.timeStamp;
-    el.classList.add('hide-focus');
-    el.classList.add('just-clicked');
-    el.setAttribute('data-last-clicked', click_time);
-    let remove_just_clicked = () => {
-      if (el.getAttribute('data-last-clicked') === click_time.toString()) {
-        el.classList.remove('just-clicked');
-      }
-    };
-    setTimeout(remove_just_clicked, 50);
-  }));
-  // Remove the hide-focus class when a nav link regains focus.
-  // (Unless it is being focused from _just_ being clicked; see above)
-  forall('.navigation-list a', el => el.addEventListener('focus', ev => {
-    if (!el.classList.contains('just-clicked')) {
-      el.classList.remove('hide-focus');
-    }
-  }));
-
   // On load, run the click event from the link corresponding to the URL hash;
   // this shows the requested panel and hides the other ones.
   let initial_url_hash = window.location.hash;

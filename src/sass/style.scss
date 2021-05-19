@@ -82,7 +82,7 @@ a:focus {
     outline: none;
 }
 
-a:not(.hide-focus):focus {
+a:focus-visible {
     border: 1px solid;
     margin: -1px -3px -2px -3px;
     padding: 0    2px  1px  2px;
@@ -380,8 +380,8 @@ h3.transcript-section {
     display: inline-block;
 }
 
-.img-directlink:not(.hide-focus):focus {
-    // Override the main a:focus style
+.img-directlink:focus-visible {
+    // Override the main a:focus-visible style
     border: 1px solid;
     padding: 2px;
     margin: -3px;
