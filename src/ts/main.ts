@@ -103,15 +103,7 @@ function init() {
 
   // Give the lightbox elements a name since they are used multiple times.
   let overlayEl = document.querySelector('.lightbox-overlay') as HTMLElement;
-
-  function ignoreBubble(f) {
-    function impl(ev) {
-      if (ev.target == this) {
-        f(ev);
-      }
-    }
-    return impl;
-  }
+  let lightboxContentEl = document.querySelector('.lightbox-content') as HTMLElement;
 
   // Resize the open lightbox to fill the lightbox container as much as possible.
   function resizeLightbox() {
@@ -146,8 +138,8 @@ function init() {
     imageEl.src = imageSrc;
     imageEl.alt = imageAlt;
     imageEl.classList.add('lightbox-image');
-    imageCache[imageSrc] = $(imageEl);
-    $(".lightbox-content").append(imageEl);
+    imageCache[imageSrc] = imageEl;
+    lightboxContentEl.appendChild(imageEl);
     if (typeof imageEl.decode === "function") {
       // Use `decode()` if available.
       imageEl.decode().then(function() {
@@ -172,20 +164,17 @@ function init() {
   let imageCache = {};
 
   // Set the lightbox to open with the clicked-on project image.
-  $(".lightbox-source").click(function() {
-    $(".lightbox-image").hide();
-    forall('.lightbox-image', el => el.setAttribute('hidden', ''));
-    let sourceEl = $(this);
-    let imageSrc = sourceEl.attr("data-fullsize-src");
+  forall('.lightbox-source', el => el.addEventListener('click', ev => {
+    forall('.lightbox-image', img_el => img_el.setAttribute('hidden', ''));
+    let imageSrc = el.getAttribute("data-fullsize-src");
     if (imageCache[imageSrc]) {
       // Use cached image.
-      imageCache[imageSrc].show();
-      imageCache[imageSrc].get(0).removeAttribute('hidden');
+      imageCache[imageSrc].removeAttribute('hidden');
       overlayEl.removeAttribute('hidden');
       resizeLightbox();
     } else {
-      let imageAlt = sourceEl.attr("alt");
+      let imageAlt = el.getAttribute("alt");
       showLightbox(imageSrc, imageAlt);
     }
-  });
+  }));
 }  // init
