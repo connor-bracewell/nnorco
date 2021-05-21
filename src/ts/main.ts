@@ -8,18 +8,25 @@ if (params.has('noscript')) {
   document.addEventListener('DOMContentLoaded', init);
 }
 
-// DOM helper function.
-function forall(selector, f) {
+// DOM helper functions.
+function forAll(selector, f) {
   document.querySelectorAll(selector).forEach(f);
+}
+function hideEl(el) {
+  el.setAttribute('hidden', '');
+}
+function unhideEl(el) {
+  el.removeAttribute('hidden');
 }
 
 function init() {
+
   // Hide fallback content and show script-only content.
-  forall('.noscript-only', el => el.setAttribute('hidden', ''));
-  forall('.script-only', el => el.removeAttribute('hidden'));
+  forAll('.noscript-only', hideEl);
+  forAll('.script-only', unhideEl);
 
   // Disable direct image links used for NoScript.
-  forall('.img-directlink', el => el.addEventListener('click', ev => ev.preventDefault()));
+  forAll('.img-directlink', el => el.addEventListener('click', ev => ev.preventDefault()));
 
   // Apply light theme if requested.
   if (params.has('light')) {
@@ -28,32 +35,31 @@ function init() {
 
   // Update all the panel IDs to match the data-show values instead of URL hashes.
   // eg. "#resume" has its ID set to "resume-panel".
-  forall('.navigation-list a', el => {
-    let url_hash = el.getAttribute('href');
-    let panel_id = el.getAttribute('data-show').substring(1);
-    if (url_hash == '') {
+  forAll('.navigation-list a', el => {
+    const urlHash = el.getAttribute('href');
+    const panelId = el.getAttribute('data-show').substring(1);
+    if (urlHash == '') {
       // The main tab uses an empty href for noscript reasons, so the below approach won't work.
-      // The associated panel should simply start with the "-panel" name applied.
+      // The associated panel should simply start with the "-panel" name applied in the DOM.
       return;
     }
     // By chance, the anchor prefix "#" and the id prefix "#" are the same,
-    // so url_hash can be used directly as a selector without any fuss.
-    document.querySelector(url_hash).setAttribute('id', panel_id);
+    // so urlHash can be used directly as a selector without any fuss.
+    document.querySelector(urlHash).setAttribute('id', panelId);
   });
 
   // Add click events to all the navigation links (including the ones in the body).
-  forall('a[data-show]', el => el.addEventListener("click", ev => {
+  forAll('a[data-show]', el => el.addEventListener("click", ev => {
     ev.preventDefault();
     // Hide all the content panels.
-    forall('.content-panel', el => el.setAttribute('hidden', ''));
+    forAll('.content-panel', hideEl);
     // Then show only the one corresponding to the clicked link.
-    let show_selector = el.getAttribute('data-show');
-    document.querySelector(show_selector).removeAttribute('hidden');
+    unhideEl(document.querySelector(el.getAttribute('data-show')));
     // Tag only the current tab as open.
     document.querySelector('.open')?.classList.remove('open');
     el.classList.add('open');
     // Update the URL to match the hash from the link.
-    let hash = el.getAttribute('href');
+    const hash = el.getAttribute('href');
     history.replaceState(
       null,
       document.title,
@@ -71,7 +77,7 @@ function init() {
   }
   (initial_link as HTMLElement).click();
 
-  // Scroll the viewport back to the top. This is necessary since anchored links
+  // Scroll the viewport back to the top. This is necessary since anchored links can
   // move the viewport before the above scripts run and the page is re-drawn.
   if (window.performance && performance.navigation.type !== 1) {
     // If we can detect the load type and it wasn't a reload:
@@ -141,8 +147,8 @@ function init() {
   let imageCache = {};
 
   // Set the lightbox to open with the clicked-on project image.
-  forall('.lightbox-source', el => el.addEventListener('click', ev => {
-    forall('.lightbox-image', img_el => img_el.setAttribute('hidden', ''));
+  forAll('.lightbox-source', el => el.addEventListener('click', ev => {
+    forAll('.lightbox-image', img_el => img_el.setAttribute('hidden', ''));
     let imageSrc = el.getAttribute("data-fullsize-src");
     if (imageCache[imageSrc]) {
       // Use cached image.
@@ -154,4 +160,5 @@ function init() {
       showLightbox(imageSrc, imageAlt);
     }
   }));
+
 }  // init
