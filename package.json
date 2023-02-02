@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/jquery": "^3.5.0",
     "mustache": "^2.3.2",
-    "node-jq": "^1.11.1",
+    "node-jq": "^2.3.5",
     "sass": "^1.26.10",
     "surge": "^0.21.3",
     "typescript": "^3.9.7"
