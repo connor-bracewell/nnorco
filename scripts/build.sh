@@ -5,7 +5,7 @@ set -e # Bail out on first error.
 rm -rf tmp web
 mkdir tmp web
 cat src/data.json
-curl https://api.github.com/repos/connor-bracewell/nnorco/commits > tmp/commit.json
+curl https://api.github.com/repos/connor-bracewell/nnorco/commits?per_page=1 > tmp/commit.json
 cat tmp/commit.json
 jq ".commit_date=\"$(date "+%m/%Y")\"" src/data.json > tmp/data2.json
 cat tmp/data2.json
@@ -24,4 +24,3 @@ cp src/burger.html web/burger/index.html
 mkdir web/css
 sass src/sass/style.scss > web/css/style.css
 sass src/sass/bin4features.scss > web/css/bin4features.css
-rm -rf tmp
