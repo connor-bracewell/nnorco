@@ -4,8 +4,8 @@
   "description": "Connor Bracewell's personal site.",
   "main": "index.html",
   "scripts": {
-    "build": "./scripts/build.sh",
-    "local": "npm run build -- && ./scripts/serve.sh"
+    "build": "./build.sh",
+    "local": "npm run build -- && ./serve.sh"
   },
   "repository": {
     "type": "git",
