@@ -1,8 +1,5 @@
-let params = new URLSearchParams(window.location.search);
-
-if (params.has('noscript')) {
-  // NoScript behavior requested. Do nothing.
-} else if (document.readyState != 'loading') {
+// Run init() once the document is loaded.
+if (document.readyState != 'loading') {
   init();
 } else {
   document.addEventListener('DOMContentLoaded', init);
@@ -20,6 +17,14 @@ function unhideEl(el) {
 }
 
 function init() {
+  let params = new URLSearchParams(window.location.search);
+  if (params.has('nostyle')) {
+    document.querySelector('#css').setAttribute('disabled', 'disabled');
+  }
+  if (params.has('noscript')) {
+    // js-disabled behavior requested, don't do anything else.
+    return;
+  }
 
   // Hide fallback content and show script-only content.
   forAll('.noscript-only', hideEl);
@@ -116,7 +121,7 @@ function init() {
   window.addEventListener('resize', resizeLightbox);
 
   // Show the lightbox after the image loads.
-  function showLightbox(imageSrc, imageAlt) {
+  function loadLightbox(imageSrc, imageAlt) {
     let imageEl = new Image();
     imageEl.src = imageSrc;
     imageEl.alt = imageAlt;
@@ -125,40 +130,39 @@ function init() {
     lightboxContentEl.appendChild(imageEl);
     if (typeof imageEl.decode === "function") {
       // Use `decode()` if available.
-      imageEl.decode().then(function() {
-        overlayEl.removeAttribute('hidden');
-        resizeLightbox();
-      });
-    } else {
-      // Else, fallback to `onload`.
-      imageEl.onload = function() {
-        overlayEl.removeAttribute('hidden');
-        resizeLightbox();
-      }
+      return imageEl.decode();
     }
+    // Fall back to `onload`.
+    return new Promise(resolve => {
+      imageEl.onload = () => resolve();
+    });
   }
 
   // Set the lightbox to close when clicked.
   overlayEl.addEventListener('click', ev => {
     overlayEl.setAttribute('hidden', '');
+    forAll('.img-wrapper:not(.img-wrapper-default-hidden) .lightbox-source', el => el.removeAttribute("hidden"));
   });
 
   // Cache lightbox image elements to prevent further requests eg. in Chrome.
   let imageCache = {};
 
   // Set the lightbox to open with the clicked-on project image.
-  forAll('.lightbox-source', el => el.addEventListener('click', ev => {
+  forAll('.lightbox-source', el => el.addEventListener('click', async ev => {
+    el.parentNode.appendChild(overlayEl);
     forAll('.lightbox-image', img_el => img_el.setAttribute('hidden', ''));
     let imageSrc = el.getAttribute("data-fullsize-src");
     if (imageCache[imageSrc]) {
       // Use cached image.
       imageCache[imageSrc].removeAttribute('hidden');
-      overlayEl.removeAttribute('hidden');
-      resizeLightbox();
     } else {
+      // Wait for the image to load.
       let imageAlt = el.getAttribute("alt");
-      showLightbox(imageSrc, imageAlt);
+      await loadLightbox(imageSrc, imageAlt);
     }
+    el.setAttribute('hidden', '');
+    overlayEl.removeAttribute('hidden');
+    resizeLightbox();
   }));
 
 }  // init

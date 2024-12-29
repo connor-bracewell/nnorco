@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#22222a" />
     <meta charset="UTF-8" />
     <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:700%7CDroid+Serif:400,700" rel="stylesheet" />
+    <link id="css" rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:700%7CDroid+Serif:400,700" />
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -17,14 +17,13 @@
         <h1 class="name">Connor Bracewell</h1>
         <div class="contact-info">
             <span class="email"><a href="mailto:connor.bracewell@gmail.com">connor.bracewell@gmail.com</a></span>
-            <span class="phone print-only"> &middot; 1-778-922-0256</span>
             <span class="website print-only"> &middot; www.nnor.co</span>
         </div>
     </div>
     <div class="navigation-container">
         <p class="noscript-only jump-to-label">Jump to:</p>
         <ul class="navigation-list inline-list">
-            <li class="script-only" hidden><a href="" id="nav-about" data-show="#panel-about">About</a></li>
+            <li class="script-only" hidden=""><a href="" id="nav-about" data-show="#panel-about">About</a></li>
             <li><a href="#resume" id="nav-resume" data-show="#panel-resume">R&eacute;sum&eacute;</a></li>
             <li><a href="#transcript" id="nav-transcript" data-show="#panel-transcript">Transcript</a></li>
             <li><a href="#projects" id="nav-projects" data-show="#panel-projects">Projects</a></li>
@@ -173,7 +172,7 @@
                         <img class="lightbox-source" src="img/sv-reg-desktop-thumb.webp" data-fullsize-src="img/sv-registration-desktop.png" height="256" alt="SV Registration Desktop Screenshot" />
                     </a>
                 </div><!--
-             --><div class="img-wrapper">
+             --><div class="img-wrapper img-wrapper-default-hidden" hidden="">
                     <a class="img-directlink" href="img/sv-registration-mobile.png" target="_blank">
                         <img class="lightbox-source" src="img/sv-reg-mobile-thumb.webp" data-fullsize-src="img/sv-registration-mobile.png" height="256" alt="SV Registration Mobile Screenshot" />
                     </a>
@@ -216,7 +215,7 @@
             <ul>
                 <li><!--
                  -->It's designed to look and work great with JavaScript and/or CSS disabled, which is surprisingly complicated even for a site of this modest size.
-                    <span class="script-only" hidden>You can check out the scriptless version at <a href="./?noscript">nnor.co?noscript</a>.</span>
+                    <span class="script-only" hidden="">You can check out the scriptless version at <a href="./?noscript">nnor.co?noscript</a>.</span>
                 </li>
                 <li>It's also designed for printing, with custom print CSS. In fact, this site is the only copy of my resume I maintain; if I need a copy I can just print the page to a great-looking PDF.</li>
                 <li>The domain lets me use the namespace 'co.nnor.bracewell' which I think is pretty neat.</li>
@@ -236,7 +235,7 @@
     </div>
 </div>
 
-<div class="lightbox-overlay" hidden>
+<div class="lightbox-overlay" hidden="">
     <div class="lightbox-content">
         <!-- img.lightbox-image will be inserted here -->
     </div>
