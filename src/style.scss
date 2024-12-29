@@ -332,6 +332,18 @@ h3.transcript-section {
     padding-top: 8px; // Maintain parity with top padding from resume-list <li>'s.
 }
 
+.employer {
+  font-weight: bold;
+}
+
+.jobtitle + ul {
+  margin-top: -2px;
+}
+
+ul + .jobtitle {
+  margin-top: 5px;
+}
+
 @media print { .no-orphan {
     white-space: nowrap;
 }}
