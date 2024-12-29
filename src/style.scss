@@ -6,11 +6,11 @@ $head-font: "Maven Pro", sans-serif;
 $body-font: "Droid Serif", serif;
 $code-font: "Anonymous Pro", monospace;
 
-$page-width: 34em;
-$nav-break: 22em; // minimum width for single-line nav bar
+$page-width: 608px;
+$nav-break: 352px; // minimum width for single-line nav bar
 
-$medium-font-size: 1.1em;
-$large-font-size: 1.2em;
+$medium-font-size: 18px;
+$large-font-size: 19px;
 
 $background-color: var(--bg-color);
 $text-color: var(--text-color);
@@ -20,7 +20,8 @@ $lightbox-color: rgba(0,0,0,0.7);
 $print-background-color: #fff;
 $print-text-color: #000;
 
-$line-border: 1px solid $line-color;
+$line-border: 1px dashed $line-color;
+$dash-gradient: repeating-linear-gradient(90deg, $line-color, $line-color 5px, transparent 5px, transparent 10px);
 
 ///////////////
 // overrides //
@@ -38,6 +39,8 @@ body {
     color: $text-color;
     font-family: $body-font;
     overflow-y: scroll;
+    font-size: 16px;
+    line-height: 19px;
 }
 
 [hidden] {
@@ -45,9 +48,9 @@ body {
 }
 
 body {
-    --bg-color: #22222a;
-    --text-color: rgba(255,255,245,0.9);
-    --line-color: rgba(255,255,245,0.9);
+    --text-color: #222;
+    --line-color: rgba(32,0,0,0.4);
+    --bg-color: #ffc524;
 }
 
 body.light {
@@ -94,8 +97,7 @@ a:focus-visible {
 
 p {
     padding: 0;
-    margin: 1em 0 0 0;
-    line-height: 1.3em;
+    margin: 16px 0 0 0;
 }
 
 ul, ol {
@@ -108,18 +110,18 @@ li::before {
 }
 
 li {
-    margin-left: 1.5em;
+    margin-left: 24px;
     list-style: none;
-    text-indent: -0.8em; // approximates the width added by the ::before element in row 1
-    padding-top: 0.2em;
+    text-indent: -13px; // approximates the width added by the ::before element in row 1
+    padding-top: 3px;
 }
 
 @media print { li {
-    padding: 0.15em 0;
+    padding: 3px 0;
 }}
 
 @media print { li li {
-    padding: 0.1em 0;
+    padding: 2px 0;
 }}
 
 li > * {
@@ -142,7 +144,7 @@ img {
 .page-container {
     min-height: 100%;
     max-width: $page-width;
-    padding: 0 1em;
+    padding: 0 16px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -151,7 +153,7 @@ img {
 
 @media print { .page-container {
     max-width: 100%;
-    padding: 1em;
+    padding: 16px;
 }}
 
 ////////////
@@ -159,7 +161,7 @@ img {
 ////////////
 
 .contact-container {
-    margin-top: 1em;
+    margin-top: 16px;
     text-align: center;
 }
 
@@ -169,6 +171,10 @@ img {
 
 h1.name {
     font-size: $large-font-size;
+}
+
+div.contact-info {
+  margin-top: 4px;
 }
 
 .contact-info a {
@@ -188,7 +194,7 @@ h1.name {
 ////////////////
 
 .navigation-container {
-    margin-top: 1em;
+    margin-top: 16px;
     color: $background-color;
     background-color: $text-color;
     display: flex;
@@ -218,7 +224,7 @@ h1.name {
 // Display inline list on one line.
 @media screen and (min-width: $nav-break) {
     .jump-to-label {
-      margin-right: 0.5em;
+      margin-right: 8px;
     }
     .inline-list li {
         margin-left: 0;
@@ -234,7 +240,7 @@ h1.name {
 }
 
 .navigation-list {
-    margin: 0.25em 0;
+    margin: 4px 0;
     white-space: nowrap; // Prevents an overflow wrapping bug in Firefox.
 }
 
@@ -268,15 +274,15 @@ h1.name {
 // These provide the noscript fallback with (1) padding between sections;
 // (2) space above the header when navigating directly.
 .fallback-header-pad {
-  height: 2em;
+  height: 20px;
 }
 .fallback-header-container {
-  padding-top: 1em;
+  padding-top: 20px;
 }
 
 h2.fallback-header {
     text-align: center;
-    padding: 0.2em 0;
+    padding: 3px 0;
     font-size: $medium-font-size;
     color: $background-color;
     background-color: $text-color;
@@ -287,20 +293,20 @@ h2.fallback-header {
 ////////////
 
 @media print { .print-resume {
-    margin-top: 0.4em; //adjusts spacing for single-page print
+    margin-top: 6px; //adjusts spacing for single-page print
 }}
 
 h3.resume-section,
 h3.transcript-section {
-    margin-top: 1em;
+    margin-top: 16px;
     white-space: nowrap;
     overflow: hidden;
     font-size: $medium-font-size;
 }
 
 @media print { h3.resume-section {
-    margin-top: 0.6em;
-    margin-bottom: 0.2em;
+    margin-top: 10px;
+    margin-bottom: 3px;
 }}
 
 .resume-fill-line,
@@ -308,13 +314,13 @@ h3.transcript-section {
     display: inline-block;
     width: 100%;
     height: 1px;
-    background-color: $text-color;
-    margin-left: 0.25em;
+    background: $dash-gradient;
+    margin-left: 4px;
 }
 
 .resume-list > li {
-    margin-left: 0.5em;
-    padding-top: 0.7em;
+    margin-left: 8px;
+    padding-top: 11px;
     text-indent: 0;
 }
 
@@ -323,7 +329,7 @@ h3.transcript-section {
 }
 
 .resume-list-with-bullets {
-    padding-top: 0.5em; // Maintain parity with top padding from resume-list <li>'s.
+    padding-top: 8px; // Maintain parity with top padding from resume-list <li>'s.
 }
 
 @media print { .no-orphan {
@@ -336,43 +342,42 @@ h3.transcript-section {
 
 .transcript-explain {
     text-align: center;
-    margin: 1em auto 0 auto;
-    max-width: 21em; // Approximate value for nice wrapping.
+    margin: 16px auto 0 auto;
+    max-width: 336px; // Approximate value for nice wrapping.
 }
 
 //////////////
 // projects //
 //////////////
 
-.project-header-wrapper {
-    text-align: center;
-}
-
-.project-header-wrapper:not(.first) {
-    margin-top: 1em;
-    border-top: $line-border;
+.project-header-separator {
+    margin-top: 16px;
+    height: 1px;
+    background: $dash-gradient;
 }
 
 .project-title {
-    margin-top: 1em;
+    margin-top: 16px;
     font-size: $medium-font-size;
+    text-align: center;
 }
 
 .project-url {
     font-family: inherit;
     font-weight: normal;
     text-transform: none;
+    text-align: center;
 }
 
 .project-pictures {
     text-align: center;
     line-height: 0;
-    margin: 0 -0.5em; //allows img padding to overflow the container edges so img can use full container width
+    margin: 0 -8px; //allows img padding to overflow the container edges so img can use full container width
 }
 
 .img-wrapper {
     display: inline-block;
-    padding: 1em 0.5em 0 0.5em;
+    padding: 16px 8px 0 8px;
     max-width: 100%;
 }
 
@@ -400,13 +405,13 @@ h3.transcript-section {
     width: 100%;
     height: 100%;
     text-align: center;
-    line-height: 16em;
+    line-height: 256px;
 }
 
 .project-pictures img {
     border: 1px solid $text-color;
     height: auto;
-    max-height: 12em;
+    max-height: 192px;
     max-width: 100%;
     cursor: zoom-in;
 }
@@ -420,7 +425,7 @@ h3.transcript-section {
 ////////////
 
 .footer-container {
-    margin-top: 1em;
+    margin-top: 16px;
     text-align: center;
 }
 
@@ -428,13 +433,13 @@ h3.transcript-section {
     display: none;
 }}
 
-.footer-content {
-    border-top: $line-border;
-    padding: 0.3em 0;
+.footer-separator {
+   height: 1px;
+   background: $dash-gradient;
 }
 
-.fetch-failed-message, .default-footer-message {
-    text-transform: lowercase;
+.footer-content {
+    padding: 5px 0;
 }
 
 //////////////
@@ -448,7 +453,7 @@ h3.transcript-section {
     width: 100%;
     height: 100%;
     background-color: $lightbox-color;
-    padding: 1em;
+    padding: 16px;
     cursor: zoom-out;
 }
 
@@ -473,7 +478,7 @@ h3.transcript-section {
 }
 
 .text-404 {
-    padding: 0.25em;
+    padding: 4px;
     text-align: center;
     border-top: $line-border;
     border-bottom: $line-border;
