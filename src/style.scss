@@ -3,7 +3,7 @@
 ///////////////
 
 $head-font: "Maven Pro", sans-serif;
-$body-font: "Droid Serif", serif;
+$body-font: "Outfit", serif;
 $code-font: "Anonymous Pro", monospace;
 
 $page-width: 608px;
@@ -43,16 +43,27 @@ body {
     line-height: 19px;
 }
 
-body {
-    --text-color: #222;
-    --line-color: rgba(32,0,0,0.4);
-    --bg-color: #ffc524;
+@mixin light-scheme {
+  --text-color: #21212a;
+  --line-color: rgba(0,0,32,0.4);
+  --bg-color: #ffc524;
 }
 
-body.light {
-    --bg-color: rgba(255,255,245,1);
-    --text-color: rgba(34,34,42,0.9);
-    --line-color: rgba(34,34,42,0.9);
+@mixin dark-scheme {
+  --bg-color: #0a4059; //#8a0f2a; //#a21232;
+  --text-color: #ffe;
+  --line-color: #ffe;
+}
+
+body {
+  @include light-scheme;
+  @media (prefers-color-scheme: dark) { @include dark-scheme; }
+  @media (prefers-color-scheme: light) { @include light-scheme; }
+  &.invert-scheme {
+    @include dark-scheme;
+    @media (prefers-color-scheme: dark) { @include light-scheme; }
+    @media (prefers-color-scheme: light) { @include dark-scheme; }
+  }
 }
 
 @media print { body {
@@ -194,8 +205,6 @@ div.contact-info {
     color: $background-color;
     background-color: $text-color;
     display: flex;
-    align-content: center;
-    justify-content: center;
     align-items: center;
 }
 
@@ -217,6 +226,22 @@ div.contact-info {
     content: "\b7\a0";
 }
 
+.nav-pad {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.nav-pad-right {
+  text-align: right;
+  line-height: 0;
+}
+
+.scheme-toggle:not(.script-style-only) {
+  margin: 0 6px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
 // Display inline list on one line.
 @media screen and (min-width: $nav-break) {
     .jump-to-label {
@@ -236,7 +261,7 @@ div.contact-info {
 }
 
 .navigation-list {
-    margin: 4px 0;
+    margin: 2px 0 4px 0;
     white-space: nowrap; // Prevents an overflow wrapping bug in Firefox.
 }
 

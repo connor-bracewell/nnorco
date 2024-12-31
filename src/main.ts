@@ -29,14 +29,17 @@ function init() {
   // Hide fallback content and show script-only content.
   forAll('.noscript-only', hideEl);
   forAll('.script-only', unhideEl);
+  // Remove the class from these elements to partially unhide them;
+  // they keep the "hidden" attribute and must also be shown by CSS.
+  forAll('.script-style-only', el => el.classList.remove("script-style-only"))
 
   // Disable direct image links used for NoScript.
   forAll('.img-directlink', el => el.addEventListener('click', ev => ev.preventDefault()));
 
-  // Apply light theme if requested.
-  if (params.has('light')) {
-    document.body.classList.add('light');
-  }
+  document.querySelector('.scheme-toggle').addEventListener('click', ev => {
+    ev.preventDefault();
+    document.body.classList.toggle('invert-scheme');
+  });
 
   // Update all the panel IDs to match the data-show values instead of URL hashes.
   // eg. "#resume" has its ID set to "resume-panel".
