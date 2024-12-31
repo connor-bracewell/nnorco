@@ -27,6 +27,7 @@ function init() {
   }
 
   // Hide fallback content and show script-only content.
+  document.body.classList.remove("noscript");
   forAll('.noscript-only', hideEl);
   forAll('.script-only', unhideEl);
   // Remove the class from these elements to partially unhide them;

@@ -2,8 +2,8 @@
 // variables //
 ///////////////
 
-$head-font: "Maven Pro", sans-serif;
-$body-font: "Outfit", serif;
+$head-font: "Outfit", sans-serif;
+$body-font: "Outfit", sans-serif;
 $code-font: "Anonymous Pro", monospace;
 
 $page-width: 608px;
@@ -107,19 +107,24 @@ p {
     margin: 16px 0 0 0;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 ul, ol {
     margin: 0;
     padding: 0; 
 }
 
 li::before {
+    font-weight: bold;
     content: "\b7\a0\a0";
 }
 
 li {
     margin-left: 24px;
     list-style: none;
-    text-indent: -13px; // approximates the width added by the ::before element in row 1
+    text-indent: -10px; // approximates the width added by the ::before element
     padding-top: 3px;
 }
 
@@ -212,9 +217,8 @@ div.contact-info {
     display: none;
 }}
 
-.jump-to-label {
-  text-transform: lowercase;
-  margin: 0;
+.navlist-container {
+  margin: 2px 0 4px 0;
 }
 
 .inline-list {
@@ -236,7 +240,11 @@ div.contact-info {
   line-height: 0;
 }
 
-.scheme-toggle:not(.script-style-only) {
+.scheme-toggle-wrapper:not(.script-style-only) {
+  display: inline;
+}
+
+a.scheme-toggle {
   margin: 0 6px;
   font-size: 16px;
   text-decoration: none;
@@ -244,10 +252,7 @@ div.contact-info {
 
 // Display inline list on one line.
 @media screen and (min-width: $nav-break) {
-    .jump-to-label {
-      margin-right: 8px;
-    }
-    .inline-list li {
+    .inline-list li:not([hidden]) {
         margin-left: 0;
         display: inline;
     }
@@ -261,13 +266,16 @@ div.contact-info {
 }
 
 .navigation-list {
-    margin: 2px 0 4px 0;
     white-space: nowrap; // Prevents an overflow wrapping bug in Firefox.
 }
 
 .navigation-list a {
     text-decoration: none;
     text-transform: lowercase;
+}
+
+.noscript .navigation-list a {
+  text-decoration: underline;
 }
 
 .navigation-list a.open {

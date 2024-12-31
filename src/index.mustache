@@ -7,11 +7,11 @@
     <meta charset="UTF-8" />
     <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
     <link id="css" rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven+Pro:700%7CDroid+Serif:400,700%7COutfit:400,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit:wght@325,700" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@500&icon_names=invert_colors" />
     <script src="js/main.js"></script>
 </head>
-<body>
+<body class="noscript">
 
 <div class="page-container">
     <div class="contact-container">
@@ -23,15 +23,18 @@
     </div>
     <div class="navigation-container">
         <div class="nav-pad"></div>
-        <p class="noscript-only jump-to-label">Jump to:</p>
-        <ul class="navigation-list inline-list">
-            <li class="script-only" hidden=""><a href="" id="nav-about" data-show="#panel-about">About</a></li>
-            <li><a href="#resume" id="nav-resume" data-show="#panel-resume">R&eacute;sum&eacute;</a></li>
-            <li><a href="#transcript" id="nav-transcript" data-show="#panel-transcript">Transcript</a></li>
-            <li><a href="#projects" id="nav-projects" data-show="#panel-projects">Projects</a></li>
-        </ul>
+        <div class="navlist-container">
+          <ul class="navigation-list inline-list">
+              <li class="script-only" hidden=""><a href="" id="nav-about" data-show="#panel-about">About</a></li>
+              <li><a href="#resume" id="nav-resume" data-show="#panel-resume">R&eacute;sum&eacute;</a></li>
+              <li><a href="#transcript" id="nav-transcript" data-show="#panel-transcript">Transcript</a></li>
+              <li><a href="#projects" id="nav-projects" data-show="#panel-projects">Projects</a></li>
+          </ul>
+        </div>
         <div class="nav-pad nav-pad-right">
-          <a class="scheme-toggle script-style-only material-symbols-outlined" hidden="" href="">invert_colors</a>
+          <span class="scheme-toggle-wrapper script-style-only" hidden="">
+            <a class="scheme-toggle material-symbols-outlined" href="">invert_colors</a>
+          </span>
         </div>
     </div>
     <div class="content-container">
@@ -40,15 +43,13 @@
 
         <div class="content-panel" id="panel-about">
             <p>
-                Hi there! I'm Connor Bracewell, a software developer working in the San Francisco Bay area.
-            </p>
-            <p>
-                Since 2019, I've worked at Google, improving the GCP
+                Hi there! I'm Connor, a software developer in the <span class="nowrap">San Francisco Bay area.</span>
+                <span class="nowrap">Since 2019,</span> I've worked at Google, primarily on GCP's 
                 <a target="_blank" href="https://cloud.google.com/network-connectivity/docs/router/concepts/overview">Cloud Router</a>.
             </p>
             <p>
                 Before that, I studied at the <a target="_blank" href="https://www.uvic.ca/">University of Victoria</a> in BC, Canada.
-                I graduated with a BSc in Computer Science &amp; Mathematics, and received a
+                I graduated with a BSc in Computer Science and Mathematics, and received a
                 <a target="_blank" href="https://en.wikipedia.org/wiki/Governor_General%27s_Academic_Medal">Governor General's Medal</a>
                 for my exceptional academics.
                 My upper-level coursework focused on algorithm design and discrete mathematics
@@ -129,8 +130,8 @@
             <h3 class="resume-section">Education<span class="resume-fill-line"></span></h3>
             <ul class="resume-list">
                 <li>
-                    <div class="employer">University of Victoria (Victoria BC)</div>
-                    <div class="jobtitle">BSc Computer Science &amp; Mathematics &middot Graduated 2018</div>
+                    <div class="employer">University of Victoria (BC)</div>
+                    <div class="jobtitle">BSc Computer Science and Mathematics &middot Graduated 2018</div>
                     <ul>
                         <li>Recipient of UVic's Governor General's Medal for top undergraduate student</li>
                     </ul>
