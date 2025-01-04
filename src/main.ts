@@ -37,11 +37,6 @@ function init() {
   // Disable direct image links used for NoScript.
   forAll('.img-directlink', el => el.addEventListener('click', ev => ev.preventDefault()));
 
-  document.querySelector('.scheme-toggle').addEventListener('click', ev => {
-    ev.preventDefault();
-    document.body.classList.toggle('invert-scheme');
-  });
-
   // Update all the panel IDs to match the data-show values instead of URL hashes.
   // eg. "#resume" has its ID set to "resume-panel".
   forAll('.navigation-list a', el => {

@@ -59,7 +59,7 @@ body {
   @include light-scheme;
   @media (prefers-color-scheme: dark) { @include dark-scheme; }
   @media (prefers-color-scheme: light) { @include light-scheme; }
-  &.invert-scheme {
+  &:has(#scheme-toggle:checked) {
     @include dark-scheme;
     @media (prefers-color-scheme: dark) { @include light-scheme; }
     @media (prefers-color-scheme: light) { @include dark-scheme; }
@@ -240,14 +240,14 @@ div.contact-info {
   line-height: 0;
 }
 
-.scheme-toggle-wrapper:not(.script-style-only) {
-  display: inline;
-}
-
-a.scheme-toggle {
+#scheme-toggle-wrapper {
+  display: inline-block;
   margin: 0 6px;
-  font-size: 16px;
-  text-decoration: none;
+  label {
+    font-size: 16px;
+    user-select: none;
+    cursor: pointer;
+  }
 }
 
 // Display inline list on one line.
