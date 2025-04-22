@@ -18,6 +18,10 @@ function unhideEl(el) {
 
 function init() {
   let params = new URLSearchParams(window.location.search);
+  if (params.has('noscript') || params.has('nostyle')) {
+    forAll('.nomodifiers', hideEl);
+    forAll('.yesmodifiers', unhideEl);
+  }
   if (params.has('nostyle')) {
     document.querySelector('#css').setAttribute('disabled', 'disabled');
   }
