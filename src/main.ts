@@ -10,10 +10,10 @@ function forAll(selector, f) {
   document.querySelectorAll(selector).forEach(f);
 }
 function hideEl(el) {
-  el.setAttribute('hidden', '');
+  el?.setAttribute('hidden', '');
 }
 function unhideEl(el) {
-  el.removeAttribute('hidden');
+  el?.removeAttribute('hidden');
 }
 
 function init() {
@@ -23,7 +23,7 @@ function init() {
     forAll('.yesmodifiers', unhideEl);
   }
   if (params.has('nostyle')) {
-    document.querySelector('#css').setAttribute('disabled', 'disabled');
+    document.querySelector('#css')?.setAttribute('disabled', 'disabled');
   }
   if (params.has('noscript')) {
     // js-disabled behavior requested, don't do anything else.
@@ -53,7 +53,7 @@ function init() {
     }
     // By chance, the anchor prefix "#" and the id prefix "#" are the same,
     // so urlHash can be used directly as a selector without any fuss.
-    document.querySelector(urlHash).setAttribute('id', panelId);
+    document.querySelector(urlHash)?.setAttribute('id', panelId);
   });
 
   // Add click events to all the navigation links (including the ones in the body).
@@ -136,7 +136,7 @@ function init() {
       return imageEl.decode();
     }
     // Fall back to `onload`.
-    return new Promise(resolve => {
+    return new Promise<void>(resolve => {
       imageEl.onload = () => resolve();
     });
   }
